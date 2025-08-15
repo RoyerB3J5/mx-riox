@@ -1,0 +1,369 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from './Button.astro';
+import ChangeLanguage from './ChangeLanguage.astro';
+
+type Translations = typeof import('../i18n/en').default;
+type HeaderContent = Translations['header'];
+interface Props {
+  content?: HeaderContent;
+}
+const { content } = Astro.props as Props;
+const icons = [
+  {
+    name: 'email',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=info@jzpressurepros.com',
+    label: 'Enviar correo electrónico',
+    ariaLabel: 'Contactar por correo electrónico',
+  },
+  /*{
+    name: 'map',
+    href: '',
+  },*/
+  {
+    name: 'instagram',
+    href: 'https://www.instagram.com/jzpressurepros/',
+    label: 'Instagram',
+    ariaLabel: 'Visitar nuestro perfil de Instagram',
+  },
+  {
+    name: 'facebook',
+    href: 'https://www.facebook.com/jzpressurepros',
+    label: 'Facebook',
+    ariaLabel: 'Visitar nuestra página de Facebook',
+  },
+];
+// Obtener la ruta actual y normalizar el path sin prefijo de idioma
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
+---
+<header class="fixed top-3 lg:top-0 left-0 right-0 z-20 w-full flex flex-col justify-center items-center transition-top duration-300 ease-in-out "
+  id="site-header">
+  <div class="w-full bg-main justify-center hidden lg:flex">
+    <div class="w-full flex justify-center lg:justify-between items-center max-w-[1154px]">
+      <div class="flex items-center gap-[6px]">
+        <Icon name={"map"} class={"w-[16px] h-[16px] text-secondary"} aria-label="Ubicación" title="Nuestra ubicación"/>
+        <p class="text-[16px] font-semibold leading-[52px] text-white">Avondale, Arizona</p>
+      </div>
+      <div class="hidden md:flex items-center gap-[22px]">
+        <div class="flex items-center gap-[6px]">
+          {icons.map(i => (
+            <a 
+              href={i.href} 
+              class="size-[31px] rounded-full flex justify-center items-center"
+              aria-label={i.ariaLabel}
+              title={i.label}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={i.name} class={"w-5 h-5 text-white"} aria-hidden="true"/>
+              <span class="sr-only">{i.label}</span>
+            </a>
+          ))}
+        </div>
+        <ChangeLanguage/>
+      </div>
+    </div>
+  </div>
+  <div class="bg-secondary w-[calc(100%-24px)] lg:w-full sm:max-w-[1223px] py-4 lg:min-h-[89px] flex justify-between items-center px-7 lg:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
+    <a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
+      <img src="/logo-1.svg" alt="Logo de Capi Tile & Stone - Servicio de lavado a presión en Avondale, Arizona" width="169" height="41" class="cursor-pointer w-[110px] lg:w-[169px] h-[44px] lg:h-[41px]">
+    </a>
+    
+    <!-- Menú desktop (lg y arriba) -->
+    <div class="hidden lg:relative lg:flex items-center bg-transparent text-white flex-row h-auto w-auto z-10 py-0 gap-0 transform translate-x-0 transition-transform duration-300 ease-out">
+      <nav class="relative flex items-center flex-row justify-center w-auto gap-4">
+        {
+          content?.nav.map((item, index)=>{
+            const itemPathWithoutHash = item.href.split('#')[0];
+            const isActive = normalized === itemPathWithoutHash || 
+                            (index === 1 && normalized.startsWith('/services'));
+            const isServices = index === 1;
+            return(
+              <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-main w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
+                <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
+                  <span class={`absolute bottom-0 left-0 h-[2px] bg-white group-hover:bg-main transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-main'}`} />
+                </a>
+                {isServices && (
+                  <div class="dropdown-menu absolute top-full left-0 mt-0 w-[170px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
+                    {content.types.map(sub => (
+                      <div class="text-[18px] font-semibold text-secondary py-2 hover:bg-main hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
+                        <a href={`/${lang}/services/${sub.href}`} class="block w-full h-full">{sub.label}</a>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })
+        }
+      </nav>
+      <Button class="bg-[#E2E2E2] ml-[27.5px] mr-[27px] h-[52px] flex items-center text-main" href={`/${lang}/contact#info`}>
+        {content?.button}
+      </Button>
+      <div class="flex justify-center items-center gap-[6px] px-[7px]">
+        <img src="/phone.webp" alt="Icono de teléfono" width="33" height="48" class="block w-[33px] h-[48px]">
+        <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
+          <p>{content?.phone}</p>
+          <a 
+            href="tel:+14079173034 " 
+            class="hover:text-main transition-all duration-300 ease-in-out cursor-pointer"
+            aria-label="Llamar al teléfono +1 (407) 917-3034 "
+            title="Llamar ahora"
+          >
+            +1 (407) 917-3034 
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones para móvil -->
+    <div class="flex lg:hidden justify-center items-center gap-7">
+      <ChangeLanguage/>
+      <button 
+        type="button"
+        aria-label="Abrir menú de navegación"
+        title="Abrir menú"
+        class="flex items-center justify-center"
+        id="hamburger-btn"
+      >
+        <Icon name={"hamburger"} class={"w-6 h-6"} aria-hidden="true"/>
+        <span class="sr-only">Abrir menú de navegación</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menú móvil independiente (lg para abajo) -->
+<div class="fixed top-0 right-0 bottom-0 lg:hidden flex items-center bg-secondary text-white flex-col justify-center h-screen w-[90%] z-[60] py-6 gap-8 transform translate-x-full transition-transform duration-300 ease-out" id="mobile-menu">
+  <img 
+    src="/equis.svg" 
+    alt="Cerrar menú" 
+    width="24" 
+    height="24" 
+    class="block absolute top-6 right-6 cursor-pointer z-[20]" 
+    id="close-btn"
+    aria-label="Cerrar menú de navegación"
+    title="Cerrar menú"
+    role="button"
+    tabindex="0"
+  >
+  <nav class="relative flex items-center flex-col justify-center w-full gap-0">
+    {
+      content?.nav.map((item, index)=>{
+        const itemPathWithoutHash = item.href.split('#')[0];
+        const isActive = normalized === itemPathWithoutHash || 
+                        (index === 1 && normalized.startsWith('/services'));
+        const isServices = index === 1;
+        return(
+          <div class={`flex flex-col items-center justify-center gap-[14px] px-0 hover:text-main w-full pt-2 text-center ${isServices ? 'relative' : ''} ${isActive ? 'bg-main text-white' : ''}`} id={`mobile-services-${index}`}>
+            <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
+              <span class={`absolute bottom-0 left-0 h-[2px] bg-main transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0'}`} />
+            </a>
+            {isServices && (
+              <div class="flex-col justify-center items-center w-full bg-accent divide-y divide-white hidden" id="sub-menu-services">
+                {content.types.map(sub => (
+                  <a href={`/${lang}/services/${sub.href}`} class="text-[18px] font-semibold text-white py-3 transition-colors duration-300 ease-in-out cursor-pointer px-6 w-full text-center">{sub.label}</a>
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      })
+    }
+  </nav>
+  <Button class="bg-main ml-[27.5px] mr-[27px] h-[52px] flex items-center" href={`/${lang}/contact#info`}>
+    {content?.button}
+  </Button>
+  <div class="flex justify-center items-center gap-4 px-[7px]">
+    <img src="/phone.webp" alt="Icono de teléfono" width="33" height="48" class="block w-[33px] h-[48px]">
+    <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
+      <p>{content?.phone}</p>
+      <a 
+        href="tel:+14079173034 " 
+        class="hover:text-main transition-all duration-300 ease-in-out cursor-pointer"
+        aria-label="Llamar al teléfono +1 (407) 917-3034"
+        title="Llamar ahora"
+      >
+        +1 (407) 917-3034 
+      </a>
+    </div>
+  </div>
+</div>
+</header>
+
+<style>
+  /* Mejorar el comportamiento del dropdown */
+  .dropdown-parent:hover .dropdown-menu {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Crear un puente invisible entre el botón y el dropdown */
+  .dropdown-parent::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    right: -10px;
+    height: 4px;
+    background: transparent;
+    z-index: 39;
+    pointer-events: auto;
+  }
+  
+  /* Clase para texto solo visible para lectores de pantalla */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Asegurar que el dropdown se mantenga visible cuando se hace hover */
+  .dropdown-menu:hover {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Hacer que el dropdown mantenga el hover del padre */
+  .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  /* Deshabilitar dropdown y puente en tamaños menores a lg */
+  @media (max-width: 1023px) {
+    .dropdown-parent::after {
+      display: none;
+    }
+    
+    .dropdown-parent:hover .dropdown-menu {
+      display: none !important;
+    }
+    
+    .dropdown-menu {
+      display: none !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+  const menu = document.getElementById('mobile-menu');
+  const openBtn = document.getElementById('hamburger-btn');
+  const closeBtn = document.getElementById('close-btn');
+  const servicesDiv = document.getElementById('services-1'); // Desktop services
+  const mobileServicesDiv = document.getElementById('mobile-services-1'); // Mobile services
+  const subMenuServices = document.getElementById('sub-menu-services');
+  const body = document.body;
+
+  const isMobile = () => window.innerWidth < 1024;
+
+  function openMenu() {
+    if (isMobile()) {
+      menu.classList.replace('translate-x-full', 'translate-x-0');
+      body.classList.add('overflow-hidden');
+    }
+  }
+
+  function closeMenu() {
+    if (isMobile()) {
+      menu.classList.replace('translate-x-0', 'translate-x-full');
+      body.classList.remove('overflow-hidden');
+    }
+  }
+
+  function toggleSubMenu(event) {
+    if (isMobile()) {
+      const isSubMenuOpen = !subMenuServices.classList.contains('hidden');
+      
+      // Si el submenu está cerrado, prevenimos la navegación y lo abrimos
+      if (!isSubMenuOpen) {
+        event.preventDefault();
+        subMenuServices.classList.remove('hidden');
+        subMenuServices.classList.add('flex');
+      }
+      // Si el submenu está abierto, permitimos la navegación (no hacemos preventDefault)
+      // y cerramos el submenu después de un pequeño delay para permitir la navegación
+      else {
+        setTimeout(() => {
+          subMenuServices.classList.add('hidden');
+          subMenuServices.classList.remove('flex');
+        }, 100);
+      }
+    }
+  }
+
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  
+  // Agregar event listener al enlace dentro del div services-1 (desktop)
+  const servicesLink = servicesDiv?.querySelector('a');
+  if (servicesLink) {
+    servicesLink.addEventListener('click', toggleSubMenu);
+  }
+
+  // Agregar event listener al enlace dentro del div mobile-services-1 (móvil)
+  const mobileServicesLink = mobileServicesDiv?.querySelector('a');
+  if (mobileServicesLink) {
+    mobileServicesLink.addEventListener('click', toggleSubMenu);
+  }
+
+  // Asegurar estado inicial según tamaño
+  if (isMobile()) {
+    menu.classList.add('translate-x-full');
+    menu.classList.remove('translate-x-0');
+    body.classList.remove('overflow-hidden');
+    subMenuServices.classList.add('hidden');
+    subMenuServices.classList.remove('flex');
+  } else {
+    menu.classList.add('translate-x-0');
+    menu.classList.remove('translate-x-full');
+    body.classList.remove('overflow-hidden');
+  }
+
+  window.addEventListener('resize', () => {
+    if (!isMobile()) {
+      menu.classList.add('translate-x-0');
+      menu.classList.remove('translate-x-full');
+      body.classList.remove('overflow-hidden');
+      // Ocultar submenu en desktop
+      subMenuServices.classList.add('hidden');
+      subMenuServices.classList.remove('flex');
+    } else {
+      // Asegura que el menú esté oculto al volver a móvil
+      menu.classList.add('translate-x-full');
+      menu.classList.remove('translate-x-0');
+      body.classList.remove('overflow-hidden');
+      subMenuServices.classList.add('hidden');
+      subMenuServices.classList.remove('flex');
+    }
+  });
+  const header = document.getElementById('site-header');
+    let lastScroll = window.pageYOffset;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scroll hacia abajo: escondemos el header completo
+        header.style.transform = 'translateY(-120%)';
+      } else {
+        // Scroll hacia arriba: lo mostramos
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScroll = currentScroll;
+    });
+});
+</script>

@@ -1,0 +1,27 @@
+{
+  "name": "capi-tile",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "@types/aos": "^3.0.7",
+    "aos": "^2.3.4",
+    "astro": "^5.13.0",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "terser": "^5.43.1"
+  }
+}

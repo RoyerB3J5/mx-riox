@@ -1,0 +1,27 @@
+---
+export interface Props {
+  class?: string;
+  onClick?: string;
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { class: className = '', onClick, href, type = 'button' } = Astro.props;
+
+const baseClasses =
+  'px-[22px] rounded-[10px]  transition-all duration-300 ease-in-out hover:-translate-y-1 cursor-pointer';
+const finalClasses = `${baseClasses} ${className}`.trim();
+
+const Component = href ? 'a' : 'button';
+---
+
+<Component 
+  class={finalClasses}
+  onclick={onClick}
+  href={href}
+  type={href ? undefined : type}
+>
+  <p class="text-[18px] font-semibold leading-[48px] lg:leading-[52px] text-center">
+    <slot />
+  </p>
+</Component>
