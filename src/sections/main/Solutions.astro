@@ -1,0 +1,73 @@
+---
+import CarouselService from '../../components/CarouselService.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type SolutionsContent = Translations['main']['solutions'];
+interface Props {
+  content: SolutionsContent;
+}
+const { content } = Astro.props as Props;
+---
+<section class="relative w-full pt-[100px] pb-[115px] md:pt-[90px] md:pb-[130px] overflow-hidden">
+  <img src="/main/bg-solutions.webp" alt="Fondo de soluciones" width="1024" height="1024" class="absolute inset-0 w-full h-full object-cover -z-20 object-center opacity-30" loading="lazy" decoding="async">
+  <div class="absolute inset-0 bg-[#6A000017] -z-10"></div>
+  <div class="relative z-0 flex flex-col justify-center items-center gap-[50px] md:gap-[87px] max-w-screen lg:max-w-[1126px] mx-auto px-4 lg:px-0">
+    <div class="flex flex-col md:flex-row justify-center items-center gap-[50px] md:gap-[32px]" data-aos="zoom-in">
+      <div class="flex flex-col justify-center items-center gap-[26px]">
+        <a href="/">
+          <img src="/logo-white.svg" alt="Logo de Presure Pros" width="169" height="41" class="cursor-pointer w-auto h-[50px] lg:h-[60px]">
+        </a>
+        <h3 set:html={content.description} class="text-center text-[28px] lg:text-[40px] font-semibold leading-[35px] lg:leading-[46px] text-main max-w-[336px] lg:max-w-none"></h3>
+      </div>
+      <div class="flex flex-col justify-center items-center gap-[20px] md:gap-[22px] py-[31px] md:pb-[21px] md:pt-[28px] px-[27px] md:px-[18px] bg-secondary max-w-[550px] rounded-[15px] text-[#FAFAFA]">
+        <h2 class="text-center text-[20px] lg:text-[32px] font-semibold leading-[25px] lg:leading-[46px] max-w-[279px] lg:max-w-none">{content.title}</h2>
+        <p class="text-center text-[16px] font-normal lg:font-medium leading-[20px] md:leading-[25px] ">{content.text}</p>
+      </div>
+    </div>
+    {/*<CarouselService content={content.items} /> */}
+    <div class="w-full flex flex-col gap-[22px] ">
+      {Array.from({ length: Math.ceil(content.items.length / 3) }, (_, rowIndex) => {
+        const startIndex = rowIndex * 3;
+        const rowItems = content.items.slice(startIndex, startIndex + 3);
+        const isPar = rowIndex % 2 === 0;
+        return (
+          <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]" data-aos={isPar ? 'fade-right' : 'fade-left'}>
+            {rowItems.map(item => (
+              <div class="w-full flex justify-center">
+                <div
+                  class={`relative
+                        w-full md:w-[361.5px] h-[120px] md:h-[415px]
+                        rounded-[15px]
+                        overflow-hidden
+                        bg-cover
+                        transition-all duration-200
+                        group hover:border-main hover:border-[2px]`}
+                  style={`background-image: url('/main/${item.image}.webp'); background-position: center;`}
+                >
+                  <!-- Overlay base permanente -->
+                  <div class="absolute inset-0 bg-[rgba(4,35,64,0.32)] pointer-events-none"></div>
+
+                  <!-- Overlay de hover: aparece encima del base -->
+                  <div class="absolute inset-0 
+                              bg-secondary/30 
+                              opacity-0 
+                              group-hover:opacity-100 
+                              transition-opacity 
+                              duration-200 
+                              pointer-events-none"></div>
+
+                  <!-- Contenido -->
+                  <div class="relative flex justify-center items-center h-full px-[25px]">
+                    <p class="text-white text-[22px] md:text-[24px] font-medium md:font-semibold text-center leading-[25px]">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

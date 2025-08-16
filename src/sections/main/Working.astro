@@ -1,0 +1,41 @@
+---
+type Translations = typeof import('../../i18n/es').default;
+type WorkingContent = Translations['main']['information']['working'];
+interface Props {
+  content: WorkingContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<style>
+  .working-icon {
+    transition: filter 0.2s ease;
+  }
+  
+  .group:hover .working-icon {
+    filter: brightness(0) invert(1);
+  }
+</style>
+
+<div class="flex flex-col justify-center items-center gap-0 md:gap-11 mb-[93.5px] md:mb-0">
+  <h2 class="text-[28px] lg:text-[48px] text-center font-semibold leading-[26px] md:leading-[58px] text-main mt-[22px] md:mt-0 mb-[45px] md:mb-0 max-w-[336px] md:max-w-none">{content.title}</h2>
+  <div class="flex flex-col md:flex-row justify-center items-center border-[1px] border-accent rounded-[15px] ">
+    {content.items.map((item, index) => (
+      <>
+        <div class="relative flex flex-col justify-start items-center pt-[65.5px] lg:pt-[60px] px-10 md:px-5 min-h-[354px] lg:min-h-[443px] h-full max-w-none md:max-w-[240px] " data-aos="fade-up" data-aos-offset={`${index * 80}`}>
+          <div class="absolute top-0 -translate-y-1/2 bg-accent rounded-[15px] p-[10px] w-[114px]">
+            <p class="text-[13px] lg:text-[16px] font-medium  text-center text-white ">{item.step}</p>
+          </div>
+          <div class="group bg-accent/10 rounded-full h-[120px] w-[120px] flex justify-center items-center  mb-[30px] lg:mb-[38px] hover:bg-accent">
+            <img src={`/main/${item.icon}.svg`} alt={item.title} class="w-[60px] h-[60px] working-icon" width="87" height="87"/>
+          </div>
+          <h3 class="mb-[20px] text-[18px] lg:text-[30px] font-semibold leading-[18px] lg:leading-[30px] text-main text-center mt-[10px] md:mt-0">{item.title}</h3>
+          <p class="text-[14px] lg:text-[16px] font-medium leading-[18px] lg:leading-[25px] text-main text-center">{item.description}</p>
+        </div>
+        {index < content.items.length - 1 && (
+          <div class="w-full md:w-[1px] h-[1px] md:min-h-[354px] lg:min-h-[443px] bg-accent"></div>
+        )}
+      </>
+    ))}
+  </div>
+</div>

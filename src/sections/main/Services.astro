@@ -1,0 +1,142 @@
+---
+type Translations = typeof import('../../i18n/es').default;
+type ServicesContent = Translations['main']['services'];
+interface Props {
+  content: ServicesContent;
+}
+const { content } = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
+---
+<section class="w-full pt-[60px] pb-[60px] md:pb-[86px] md:pt-[65px] mx-auto relative overflow-hidden bg-accent/10">
+  {/*<img src="/main/bg-service.webp" alt="Fondo de soluciones" width="4096" height="2730" class="absolute inset-0 w-full h-full object-cover -z-30 " loading="lazy" decoding="async">*/}
+  <div class="flex flex-col justify-center items-center gap-[22px] md:gap-[65px] max-w-screen lg:max-w-[1140px] mx-auto px-4 lg:px-0">
+    <h2 set:html={content.title} class="text-center text-[28px] md:text-[32px] lg:text-[48px] font-semibold leading-[32px] md:leading-[46px] text-main max-w-[350px] md:max-w-[750px]"></h2>
+    <div class="w-full min-h-none lg:min-h-[489px] rounded-[15px] flex flex-col lg:flex-row" data-aos="fade-up" data-aos-offset="100" id="hover‑container">
+      {content.items.map((item, index) => (
+        <a 
+          href={`/${lang}/services/${item.href}`} 
+          id={`col${index + 1}`}
+          class={`group flex flex-col justify-center lg:justify-start items-center relative overflow-hidden h-[127px] lg:h-auto py-0 lg:py-[92px] min-h-none lg:min-h-[489px] px-10 md:px-9 transition‑all duration‑300 cursor-pointer transition-all  ${
+            index < 4 ? 'w-full md:w-[16.25%]' : 'w-full md:w-[35%]'
+          } ${item.image === 'floors' ? 'rounded-t-[15px] lg:rounded-l-[15px] lg:rounded-t-none' : ''} ${item.image === 'dem-services' ? 'rounded-b-[15px] lg:rounded-r-[15px] lg:rounded-bl-none' : ''}`}
+        >
+            <img src={`/main/${item.image}.webp`} alt="Fondos de Galeria" width="3072" height="4096" class={`absolute inset-0 w-full h-full object-cover -z-20 ${item.image === 'accents' ? 'object-[75%_center]' : item.image === 'bathrooms' ? 'object-[20%_center]' : 'object-center'}`} loading="lazy" decoding="async"/>
+            <div class="absolute inset-0 service-bg -z-10"></div>
+            <div class="h-auto md:h-[143px] w-full flex justify-center items-center"> 
+              <h3 class={`text-[20px] md:text-[24px] lg:text-[40px] font-semibold leading-[30px] text-center text-white transition-opacity duration-300 ${
+                index < 4 ? 'md:opacity-0 md:group-hover:opacity-100' : ''
+              }`}>
+                {item.title}
+              </h3>
+            </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<script is:inline>
+(() => {
+  const container = document.getElementById('hover‑container');
+  const [c1, c2, c3,c4, c5] = [
+    document.getElementById('col1'),
+    document.getElementById('col2'),
+    document.getElementById('col3'),
+    document.getElementById('col4'),
+    document.getElementById('col5')
+  ];
+
+  // función que resetea al estado inicial
+  const reset = () => {
+    c1.style.width = '16.25%';
+    c2.style.width = '16.25%';
+    c3.style.width = '16.25%';
+    c4.style.width = '16.25%';
+    c5.style.width = '35%';
+  };
+
+  // media query para md (≥768px)
+  const mql = window.matchMedia('(min-width: 768px)');
+
+  // inicializa o deshabilita el hover según el ancho
+  const setupHover = () => {
+    // primero, quitamos posibles listeners previos
+    c1.replaceWith(c1.cloneNode(true));
+    c2.replaceWith(c2.cloneNode(true));
+    c3.replaceWith(c3.cloneNode(true));
+    c4.replaceWith(c4.cloneNode(true));
+    c5.replaceWith(c5.cloneNode(true));
+
+    // reobtenemos los nodos después del replace
+    const [nc1, nc2, nc3, nc4, nc5] = [
+      document.getElementById('col1'),
+      document.getElementById('col2'),
+      document.getElementById('col3'),
+      document.getElementById('col4'),
+      document.getElementById('col5')
+    ];
+
+    if (mql.matches) {
+      // solo en md+ aplicamos hover
+      nc1.addEventListener('mouseenter', () => {
+        nc1.style.width = '25.625%';
+        nc2.style.width = '16.25%';
+        nc3.style.width = '16.25%';
+        nc4.style.width = '16.25%';
+        nc5.style.width = '25.625%';
+      });
+      nc2.addEventListener('mouseenter', () => {
+        nc1.style.width = '16.25%';
+        nc2.style.width = '25.625%';
+        nc3.style.width = '16.25%';
+        nc4.style.width = '16.25%';
+        nc5.style.width = '25.625%';
+      });
+      nc3.addEventListener('mouseenter', () => {
+        nc1.style.width = '16.25%';
+        nc2.style.width = '16.25%';
+        nc3.style.width = '25.625%';
+        nc4.style.width = '16.25%';
+        nc5.style.width = '25.625%';
+      });
+      nc4.addEventListener('mouseenter', () => {
+        nc1.style.width = '16.25%';
+        nc2.style.width = '16.25%';
+        nc3.style.width = '16.25%';
+        nc4.style.width = '25.625%';
+        nc5.style.width = '25.625%';
+      });
+      nc5.addEventListener('mouseenter', () => {
+        nc1.style.width = '16.25%';
+        nc2.style.width = '16.25%';
+        nc3.style.width = '16.25%';
+        nc4.style.width = '16.25%';
+        nc5.style.width = '35%';
+      });
+      container.addEventListener('mouseleave', () => {
+        nc1.style.width = '16.25%';
+        nc2.style.width = '16.25%';
+        nc3.style.width = '16.25%';
+        nc4.style.width = '16.25%';
+        nc5.style.width = '35%';
+      });
+      // y reseteamos para asegurar estado inicial
+      reset();
+    } else {
+      // en <md devolvemos todo a full width
+      nc1.style.width = '100%';
+      nc2.style.width = '100%';
+      nc3.style.width = '100%';
+      nc4.style.width = '100%';
+      nc5.style.width = '100%';
+    }
+  };
+
+  // corre al cargar
+  setupHover();
+  // y cada vez que cambie el tamaño de pantalla
+  mql.addEventListener('change', setupHover);
+})();
+</script>

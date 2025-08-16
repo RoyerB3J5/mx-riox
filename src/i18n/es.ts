@@ -54,12 +54,14 @@ export default {
         },
         {
           title: 'Experiencia Comprobada',
-          description: 'Más de 23 años entregando trabajos personalizados con cuidado y consistencia.',
+          description:
+            'Más de 23 años entregando trabajos personalizados con cuidado y consistencia.',
           icon: 'experience',
         },
         {
           title: 'Confianza Local',
-          description: 'Servicio basado en Avondale conocido por su profesionalismo, respeto y entrega puntual.',
+          description:
+            'Servicio basado en Avondale conocido por su profesionalismo, respeto y entrega puntual.',
           icon: 'trust',
         },
       ],
@@ -76,6 +78,130 @@ export default {
       ],
       button: 'LEARN MORE',
       years: 'YEARS OF  EXPERIENCE',
+    },
+    solutions: {
+      description:
+        'Servicios profesionales de azulejos y piedra en Avondale, Arizona',
+      title:
+        'Instalaciones personalizadas con precisión, experiencia y materiales de calidad.',
+      text: 'En Capi Tile & Stone, ofrecemos servicios expertos de instalación de azulejos y piedra adaptados a tu proyecto. Con más de 23 años de experiencia atendiendo a propietarios y contratistas en Avondale y en todo Arizona, entregamos resultados limpios y duraderos con una atención al detalle inigualable.',
+      items: [
+        {
+          title: 'Instalación de Pisos',
+          image: 'flooring',
+        },
+        {
+          title: 'Instalación de Duchas',
+          image: 'shower',
+        },
+        {
+          title: 'Instalación de Chimeneas',
+          image: 'fireplace',
+        },
+        {
+          title: 'Reparación de Juntas',
+          image: 'grout',
+        },
+        {
+          title: 'Demolición',
+          image: 'demolition',
+        },
+        {
+          title: 'Reparación de Azulejos',
+          image: 'tile',
+        },
+      ],
+    },
+    information: {
+      referral: {
+        title:
+          "Comparte Calidad. Construye <br class='hidden md:block'/>Confianza.",
+        text1:
+          'Si ya has trabajado con nosotros, sabes lo que ofrecemos. Muchos de nuestros nuevos clientes llegan por recomendaciones. Porque un buen trabajo habla por sí solo. Si conoces a alguien que necesite trabajos personalizados en azulejos o piedra en Arizona, envíalos con nosotros. Nos encantaría ayudar.',
+        button: 'Haz clic aquí para referir a alguien',
+      },
+      working: {
+        title: 'Cómo Trabajamos',
+        items: [
+          {
+            step: 'PASO 01',
+            title: 'Contacto',
+            icon: 'contact',
+            description:
+              'Contáctanos por SMS, correo electrónico o llamada para contarnos sobre tu proyecto.',
+          },
+          {
+            step: 'PASO 02',
+            title: 'Visita en Sitio',
+            icon: 'consultation2',
+            description:
+              'Visitamos tu espacio para evaluar los detalles y materiales necesarios.',
+          },
+          {
+            step: 'PASO 03',
+            title: 'Cotización Personalizada',
+            icon: 'design2',
+            description:
+              'Según tus necesidades, preparamos una estimación detallada y personalizada.',
+          },
+          {
+            step: 'PASO 04',
+            title: 'Acuerdo',
+            icon: 'deal',
+            description:
+              'Una vez aprobado, programamos tu proyecto y coordinamos cada detalle.',
+          },
+          {
+            step: 'PASO 05',
+            title: 'Instalación',
+            icon: 'installation',
+            description:
+              'Nuestro equipo experto completa el trabajo con precisión, cuidado y limpieza.',
+          },
+        ],
+      },
+      rendering: {
+        title:
+          "¿Necesitas Asesoría Experta <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[26px] lg:leading-[58px] text-main'>Antes de Empezar?</span>",
+        text: 'No creemos en presupuestos genéricos. Cada proyecto es diferente. Por eso visitamos tu espacio primero: para entender la distribución, materiales y detalles personalizados que necesitas antes de enviarte una cotización.',
+        button: 'SOLICITAR UNA COTIZACIÓN',
+      },
+      design: {
+        title:
+          "¿Ya <br/> <span class='text-[28px] md:text-[48px] font-semibold leading-[28px] md:leading-[58px] text-main'> un Diseño?</span>",
+        description:
+          'Comparte tus planos o ideas, y te contactaremos para agendar una visita. Cada proyecto requiere una evaluación presencial para asegurar medidas precisas, materiales adecuados y una estimación personalizada y detallada.',
+      },
+    },
+    services: {
+      title: 'En Qué Trabajamos ?',
+      items: [
+        {
+          title: 'Pisos y Paredes',
+          image: 'floors',
+          href: 'floors-walls',
+        },
+        {
+          title: 'Duchas y Baños',
+          image: 'bathrooms',
+          href: 'showers-bathrooms',
+        },
+        {
+          title: 'Chimeneas y Detalles',
+          image: 'accents',
+          href: 'fireplaces-accents',
+        },
+        {
+          title: 'Reparaciones y Lechada',
+          image: 'repairs',
+          href: 'repairs-grout',
+        },
+        {
+          title: 'Servicios de Demolición',
+          image: 'dem-services',
+          href: 'demolition-services',
+        },
+      ],
     },
   },
   footer: {
@@ -120,4 +246,4 @@ export default {
       },
     ],
   },
-}
+};

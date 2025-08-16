@@ -4,6 +4,9 @@ import es from '../../i18n/es';
 import Layout from '../../layouts/Layout.astro';
 import Experience from '../../sections/main/Experience.astro';
 import Hero from '../../sections/main/Hero.astro';
+import Information from '../../sections/main/Information.astro';
+import Services from '../../sections/main/Services.astro';
+import Solutions from '../../sections/main/Solutions.astro';
 import type { Language } from '../../types/language.type';
 export function getStaticPaths() {
   return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
@@ -18,4 +21,7 @@ const t = translations[lang];
 <Layout lang={lang} t={t}>
   <Hero content={t.main.hero}/>
   <Experience content={t.main.experience}/>
+  <Solutions content={t.main.solutions}/>
+  <Information content={t.main.information}/>
+  <Services content={t.main.services}/>
 </Layout>

@@ -1,0 +1,174 @@
+---
+type Translations = typeof import('../i18n/es').default;
+type SolutionsContent = Translations['main']['solutions']['items'];
+
+interface Props {
+  content: SolutionsContent;
+  interval?: number;
+}
+
+const { content, interval = 8000 } = Astro.props as Props;
+---
+
+<div class="relative w-full block md:hidden" data-interval={interval} data-aos="fade-up">
+  <!-- Viewport -->
+  <div class="overflow-hidden w-full h-full ">
+    <div class="flex transition-transform duration-800 ease-in-out service-track h-full w-full ">
+      {Array.from({ length: Math.ceil(content.length / 4) }, (_, rowIndex) => {
+        const startIndex = rowIndex * 4;
+        const rowItems = content.slice(startIndex, startIndex + 4);
+        return (
+          <div class="w-full flex-shrink-0 grid grid-cols-1 gap-[22px]">
+            {rowItems.map(item => (
+              <div class="w-full flex justify-center">
+                <div
+                  class={`relative
+                        w-full md:w-[265px] h-[120px] md:h-[415px]
+                        rounded-[15px]
+                        overflow-hidden
+                        bg-cover
+                        transition-all duration-200
+                        group hover:border-white hover:border-[2px]
+                        ${item.image === 'firepits'
+                          ? 'bg-[position:10%_30%]'
+                          : 'bg-center'}`}
+                  style={`background-image: url('/main/${item.image}.webp')`}
+                >
+                  <!-- Overlay base permanente -->
+                  <div class="absolute inset-0 bg-[rgba(4,35,64,0.32)] pointer-events-none"></div>
+
+                  <!-- Overlay de hover: aparece encima del base -->
+                  <div class="absolute inset-0 
+                              bg-secondary/30 
+                              opacity-0 
+                              group-hover:opacity-100 
+                              transition-opacity 
+                              duration-200 
+                              pointer-events-none"></div>
+
+                  <!-- Contenido -->
+                  <div class="relative flex justify-center items-center h-full px-[25px]">
+                    <p class="text-white text-[22px] md:text-[24px] font-medium md:font-semibold text-center leading-[25px]">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Mobile indicators -->
+  <div class="flex md:hidden gap-4 justify-center mt-4 service-indicators">
+    {Array.from({ length: Math.ceil(content.length / 4) }).map((_, i) => (
+      <button
+        class="w-2 h-2 rounded-full bg-[#D9D9D9]"
+        data-index={i}
+        aria-label={`Go to slide ${i + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  window.addEventListener('load', () => {
+    const carousel = document.querySelector('[data-interval]');
+    if (!carousel) return;
+    const track = carousel.querySelector('.service-track');
+    const indicators = Array.from(carousel.querySelectorAll('.service-indicators button'));
+    const intervalMs = parseInt(carousel.getAttribute('data-interval') || '0', 10) || 7000;
+
+    // Número real de slides (sin clones)
+    let slides = Array.from(track.children);
+    // Clonación para infinito...
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone  = slides[slides.length - 1].cloneNode(true);
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, track.firstChild);
+    slides = Array.from(track.children); // ahora con clones
+
+    let currentIndex = 1;
+    let isTransitioning = false;
+    let autoSlide;
+
+    function getSlideWidth() {
+      return slides[0].getBoundingClientRect().width;
+    }
+
+    function goTo(index, smooth = true) {
+      if (isTransitioning && smooth) return;
+      track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
+      track.style.transform  = `translateX(-${getSlideWidth() * index}px)`;
+      currentIndex = index;
+      isTransitioning = smooth;
+    }
+
+    function updateIndicators() {
+      // Mapeamos currentIndex a un “slide real” 0..n‑1
+      let realIndex = currentIndex - 1;
+      if (currentIndex === 0)           realIndex = slides.length - 3;
+      else if (currentIndex === slides.length - 1) realIndex = 0;
+      indicators.forEach((btn, i) =>
+        btn.classList.toggle('bg-main', i === realIndex)
+      );
+    }
+
+    // Ajusta al final de la transición para “loop infinito”
+    track.addEventListener('transitionend', () => {
+      if (slides[currentIndex] === firstClone)  goTo(1, false);
+      if (slides[currentIndex] === lastClone)   goTo(slides.length - 2, false);
+      isTransitioning = false;
+      updateIndicators();
+    });
+
+    // Indicadores móviles (único ítem a la vez)
+    indicators.forEach(btn =>
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.index) + 1;
+        goTo(idx);
+        resetAuto();
+      })
+    );
+
+    // Auto‑slide
+    function startAuto() { autoSlide = setInterval(() => {
+      goTo(currentIndex + 1);
+    }, intervalMs); }
+    function stopAuto()  { clearInterval(autoSlide); }
+    function resetAuto() { stopAuto(); startAuto(); }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Swipe touch
+    let startX = 0, deltaX = 0;
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      stopAuto();
+    });
+    track.addEventListener('touchend', e => {
+      deltaX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(deltaX) > 50) {
+        const dir = deltaX < 0 ? 1 : -1;
+        goTo(currentIndex + dir * 1);
+      }
+      resetAuto();
+    });
+
+    // Reposicionar en carga y en resize (por si cambia getPerPage o ancho)
+    function init() {
+      slides = Array.from(track.children);
+      goTo(1, false);  
+      updateIndicators();
+    }
+    window.addEventListener('resize', () => {
+      init();
+    });
+
+    init();
+    startAuto();
+  });
+</script>

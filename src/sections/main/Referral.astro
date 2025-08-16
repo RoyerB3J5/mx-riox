@@ -1,0 +1,145 @@
+---
+type Translations = typeof import('../../i18n/es').default;
+type ReferralContent = Translations['main']['information']['referral'];
+interface Props {
+  content: ReferralContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<div class="flex flex-col md:flex-row justify-center items-center gap-[20px] md:gap-10 lg:gap-[53px] mb-[58px] md:mb-0 w-full" data-aos="fade-down">
+  <div class="flex flex-col justify-center items-center max-w-none md:max-w-[400px] lg:max-w-[537px]">
+    <div class="flex flex-col justify-center items-center relative mb-[10px] md:mb-[15px]">
+      <h2 class="text-main text-center text-[28px] lg:text-[48px] font-semibold leading-[26px] lg:leading-[58px] mb-[10px] " set:html={content.title}></h2>
+      {/* <img src="/arrow-down.png" alt="Flecha hacia abajo" width="50" height="50"  class="relative w-[30px] md:w-[40px] h-[30px] md:h-[40px] scale-y-[-1]">*/}
+    </div>
+    
+    <p class="text-[16px] font-medium text-[#475059] leading-[20px] md:leading-[25px] text-center md:text-start mb-[20px] md:mb-[32px]">{content.text1}</p>
+    <button class='bg-accent px-[38px] h-[42px] md:h-auto rounded-[10px] text-white text-[16px] md:text-[18px] font-medium md:font-semibold leading-[35px] md:leading-[52px] hover:-translate-y-1 transition-all ease-in-out duration-300 cursor-pointer' id="openReferralModal">
+      {content.button}
+    </button>
+  </div>
+  <div class="rounded-[15px] w-full lg:w-[550px] h-[193px] md:h-[316px] overflow-hidden">
+    <img src="/main/patios.webp" alt="Patios Pressure Pros" width="3072" height="4096" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+  </div>
+</div>
+
+<!-- Modal moved outside the transformed/animated container so `position: fixed` covers the viewport -->
+<section id="referralModal" class="hidden fixed inset-0 bg-black/35 z-50 items-center justify-center">
+  <div class="relative z-60 w-full h-auto flex justify-center items-center">
+    <div class="rounded-[15px] px-4 md:px-10 bg-white border-2 border-accent w-[90%] md:w-[500px] lg:w-[700px] h-auto relative z-70 overflow-y-auto max-h-[calc(100vh-40px)]">
+      <img src="/equis-two.svg" alt="Cerrar imagen" class="absolute top-4 right-4 cursor-pointer w-4 h-4 z-[80]" id="closeReferralModal">
+      <iframe
+        src="https://link.jzpressurepros.com/widget/form/wpIOXJ1C7xVydkSuLLmb"
+        style="width:100%;height:663px;border:none;border-radius:3px"
+        id="inline-wpIOXJ1C7xVydkSuLLmb"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Form Referral Submission"
+        data-height="663"
+        data-layout-iframe-id="inline-wpIOXJ1C7xVydkSuLLmb"
+        data-form-id="wpIOXJ1C7xVydkSuLLmb"
+        title="Form Referral Submission"
+      >
+      </iframe>
+      <script src="https://link.jzpressurepros.com/js/form_embed.js"></script>
+    </div>
+  </div>
+</section>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const openButton = document.getElementById('openReferralModal');
+    const closeButton = document.getElementById('closeReferralModal');
+    const modal = document.getElementById('referralModal');
+    
+    // Variables para controlar el scroll
+    let scrollListeners = [];
+    
+    // Función para bloquear scroll sin ocultar la barra
+    function disableScroll() {
+      // Prevenir scroll con rueda del mouse
+      const wheelHandler = (e) => e.preventDefault();
+      // Prevenir scroll con teclado
+      const keyHandler = (e) => {
+        const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, home, end, arrows
+        if (keys.includes(e.keyCode)) {
+          e.preventDefault();
+        }
+      };
+      // Prevenir scroll táctil
+      const touchHandler = (e) => {
+        if (e.touches.length > 1) return;
+        e.preventDefault();
+      };
+      
+      // Agregar listeners
+      document.addEventListener('wheel', wheelHandler, { passive: false });
+      document.addEventListener('keydown', keyHandler);
+      document.addEventListener('touchmove', touchHandler, { passive: false });
+      
+      // Guardar referencias para poder removerlos después
+      scrollListeners = [
+        { event: 'wheel', handler: wheelHandler },
+        { event: 'keydown', handler: keyHandler },
+        { event: 'touchmove', handler: touchHandler }
+      ];
+    }
+    
+    // Función para restaurar scroll
+    function enableScroll() {
+      // Remover todos los listeners
+      scrollListeners.forEach(({ event, handler }) => {
+        document.removeEventListener(event, handler);
+      });
+      scrollListeners = [];
+    }
+    
+    if (openButton && closeButton && modal) {
+      // Abrir modal
+      openButton.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        disableScroll();
+      });
+      
+      // Cerrar modal con botón X
+      closeButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modal.classList.add('hidden');
+        modal.classList.remove('flex')
+        enableScroll();
+      });
+      closeButton.addEventListener('pointerdown', function(e) {
+        e.stopPropagation();
+        modal.classList.add('hidden');
+        modal.classList.remove('flex')
+        enableScroll();
+      });
+      
+      // Cerrar modal al hacer click en el fondo
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target.classList.contains('w-full')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex')
+          enableScroll();
+        }
+      });
+      
+      // Cerrar modal con tecla ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex')
+          enableScroll();
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import Button from '../../components/Button.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type RenderingContent = Translations['main']['information']['rendering'];
+interface Props {
+  content: RenderingContent;
+}
+const { content } = Astro.props as Props;
+---
+<div class="shadow-design flex flex-col md:flex-row justify-center md:justify-between items-center gap-[16px] lg:gap-0 px-4 md:px-[30.5px] py-[20px] md:py-[50px] w-full rounded-[15px] bg-white mb-[68px] md:mb-0">
+  <div class="flex flex-col justify-center items-center max-w-none lg:max-w-[537px]">
+    <h3 set:html={content.title} class="text-[28px] lg:text-[40px] font-medium lg:font-normal leading-[28px] lg:leading-[46px] text-center text-main mb-[18px] "></h3>
+    <p class="text-[16px] leading-[20px] md:leading-[25px] font-medium mb-4 px-[20px] md:px-0 text-center md:text-start text-main">{content.text}</p>
+    <Button class='bg-accent px-[38px] h-[42px] flex items-center text-white' href='contact#info'>
+      {content.button}
+    </Button>
+  </div>
+  <div class="rounded-[15px] w-full lg:w-[550px] h-[260px] md:h-[316px] overflow-hidden" data-aos="fade-down">
+    <img src="/main/rendering.webp" alt="Rendering Pressure Pros" width="3072" height="4096" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30% ;" loading="lazy" decoding="async">
+  </div>
+</div>
