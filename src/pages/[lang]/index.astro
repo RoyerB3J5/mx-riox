@@ -2,9 +2,13 @@
 import en from '../../i18n/en';
 import es from '../../i18n/es';
 import Layout from '../../layouts/Layout.astro';
+import Catalog from '../../sections/main/Catalog.astro';
+import Completed from '../../sections/main/Completed.astro';
 import Experience from '../../sections/main/Experience.astro';
 import Hero from '../../sections/main/Hero.astro';
 import Information from '../../sections/main/Information.astro';
+import Numbers from '../../sections/main/Numbers.astro';
+import Project from '../../sections/main/Project.astro';
 import Services from '../../sections/main/Services.astro';
 import Solutions from '../../sections/main/Solutions.astro';
 import type { Language } from '../../types/language.type';
@@ -24,4 +28,8 @@ const t = translations[lang];
   <Solutions content={t.main.solutions}/>
   <Information content={t.main.information}/>
   <Services content={t.main.services}/>
+  <Completed content={t.main.completed}/>
+  <Numbers content={t.main.numbers}/>
+  <Catalog content={t.main.catalog}/>
+  <Project content={t.main.project}/>
 </Layout>

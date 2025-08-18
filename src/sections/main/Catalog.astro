@@ -1,0 +1,138 @@
+---
+import Button from '../../components/Button.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type CatalogContent = Translations['main']['catalog'];
+interface Props {
+  content: CatalogContent;
+}
+const { content } = Astro.props as Props;
+---
+<section class="py-[35px] md:py-[115px] max-w-screen md:max-w-[1142px] flex flex-col lg:flex-row justify-center items-center gap-[18px] md:gap-[53px] px-4 md:px-0 w-full" data-aos="fade-down-left" data-aos-offset="200">
+  <div class="flex flex-col justify-center items-center w-auto">
+    <h2 set:html={content.title} class="text-main text-[28px] md:text-[40px] font-normal leading-[30px] md:leading-[46px] text-center  max-w-none"></h2>
+    <p class="text-main text-center text-[16px] font-medium leading-[20px] md:leading-[25px] mt-[18px]  md:max-w-[385px]">{content.description}</p>
+    <button class='bg-accent h-[48px] md:h-auto rounded-[10px] text-white text-[13px] md:text-[18px] font-medium md:font-semibold leading-[35px] md:leading-[52px] hover:-translate-y-1 transition-all ease-in-out duration-300 cursor-pointer mt-[15px] md:mt-[32px] px-[38px] uppercase' id="openCatalogModal">
+      {content.button}
+    </button>
+  </div>
+  <div class=" w-full md:w-[550px] h-[193px] md:h-[316px] rounded-[15px] overflow-hidden ">
+    <img src="/main/catalog.webp" alt="Catalog Pressure Pros" width="1531" height="880" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+  </div>
+ 
+</section>
+ <section id="catalogModal" class="hidden fixed inset-0 bg-black/35 z-50 items-center justify-center">
+    <div class="relative z-60 w-full h-auto flex justify-center items-center ">
+      <div class="rounded-[15px] px-4 md:px-10 bg-white border-2 border-secondary w-[90%] md:w-[500px] lg:w-[700px] h-auto relative z-70 overflow-y-auto max-h-[calc(100vh-40px)]">
+        <img src="/equis-two.svg" alt="Cerrar imagen" class="absolute top-4 right-4 cursor-pointer w-4 h-4 z-[60]" id="closeCatalogModal">
+        <iframe
+          src="https://link.capitileandstone.com/widget/form/1E0FDxveUKim8p69ZNnR"
+          style="width:100%;height:100%;border:none;border-radius:3px"
+          id="inline-1E0FDxveUKim8p69ZNnR" 
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Form Catalogo"
+          data-height="595"
+          data-layout-iframe-id="inline-1E0FDxveUKim8p69ZNnR"
+          data-form-id="1E0FDxveUKim8p69ZNnR"
+          title="Form Catalogo">
+        </iframe>
+        <script src="https://link.capitileandstone.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const openButton = document.getElementById('openCatalogModal');
+    const closeButton = document.getElementById('closeCatalogModal');
+    const modal = document.getElementById('catalogModal');
+    
+    // Variables para controlar el scroll
+    let scrollListeners = [];
+    
+    // Función para bloquear scroll sin ocultar la barra
+    function disableScroll() {
+      // Prevenir scroll con rueda del mouse
+      const wheelHandler = (e) => e.preventDefault();
+      // Prevenir scroll con teclado
+      const keyHandler = (e) => {
+        const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, home, end, arrows
+        if (keys.includes(e.keyCode)) {
+          e.preventDefault();
+        }
+      };
+      // Prevenir scroll táctil
+      const touchHandler = (e) => {
+        if (e.touches.length > 1) return;
+        e.preventDefault();
+      };
+      
+      // Agregar listeners
+      document.addEventListener('wheel', wheelHandler, { passive: false });
+      document.addEventListener('keydown', keyHandler);
+      document.addEventListener('touchmove', touchHandler, { passive: false });
+      
+      // Guardar referencias para poder removerlos después
+      scrollListeners = [
+        { event: 'wheel', handler: wheelHandler },
+        { event: 'keydown', handler: keyHandler },
+        { event: 'touchmove', handler: touchHandler }
+      ];
+    }
+    
+    // Función para restaurar scroll
+    function enableScroll() {
+      // Remover todos los listeners
+      scrollListeners.forEach(({ event, handler }) => {
+        document.removeEventListener(event, handler);
+      });
+      scrollListeners = [];
+    }
+    
+    if (openButton && closeButton && modal) {
+      // Abrir modal
+      openButton.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        disableScroll();
+      });
+      
+      // Cerrar modal con botón X
+      closeButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        modal.classList.add('hidden');
+        modal.classList.remove('flex')
+        enableScroll();
+      });
+      closeButton.addEventListener('pointerdown', function(e) {
+        e.stopPropagation();
+        modal.classList.add('hidden');
+        modal.classList.remove('flex')
+        enableScroll();
+      });
+      
+      // Cerrar modal al hacer click en el fondo
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target.classList.contains('w-full')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex')
+          enableScroll();
+        }
+      });
+      
+      // Cerrar modal con tecla ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex')
+          enableScroll();
+        }
+      });
+    }
+  });
+</script>

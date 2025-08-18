@@ -1,0 +1,134 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Translations = typeof import('../i18n/en').default;
+type FooterContent = Translations['footer'];
+interface Props {
+  content?: FooterContent;
+}
+const { content } = Astro.props as Props;
+const icons = [
+  {
+    name: 'email',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=info@jzpressurepros.com',
+  },
+  /*{
+    name: 'map',
+    href: '',
+  },*/
+  {
+    name: 'instagram',
+    href: 'https://www.instagram.com/jzpressurepros/',
+  },
+  {
+    name: 'facebook',
+    href: 'https://www.facebook.com/jzpressurepros',
+  },
+];
+const currentPath = Astro.url.pathname;
+const normalized = currentPath.replace(/^\/(en|es)/, '') || '/';
+// Detectar el idioma actual ('en' o 'es')
+const match = currentPath.match(/^\/(en|es)/);
+const lang = match ? match[1] : 'en';
+---
+<footer class="flex flex-col justify-center items-center w-full">
+<div class="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start max-w-screen lg:max-w-[1149px] px-4 lg:px-0 pt-[85px] pb-[96px] lg:py-[57px] gap-9 lg:gap-0 min-h-none lg:min-h-[438px]">
+  <a href="/" class="hidden lg:block">
+    <img src="/logo-2.svg" alt="Logo de PresureProps" width="218" height="218" class="cursor-pointer w-[218px] h-[218px]">
+  </a>
+  <div class="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start max-w-[851px] gap-7 lg:gap-0">
+    <a href="/" class="lg:hidden block">
+      <img src="/logo-2.svg" alt="Logo de PresureProps" width="218" height="218" class="cursor-pointer w-[105px] h-[105px]">
+    </a>    
+    <div class="flex flex-col items-center lg:items-start justify-center gap-[13px] md:gap-[32px] max-w-[389px]">
+      <p class="text-[16px] leading-[17px] md:leading-[25px] font-medium text-center md:text-start">{content?.text}</p>
+      <div class="flex items-center gap-[6px]">
+          {icons.map(i => (
+            <a href={i.href} class="w-[27px] h-[27px] md:w-[31px] md:h-[31px] rounded-full flex items-center justify-center bg-main flex-shrink-0">
+              <Icon name={i.name} class={"w-4 h-4 md:w-5 md:h-5 text-white"}/>
+            </a>
+          ))}
+        </div>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-9 lg:gap-[55px]">
+      <div class="flex flex-col items-center justify-center gap-2 md:gap-[13px]">
+        <p class="text-[16px] md:text-[24px] font-semibold leading-[20px] text-center text-accent">{content?.hours}</p>
+        <p class="text-[14px] md:text-[24px] leading-[20px] text-center text-main">9:00am - 8:00pm</p>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-2 md:gap-[13px]">
+        <p class="text-[16px] md:text-[15px] font-semibold leading-[20px] text-center text-accent">{content?.call}</p>
+        <a href="tel:+14079173034 " class="text-center text-[14px] md:text-[20px] font-bold leading-[20px] md:leading-[22px] text-main">+1 (407) 917-3034 </a>
+      </div>
+    </div>
+    <div class="w-full md:w-auto order-first md:order-last flex flex-col justify-center items-center md:items-end gap-[23px] md:gap-[18px]">
+      <p class="text-[16px] leading-[20px] font-semibold text-right text-accent">{content?.links_title}</p>
+      <div class="flex flex-col items-center lg:items-end gap-5 w-full md:gap-[26px]">
+        {content?.links.map((item,index) => {
+          const itemPathWithoutHash = item.href.split('#')[0]; // Quitar hash del item
+          const isActive = normalized === itemPathWithoutHash || 
+                            (index === 1 && normalized.startsWith('/services'));
+          const isServices = index === 1;
+          return (
+            <div class="relative flex flex-col justify-center items-end">
+              {isServices ? (
+                <button 
+                  class={`services-toggle w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-main ${isActive?'font-bold':'font-medium'} cursor-pointer`}
+                  data-services-menu
+                  set:html={item.label}
+                ></button>
+              ) : (
+                <a href={`/${lang}${item.href}`} class={`w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-main ${isActive?'font-bold':'font-medium'}`} set:html={item.label}></a>
+              )}
+              {isServices && (
+                <div class="services-dropdown hidden flex-col items-end justify-center gap-0 bg-accent mt-2 rounded-md shadow-lg overflow-hidden transition-all duration-300 ease-in-out absolute z-[20] top-[15px] w-[190px] md:right-0 md:left-auto left-1/2 md:translate-x-0 -translate-x-1/2">
+                  {content?.types.map(subItem => (
+                    <a href={`/${lang}/services/${subItem.href}`} class={`w-full text-center lg:text-right text-[14px] md:text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-white py-3 px-10 md:px-4 hover:bg-main`} set:html={subItem.title}></a>
+                  ))}
+                </div>
+              )}
+            </div>     
+          )
+        })}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="w-full flex flex-col lg:flex-row justify-center items-center bg-[#E5E5E5] py-[14px] md:py-[18px] gap-0 md:gap-4 lg:gap-7">
+  <a href="https://inkshapegroup.com/en/">
+    <img src="/footer-logo.webp" alt="Imagen del Footer" width="3745" height="996" class="w-[110px] md:w-[136px] h-[29px] md:h-[37px] cursor-pointer">
+  </a>
+  <p class="text-[#404040] text-[10px] md:text-[13px] leading-[17px] md:leading-[46px] text-center max-w-[304px] md:max-w-none">Copyright © 2025 by Inkshape Group | Privacy | Jz Pressure Pros | Orlando, Florida | Call Now:<a href="tel:+14079173034 " class="hover:text-main">+1 (407) 917-3034 </a></p>
+</div>
+</footer>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const servicesToggle = document.querySelector('[data-services-menu]');
+    const servicesDropdown = document.querySelector('.services-dropdown');
+    
+    if (servicesToggle && servicesDropdown) {
+      // Toggle del menu al hacer click
+      servicesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = servicesDropdown.classList.contains('flex');
+        
+        if (isOpen) {
+          // Cerrar menu
+          servicesDropdown.classList.remove('flex');
+          servicesDropdown.classList.add('hidden');
+        } else {
+          // Abrir menu
+          servicesDropdown.classList.remove('hidden');
+          servicesDropdown.classList.add('flex');
+        }
+      });
+      
+      // Cerrar menu al hacer click fuera
+      document.addEventListener('click', (e) => {
+        if (!servicesToggle.contains(e.target) && !servicesDropdown.contains(e.target)) {
+          servicesDropdown.classList.remove('flex');
+          servicesDropdown.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>

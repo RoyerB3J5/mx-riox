@@ -88,10 +88,10 @@ const lang = match ? match[1] : 'en';
                   <span class={`absolute bottom-0 left-0 h-[2px] bg-white group-hover:bg-main transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-main'}`} />
                 </a>
                 {isServices && (
-                  <div class="dropdown-menu absolute top-full left-0 mt-0 w-[170px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
+                  <div class="dropdown-menu absolute top-full left-0 mt-0 w-[190px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
                     {content.types.map(sub => (
                       <div class="text-[18px] font-semibold text-secondary py-2 hover:bg-main hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
-                        <a href={`/${lang}/services/${sub.href}`} class="block w-full h-full">{sub.label}</a>
+                        <a href={`/${lang}/services/${sub.href}`} class="block w-full h-full">{sub.title}</a>
                       </div>
                     ))}
                   </div>
@@ -166,7 +166,7 @@ const lang = match ? match[1] : 'en';
             {isServices && (
               <div class="flex-col justify-center items-center w-full bg-accent divide-y divide-white hidden" id="sub-menu-services">
                 {content.types.map(sub => (
-                  <a href={`/${lang}/services/${sub.href}`} class="text-[18px] font-semibold text-white py-3 transition-colors duration-300 ease-in-out cursor-pointer px-6 w-full text-center">{sub.label}</a>
+                  <a href={`/${lang}/services/${sub.href}`} class="text-[18px] font-semibold text-white py-3 transition-colors duration-300 ease-in-out cursor-pointer px-6 w-full text-center">{sub.title}</a>
                 ))}
               </div>
             )}

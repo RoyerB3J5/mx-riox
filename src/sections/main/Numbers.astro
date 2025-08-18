@@ -1,0 +1,85 @@
+---
+import CarouselReview from '../../components/CarouselReview.astro';
+
+type Translations = typeof import('../../i18n/es').default;
+type NumbersContent = Translations['main']['numbers'];
+interface Props {
+  content: NumbersContent;
+}
+const { content } = Astro.props as Props;
+---
+<section class="relative w-full pt-[80px] md:pt-[200px] pb-[80px] md:pb-[75px] overflow-hidden" id="numbers-section">
+  <img src="/main/bg-service.webp" alt="Fondo de chicha" width="1408" height="704" class="absolute inset-0 w-full h-full object-cover -z-20 object-center opacity-30 " loading="lazy" decoding="async">
+  <div class="absolute inset-0 bg-[#6A000017] -z-10"></div>
+  <div class="relative z-0 flex flex-col justify-center items-center gap-[70px] max-w-screen lg:max-w-[1141px] mx-auto px-4 lg:px-0">
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-[71px] lg:gap-[77px]">
+      {content.items.map((item,idx) => (
+        <div class={`flex flex-col justify-center items-center gap-[5px] max-w-none ${item.number == 500 ? 'md:max-w-[175px]' : 'md:max-w-[243px]'}`}>
+          <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-main w-full flex items-center justify-center gap-1">
+            <span>+</span>
+            <span class="counter" data-target={item.number.toString()} id={`counter-${idx}`}>0</span>
+            <span class={`${item.number == 23 ? 'inline' : 'hidden'}`}>Years</span>
+          </p>
+          <p class="text-[18px] md:text-[16px] font-semibold leading-[20px] text-main text-center">{item.title}</p>
+        </div>
+      ))}
+    </div>
+    <div class="w-full bg-white rounded-[15px] min-h-[348px] flex flex-col lg:flex-row justify-center items-center px-4 lg:px-8 gap-8 py-10 lg:py-0">
+      <div class="flex flex-col justify-center items-center gap-3 w-[280px]">
+        <p class="text-[24px] font-bold">{content.text}</p>
+        <div class="flex justify-center items-center gap-1">
+          {Array.from({ length: 5 }, (_) => (
+            <img src="/star.svg" alt="Estrellas" width="30" height="30" class="w-[30px] h-[30px]" loading="lazy" decoding="async" />
+          ))}
+        </div>
+        <p set:html={content.description} class="text-[15px]"></p>
+        <img src="/main/google.png" alt="Icono de Google" width="97px" height="54px" class="h-[69px] md:h-[35px] w-auto">
+      </div>
+      <CarouselReview />
+    </div>
+  </div>
+</section>
+<script is:inline >
+  // la función de animación que ya tenías
+  function animateValue(el, start, end, duration) {
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const current  = Math.floor(progress * (end - start) + start);
+      el.textContent = current.toLocaleString('es-PE');
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('numbers-section');
+    const counters = section.querySelectorAll('.counter');
+    let fired = false;
+
+    const onIntersect = (entries, observer) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && !fired) {
+          // Desencadenamos la animación y marcamos fired=true
+          counters.forEach(el => {
+            const target = parseInt(el.dataset.target || '0', 10);
+            animateValue(el, 0, target, 1000);
+          });
+          fired = true;
+          observer.disconnect(); 
+          break;
+        }
+      }
+    };
+
+    const io = new IntersectionObserver(onIntersect, {
+      root: null,           // viewport
+      threshold: 0.5        // cuando el 50% del section sea visible
+    });
+
+    io.observe(section);
+  });
+</script>

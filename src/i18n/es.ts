@@ -24,16 +24,24 @@ export default {
     ],
     types: [
       {
-        label: 'Residencial',
-        href: 'residential',
+        title: 'Floors & Walls',
+        href: 'floors-walls',
       },
       {
-        label: 'Comercial',
-        href: 'commercial',
+        title: 'Showers & Bathrooms',
+        href: 'showers-bathrooms',
       },
       {
-        label: 'Car Wash',
-        href: 'car-wash',
+        title: 'Fireplaces & Accents',
+        href: 'fireplaces-accents',
+      },
+      {
+        title: 'Repairs & Grout',
+        href: 'repairs-grout',
+      },
+      {
+        title: 'Demolition Services',
+        href: 'demolition',
       },
     ],
     button: 'Cotización',
@@ -68,16 +76,16 @@ export default {
     },
     experience: {
       description:
-        'Custom Tile & Stone Work in Avondale That Makes a Visible Impact',
+        'Trabajos personalizados de azulejos y piedra en Avondale que generan un impacto visible',
       description2:
-        'We turn ordinary floors, fireplaces and showers into clean, high-end installations. <br/> <br class="block md:hidden"/> <span class="font-bold">With 23+ years of experience, our detailed craftsmanship brings value, beauty and durability to every project.</span>',
+        'Convertimos suelos, chimeneas y duchas ordinarios en instalaciones limpias y de alta gama. <br/> <br class="block md:hidden"/> <span class="font-bold">Con más de 23 años de experiencia, nuestra artesanía detallada aporta valor, belleza y durabilidad a cada proyecto.</span>',
       items: [
-        'Detailed Craftsmanship',
-        'Trusted Tile Experts',
-        'High-End Finishes',
+        'Artesanía detallada',
+        'Expertos confiables en azulejos',
+        'Acabados de alta gama',
       ],
-      button: 'LEARN MORE',
-      years: 'YEARS OF  EXPERIENCE',
+      button: 'SABER MÁS',
+      years: 'AÑOS DE EXPERIENCIA',
     },
     solutions: {
       description:
@@ -199,13 +207,174 @@ export default {
         {
           title: 'Servicios de Demolición',
           image: 'dem-services',
-          href: 'demolition-services',
+          href: 'demolition',
         },
+      ],
+    },
+    completed: {
+      title:
+        "Mira nuestros Recientes <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[30px] lg:leading-[58px] text-main'>Proyectos Completados</span>",
+      button: 'VER TODOS LOS PROYECTOS',
+      images: [
+        '/main/floors.webp',
+        '/main/bathrooms.webp',
+        '/main/accents.webp',
+        '/main/repairs.webp',
+        '/main/dem-services.webp',
+        '/main/experience1.webp',
+        '/main/flooring.webp',
+        '/main/shower.webp',
+        '/main/fireplace.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+      ],
+      name: 'CapiTile&Stone',
+      description:
+        'Lavado profesional de casas, limpieza de techos, restauración de entradas y patios, y detallado móvil de autos. Limpiamos, protegemos y renovamos tu espacio.',
+      buttonig: 'Síguenos en Instagram',
+    },
+    numbers: {
+      items: [
+        {
+          number: 30000,
+          title: 'Pies Cuadrados de Azulejos Instalados',
+        },
+        {
+          number: 500,
+          title: 'Propietarios y Contratistas Satisfechos',
+        },
+        {
+          number: 1000,
+          title: 'Duchas, Chimeneas y Pisos Completados',
+        },
+        {
+          number: 23,
+          title: 'Entrega de Trabajo Personalizado en Azulejos y Piedra',
+        },
+      ],
+      text: 'EXCELENTE',
+      description: "Basado en <span class='font-semibold'>79 reseñas</span>",
+    },
+    catalog: {
+      title:
+        "Descarga Nuestro Folleto para Desbloquear <br/> <span class='font-semibold text-[28px] md:text-[48px] leading-[30px] md:leading-[58px] text-main'>un Descuento Especial</span>",
+      description:
+        'Donde puedes ver todos los servicios y opciones que tenemos para ti.',
+      button: 'DESCARGAR AHORA',
+    },
+    project: {
+      title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
+      description:
+        'En Capi Tile & Stone, convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+      button: 'Obtener una cotización gratuita',
+      image: 'bg-main.png',
+    },
+  },
+  services: {
+    'floors-walls': {
+      image: 'residential',
+      title: 'Residential Pressure <br/> Washing Services in Orlando',
+      description:
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Restore Your Home’s Beauty and Keep It Clean Year-Round</span> <br/> At JZ Pressure Pros, we provide specialized residential pressure washing services that help homeowners in Orlando protect and enhance their property’s appearance. Whether you're looking to clean your home’s exterior, remove algae from your roof, or brighten up your driveway and pool deck, our team delivers exceptional results with every visit. We use safe techniques tailored to each surface to remove dirt, stains, mold, and grime, leaving your home looking fresh, polished, and well cared for.",
+      project: {
+        title: 'Focus on What Matters',
+        description:
+          'Protect your family by keeping your home clean and safe. JZ Pressure Pros handles the washing so you can enjoy peace of mind.',
+        text: 'Your home deserves more than clean—it deserves care.',
+        button: 'Get a Free Estimate',
+        image: 'bg-residential.webp',
+      },
+      carousel: [
+        '/main/techo.webp',
+        '/main/patios.webp',
+        '/main/retainer.webp',
+        '/main/wakways.webp',
+      ],
+    },
+    'showers-bathrooms': {
+      image: 'commercial',
+      title: 'Commercial Pressure Washing <br/> for Orlando Businesses',
+      description:
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Give Your Property the Clean, Professional Look It Deserves</span> <br/> JZ Pressure Pros helps businesses across Orlando stand out with reliable and effective commercial pressure washing services. From high-traffic locations like I-Drive to hotels, restaurants, retail spaces, and office buildings, we understand how important a clean exterior is to your brand image. Our experienced team removes grease, grime, and environmental buildup using the right tools for every job. We work quickly, minimize disruptions, and leave your space looking spotless so you can welcome customers with confidence.",
+      project: {
+        title: 'Mold Is Common in Orlando',
+        description:
+          'Humidity leads to mold, algae, and bacteria on driveways and patios. These release spores and allergens that may affect your health.',
+        text: 'Breathe easier. Live cleaner.',
+        button: 'Get a Free Estimate',
+        image: 'bg-commercial.webp',
+      },
+      carousel: [
+        '/main/firepits.webp',
+        '/main/com-clean.webp',
+        '/main/pool.webp',
+        '/main/pergolas.webp',
+      ],
+    },
+    'fireplaces-accents': {
+      image: 'carwash',
+      title: 'Mobile Car Wash <br/> Services in Orlando',
+      description:
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+      project: {
+        title: 'We Bring the Shine to You',
+        description:
+          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
+        text: 'Your car deserves more than a rinse, it deserves attention.',
+        button: 'Get a Free Estimate',
+        image: 'bg-car.webp',
+      },
+      carousel: [
+        '/lavado.webp',
+        '/main/com-car.webp',
+        '/main/turn.webp',
+        '/main/wakways.webp',
+      ],
+    },
+    'repairs-grout': {
+      image: 'carwash',
+      title: 'Mobile Car Wash <br/> Services in Orlando',
+      description:
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+      project: {
+        title: 'We Bring the Shine to You',
+        description:
+          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
+        text: 'Your car deserves more than a rinse, it deserves attention.',
+        button: 'Get a Free Estimate',
+        image: 'bg-car.webp',
+      },
+      carousel: [
+        '/lavado.webp',
+        '/main/com-car.webp',
+        '/main/turn.webp',
+        '/main/wakways.webp',
+      ],
+    },
+    'demolition': {
+      image: 'carwash',
+      title: 'Mobile Car Wash <br/> Services in Orlando',
+      description:
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+      project: {
+        title: 'We Bring the Shine to You',
+        description:
+          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
+        text: 'Your car deserves more than a rinse, it deserves attention.',
+        button: 'Get a Free Estimate',
+        image: 'bg-car.webp',
+      },
+      carousel: [
+        '/lavado.webp',
+        '/main/com-car.webp',
+        '/main/turn.webp',
+        '/main/wakways.webp',
       ],
     },
   },
   footer: {
-    text: 'En Jz Pressure Pros, ofrecemos servicios de lavado a presión de alta calidad que restauran la belleza y el valor de tu propiedad. Desde entradas hasta fachadas, nuestra misión es mantener impecables los hogares y negocios de Orlando. Contáctanos hoy y devolvamos la vida a tu propiedad.',
+    text: 'En Capi Tile & Stone, nos especializamos en instalaciones personalizadas de azulejos y piedra que reflejan tu visión y realzan tu espacio. Servimos en Avondale y áreas cercanas con calidad, precisión y cuidado. Construyamos juntos algo que perdure.',
     hours: 'HORARIOS DE SERVICIO',
     call: 'LLÁMANOS',
     links_title: 'LINKS',
@@ -233,16 +402,24 @@ export default {
     ],
     types: [
       {
-        label: 'Residencial',
-        href: 'residential',
+        title: 'Floors & Walls',
+        href: 'floors-walls',
       },
       {
-        label: 'Comercial',
-        href: 'commercial',
+        title: 'Showers & Bathrooms',
+        href: 'showers-bathrooms',
       },
       {
-        label: 'Car Wash',
-        href: 'car-wash',
+        title: 'Fireplaces & Accents',
+        href: 'fireplaces-accents',
+      },
+      {
+        title: 'Repairs & Grout',
+        href: 'repairs-grout',
+      },
+      {
+        title: 'Demolition Services',
+        href: 'demolition',
       },
     ],
   },
