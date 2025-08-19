@@ -24,9 +24,13 @@ const { content } = Astro.props as Props;
   </div>
   <div class="flex flex-col justify-center items-center gap-7 w-full max-w-screen md:max-w-[1138] px-4 md:px-0 mt-0 md:mt-[80px] lg:mt-[130px]">
     <div class="w-full flex md:justify-start justify-center items-start md:items-center gap-[26px] px-3">
-      <div class="w-[50px] md:w-[62px] h-[50px] md:h-[62px] rounded-full border-[1px] border-accent overflow-hidden flex items-center justify-center flex-shrink-0">
-        <img src="/logo-2.svg" alt="Capi Tile & Stone" width="1024" height="1024" style="display: block; object-fit: cover;" loading="lazy" decoding="async" class="w-[35px] md:w-[50px] h-[35px] md:h-[50px]">
+      <div class="w-[50px] md:w-[62px] h-[50px] md:h-[62px] rounded-full border-[1px] border-accent overflow-hidden flex items-center justify-center flex-shrink-0 p-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="205" height="241" viewBox="0 0 205 241" fill="none">
+          <path d="M135.051 195.485L172.83 171.637V92.561L135.051 116.409V195.485Z" fill="#1D1D1B"/>
+          <path d="M185.633 176.452L126.472 213.059L116.807 219.033V108.084L132.724 98.2352L185.633 65.5025V47.0529L150.785 68.6396V45.764V31.9025V27.3549L132.707 38.5333L116.799 48.3742V14.2229L116.791 14.231V9.48893L98.1331 21.024L84.3034 29.5841L82.4898 30.7028V0.750488L74.8131 5.71957L1.54868 48.1716L0.654297 81.3339V176.987L19.312 187.265V187.208L19.3451 187.265L33.15 180.018V194.893L51.8077 205.172V204.799L52.0147 205.18L65.6374 198.03V212.816L82.2497 221.984L84.2951 223.005V222.981L84.3117 223.005L98.1414 215.742V230.576L111.458 240.263L204.547 181.364L185.633 176.452ZM19.312 166.554V69.7988V54.1377L63.8238 27.8494V42.2703L51.7994 49.7117L33.1417 61.2468V159.299L19.312 166.554ZM51.8077 184.558V68.1127L65.6374 59.5526L82.3656 49.1767H82.4816V49.1038L84.2951 47.9851L98.1249 39.425L98.1331 39.4169V59.9012L98.1249 59.9093L84.2951 68.4694L65.6374 80.0045V177.295L51.8077 184.558ZM84.2951 202.27V86.8785L98.1249 78.3184L116.783 66.7833L132.111 57.2991V80.1909L116.791 89.6751L98.1331 101.21V195.007L84.2951 202.27Z" fill="#C60001"/>
+        </svg>
       </div>
+      
       <div class="flex flex-col justify-center md:justify-start items-start gap-[3px] flex-1">
         <a href="https://www.instagram.com/jzpressurepros/">
           <h3 class="text-[16px] md:text-[20px] font-bold leading-[28px] text-start text-main cursor-pointer">{content.name}</h3>

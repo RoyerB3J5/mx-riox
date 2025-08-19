@@ -15,7 +15,7 @@ const translations = { es, en };
 const t = translations[lang];
 ---
 <Layout lang={lang} t={t}>
-    <section class="py-[150px] md:pt-[371px] md:pb-[250px] lg:py-0 3xl:pt-[371px] 3xl:pb-[250px] h-auto lg:h-[95vh] 3xl:h-auto flex flex-col justify-center items-center w-full relative overflow-hidden">
+  <section class="py-[150px] md:pt-[371px] md:pb-[250px] lg:py-0 3xl:pt-[371px] 3xl:pb-[250px] h-auto lg:h-[95vh] 3xl:h-auto flex flex-col justify-center items-center w-full relative overflow-hidden">
     <img src={`/main/accents.webp`} alt="Fondos de Contacto" width="3072" height="4096" class="absolute inset-0 w-full h-full object-cover -z-20" loading="lazy" decoding="async">
     <div class="absolute inset-0 bg-main/80 -z-10"></div>
     <div class="flex flex-col justify-center items-center gap-2 md:gap-8 translate-y-[10%] lg:translate-y-[30%] 3xl:translate-y-0" data-aos-offset="300" data-aos="flip-down">
@@ -33,7 +33,7 @@ const t = translations[lang];
         <div class="w-full flex flex-col justify-center items-center md:items-start border-[1px] border-main rounded-[15px] overflow-hidden">
         <div class="w-full py-[11px] px-5 gap-5 flex justify-center md:justify-start items-center">
           <img src="/phone-red.svg" alt="Telefono" width="52" height="36" class="w-[24px] h-[35px] md:w-[36px] md:h-[52px]">
-          <a href="tel:+16232979381" class="hover:text-main text-[18px] md:text-[20px] font-semibold leading-[46px] cursor-pointer">+1 (623) 297-9381</a>
+          <a href="tel:+6232979381" class="hover:text-main text-[18px] md:text-[20px] font-semibold leading-[46px] cursor-pointer ">+1 (623) 297-9381</a>
         </div>
         <div class="h-[1px] w-full bg-main"></div>
         <div class="w-full py-[11px] px-5 gap-5 flex justify-center md:justify-start items-center">
@@ -78,7 +78,8 @@ const t = translations[lang];
         data-form-id="Bz8yTCN1XgrIcpTXa573"
         title="Form General Website">
       </iframe>
-      <script src="https://link.capitileandstone.com/js/form_embed.js"></script> 
+      <script src="https://link.capitileandstone.com/js/form_embed.js"></script>
+    </div>
     </div>
   </section>
   <Project content={t.contact.project}/>
