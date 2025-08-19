@@ -271,104 +271,191 @@ export default {
   },
   services: {
     'floors-walls': {
-      image: 'residential',
-      title: 'Residential Pressure <br/> Washing Services in Orlando',
+      image: 'floors',
+      title: 'Floors & <br/>Walls',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Restore Your Home’s Beauty and Keep It Clean Year-Round</span> <br/> At JZ Pressure Pros, we provide specialized residential pressure washing services that help homeowners in Orlando protect and enhance their property’s appearance. Whether you're looking to clean your home’s exterior, remove algae from your roof, or brighten up your driveway and pool deck, our team delivers exceptional results with every visit. We use safe techniques tailored to each surface to remove dirt, stains, mold, and grime, leaving your home looking fresh, polished, and well cared for.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile Flooring and Wall Installation in Avondale, Arizona</span> <br/> At Capi Tile & Stone, we specialize in the installation of high-quality tile floors and walls that enhance the beauty, durability, and value of your space. Whether you're remodeling your home, upgrading a commercial space, or starting from scratch, we handle ceramic, porcelain, granite, marble, travertine, slate, saltillo, and even glass tile with precision and expert craftsmanship. <br/> <br/>We proudly serve Avondale and surrounding areas in Arizona, delivering long-lasting results with a clean, detail-focused approach. Every line, corner and transition matters—your floor and walls deserve expert installation that stands the test of time.",
       project: {
-        title: 'Focus on What Matters',
+        title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'Protect your family by keeping your home clean and safe. JZ Pressure Pros handles the washing so you can enjoy peace of mind.',
-        text: 'Your home deserves more than clean—it deserves care.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
-        image: 'bg-residential.webp',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/main/techo.webp',
+        '/main/flooring.webp',
         '/main/patios.webp',
-        '/main/retainer.webp',
-        '/main/wakways.webp',
+        '/main/shower.webp',
+        '/main/fireplace.webp',
       ],
     },
     'showers-bathrooms': {
-      image: 'commercial',
-      title: 'Commercial Pressure Washing <br/> for Orlando Businesses',
+      image: 'bathrooms',
+      title: 'Showers & <br/> Bathrooms',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Give Your Property the Clean, Professional Look It Deserves</span> <br/> JZ Pressure Pros helps businesses across Orlando stand out with reliable and effective commercial pressure washing services. From high-traffic locations like I-Drive to hotels, restaurants, retail spaces, and office buildings, we understand how important a clean exterior is to your brand image. Our experienced team removes grease, grime, and environmental buildup using the right tools for every job. We work quickly, minimize disruptions, and leave your space looking spotless so you can welcome customers with confidence.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Custom Shower and Bathroom Tile Installation in Avondale, Arizona</span> <br/> We design and install custom tile showers and bathroom walls with durability, safety, and visual appeal in mind. At Capi Tile & Stone, we build steam showers, bathtub enclosures, standard tile showers and full bathroom tile installations, always tailored to your specific layout and preferences. <br/> <br/> From waterproofing and prep to tile cuts and final sealing, we take care of every detail. Based in Avondale, Arizona, we’re trusted by homeowners who want expert-level finishes and bathrooms built to last. If you're ready to upgrade your space, we’re ready to help.",
       project: {
-        title: 'Mold Is Common in Orlando',
+        title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'Humidity leads to mold, algae, and bacteria on driveways and patios. These release spores and allergens that may affect your health.',
-        text: 'Breathe easier. Live cleaner.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
-        image: 'bg-commercial.webp',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/main/firepits.webp',
-        '/main/com-clean.webp',
-        '/main/pool.webp',
-        '/main/pergolas.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
     },
     'fireplaces-accents': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+      image: 'accents',
+      title: 'Fireplaces & Accents',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Fireplace Tile Installation and Stone Accents in Avondale, Arizona</span> <br/>Capi Tile & Stone installs stunning, large-format tile and stone accents that turn ordinary fireplaces into showpieces. We work with natural stone, cultured stone, and stacked stone to create striking vertical surfaces for fireplaces, feature walls, and custom accents throughout your home. <br/> <br/> Our detail-oriented approach ensures tight joints, clean edges and seamless transitions—so your focal point looks flawless from every angle. Located in Avondale, we bring high-end craftsmanship and a modern aesthetic to homes and businesses across Arizona.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
     },
     'repairs-grout': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+      image: 'repairs',
+      title: 'Repairs & Grout',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Grout Repairs in Avondale, Arizona</span> <br/> Whether it’s a cracked tile, missing grout, or worn surfaces, we restore your tilework with expert repairs that blend in seamlessly. At Capi Tile & Stone, we handle individual tile replacements, grout removal and reapplication, and professional grout sealing for new or old installations. <br/> <br/> Our team approaches repairs with the same attention to detail as our new installations. Serving Avondale and nearby areas, we help extend the life and appearance of your tile surfaces—saving you from costly replacements down the line.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/flooring.webp',
+        '/main/patios.webp',
+        '/main/shower.webp',
+        '/main/fireplace.webp',
       ],
     },
-    'demolition': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+    demolition: {
+      image: 'dem-services',
+      title: 'Demolition Services',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Surface Demolition Services in Avondale, Arizona</span> <br/>Before any great tile installation comes the clean, careful removal of what's old. Capi Tile & Stone provides professional demolition services for floors, showers, walls, fireplaces, and countertops. <br/> <br/> We use the right tools and techniques to minimize dust and damage, preparing your space for its next transformation. Whether you’re replacing outdated tile or starting fresh, our demolition team ensures a smooth start to your renovation project. Based in Avondale, we work across Arizona with homeowners and contractors alike.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
+    },
+  },
+  gallery: {
+    title: 'Gallery',
+    image: 'floors',
+    items: [
+      '/main/grout.webp',
+      '/main/demolition.webp',
+      '/main/tile.webp',
+      '/main/floors.webp',
+      '/main/flooring.webp',
+      '/main/patios.webp',
+      '/main/shower.webp',
+      '/main/fireplace.webp',
+      '/main/before-2-1.webp',
+      '/main/experience1.webp',
+      '/main/experience3.webp',
+      '/main/experience2.webp',
+    ],
+    project: {
+      title: 'Ready to Start Your Tile or Stone Project?',
+      description:
+        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+      button: 'Get a Free Estimate',
+      image: 'bg-main.png',
+    },
+  },
+  'about-us': {
+    image: 'about',
+    title: 'About Us',
+    description:
+      'At Capi Tile & Stone, we specialize in delivering custom tile and stone installations that reflect each client’s vision while exceeding expectations. With over 23 years of hands-on experience in the industry, we’re known throughout Avondale and nearby areas for our precision, trustworthiness, and detail-focused craftsmanship. <br/> <br class="hidden md:block"/> What sets us apart is not just what we build, but how we build it—with honesty, punctuality, and care. From custom showers and fireplaces to large-format flooring and intricate repairs, our team treats every project like it matters—because it does.<br/> <br class="hidden md:block"/> We don’t believe in shortcuts or cookie-cutter results. Every space deserves a custom touch, every cut deserves accuracy, and every client deserves a result that lasts.',
+    team: {
+      title: 'Our Team',
+      description:
+        'Capi Tile & Stone is powered by a team of dedicated professionals who bring passion and excellence to every project. Each member is trained not only in advanced installation techniques, but also in how to maintain clean workspaces, communicate clearly with clients, and deliver dependable results.<br/> <br class="hidden md:block"/>Our clients often comment on the trust they feel from the first visit. Many even leave their homes in our hands while they travel or attend to other responsibilities. That kind of trust isn’t something we take lightly. It’s earned through consistent quality, respectful treatment, and the peace of mind we give our customers by doing the job right from start to finish.<br/> <br class="hidden md:block"/> We’re not just tile installers. We’re problem solvers, finishers, and partners in making your space better.',
+    },
+    stand: {
+      title:
+        ' CAPI<br/> <span class="text-accent text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Our Values</span>',
+      list: [
+        {
+          letter: 'C',
+          title: 'Craftsmanship',
+          description:
+            'Every tile, joint, and finish is handled with precision and pride.',
+        },
+        {
+          letter: 'A',
+          title: 'Accountability',
+          description:
+            'We take responsibility for every detail, from planning to execution.',
+        },
+        {
+          letter: 'P',
+          title: 'Professionalism',
+          description:
+            'Our team shows up on time, communicates clearly, and respects your space.',
+        },
+        {
+          letter: 'I',
+          title: 'Integrity',
+          description:
+            "We deliver what we promise and always prioritize long-term quality over shortcuts.",
+        }
+      ],
+    },
+    project: {
+      title: 'Ready to Start Your Tile or Stone Project?',
+      description:
+        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+      button: 'Get a Free Estimate',
+      image: 'bg-main.png',
+    },
+  },
+  contact: {
+    image: 'contact',
+    title: 'Contact Us',
+    text: 'Ways You Can Reach Out',
+    description: 'Contact us today and an expert consultant will assist you',
+    schedules: {
+      title2: 'Address',
+      title: 'Atention',
+      description: 'Mon-Sat',
+      text: 'Sunday',
+    },
+    project: {
+      title: 'Ready to Start Your Tile or Stone Project?',
+      description:
+        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+      button: 'Get a Free Estimate',
+      image: 'bg-main.png',
     },
   },
   footer: {

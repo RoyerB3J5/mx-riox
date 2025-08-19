@@ -1,0 +1,32 @@
+---
+import CarouselServices from '../../components/CarouselServices.astro';
+
+interface Props {
+  carouselImages:string[]
+}
+const { carouselImages } = Astro.props as Props;
+---
+
+<section class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-7 pb-10 md:pb-[50px] max-w-screen md:max-w-[1150px] px-4 lg:px-0 w-full min-h-[660px] h-full">
+  <CarouselServices images={carouselImages}/>
+  <div class="w-full lg:w-[444px] h-auto">
+    <iframe
+      src="https://link.capitileandstone.com/widget/form/Bz8yTCN1XgrIcpTXa573"
+      style="width:100%;height:100%;border:none;border-radius:3px"
+      id="inline-Bz8yTCN1XgrIcpTXa573" 
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Form General Website"
+      data-height="874"
+      data-layout-iframe-id="inline-Bz8yTCN1XgrIcpTXa573"
+      data-form-id="Bz8yTCN1XgrIcpTXa573"
+      title="Form General Website">
+    </iframe>
+    <script src="https://link.capitileandstone.com/js/form_embed.js"></script>
+  </div>
+</section>

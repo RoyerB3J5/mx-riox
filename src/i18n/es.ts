@@ -273,104 +273,191 @@ export default {
   },
   services: {
     'floors-walls': {
-      image: 'residential',
-      title: 'Residential Pressure <br/> Washing Services in Orlando',
+      image: 'floors',
+      title: 'Pisos y <br/>Paredes',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Restore Your Home’s Beauty and Keep It Clean Year-Round</span> <br/> At JZ Pressure Pros, we provide specialized residential pressure washing services that help homeowners in Orlando protect and enhance their property’s appearance. Whether you're looking to clean your home’s exterior, remove algae from your roof, or brighten up your driveway and pool deck, our team delivers exceptional results with every visit. We use safe techniques tailored to each surface to remove dirt, stains, mold, and grime, leaving your home looking fresh, polished, and well cared for.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación de suelos y revestimientos de azulejo en Avondale, Arizona</span> <br/> En Capi Tile & Stone nos especializamos en la instalación de suelos y paredes de azulejos de alta calidad que realzan la belleza, durabilidad y el valor de tu espacio. Ya sea que estés remodelando tu hogar, renovando un local comercial o comenzando desde cero, trabajamos con cerámica, porcelana, granito, mármol, travertino, pizarra, saltillo e incluso azulejo de vidrio con precisión y artesanía experta. <br/> <br/>Servimos con orgullo a Avondale y zonas cercanas de Arizona, entregando resultados duraderos con un enfoque limpio y detallista. Cada línea, esquina y transición importa: tus suelos y paredes merecen una instalación experta que resista el paso del tiempo.",
       project: {
-        title: 'Focus on What Matters',
+        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
         description:
-          'Protect your family by keeping your home clean and safe. JZ Pressure Pros handles the washing so you can enjoy peace of mind.',
-        text: 'Your home deserves more than clean—it deserves care.',
-        button: 'Get a Free Estimate',
-        image: 'bg-residential.webp',
+          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+        button: 'Obtener una cotización gratuita',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/main/techo.webp',
+        '/main/flooring.webp',
         '/main/patios.webp',
-        '/main/retainer.webp',
-        '/main/wakways.webp',
+        '/main/shower.webp',
+        '/main/fireplace.webp',
       ],
     },
     'showers-bathrooms': {
-      image: 'commercial',
-      title: 'Commercial Pressure Washing <br/> for Orlando Businesses',
+      image: 'bathrooms',
+      title: 'Duchas y <br/> Baños',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Give Your Property the Clean, Professional Look It Deserves</span> <br/> JZ Pressure Pros helps businesses across Orlando stand out with reliable and effective commercial pressure washing services. From high-traffic locations like I-Drive to hotels, restaurants, retail spaces, and office buildings, we understand how important a clean exterior is to your brand image. Our experienced team removes grease, grime, and environmental buildup using the right tools for every job. We work quickly, minimize disruptions, and leave your space looking spotless so you can welcome customers with confidence.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación personalizada de duchas y azulejos para baños en Avondale, Arizona</span> <br/> Diseñamos e instalamos duchas de azulejo y revestimientos de baño a medida, priorizando la durabilidad, la seguridad y el atractivo visual. En Capi Tile & Stone construimos duchas de vapor, mamparas para bañera, duchas estándar y proyectos completos de baño, siempre adaptados a la distribución y preferencias específicas. <br/> <br/>Desde la impermeabilización y la preparación hasta los cortes de azulejo y el sellado final, nos encargamos de cada detalle. Con sede en Avondale, somos la opción de confianza para propietarios que buscan acabados de nivel experto.",
       project: {
-        title: 'Mold Is Common in Orlando',
+        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
         description:
-          'Humidity leads to mold, algae, and bacteria on driveways and patios. These release spores and allergens that may affect your health.',
-        text: 'Breathe easier. Live cleaner.',
-        button: 'Get a Free Estimate',
-        image: 'bg-commercial.webp',
+          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+        button: 'Obtener una cotización gratuita',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/main/firepits.webp',
-        '/main/com-clean.webp',
-        '/main/pool.webp',
-        '/main/pergolas.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
     },
     'fireplaces-accents': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+      image: 'accents',
+      title: 'Chimeneas y Detalles',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación de chimeneas y detalles en azulejo y piedra en Avondale, Arizona</span> <br/> Capi Tile & Stone instala acabados impresionantes en azulejo y piedra que transforman chimeneas ordinarias en piezas destacadas. Trabajamos con piedra natural, piedra manufacturada y piedra apilada para crear superficies verticales llamativas en chimeneas, paredes focales y detalles personalizados en tu hogar. <br/> <br/>Nuestro enfoque detallista garantiza juntas precisas, bordes limpios y transiciones sin fisuras—para que tu punto focal luzca impecable desde cualquier ángulo. Con sede en Avondale, llevamos artesanía de alta gama y estética moderna a hogares y negocios en Arizona.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
-        button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+        button: 'Obtener una cotización gratuita',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
     },
     'repairs-grout': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+      image: 'repairs',
+      title: 'Reparaciones y Lechada',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Reparaciones de azulejos y lechada en Avondale, Arizona</span> <br/> Ya sea un azulejo agrietado, lechada faltante o superficies desgastadas, restauramos tu trabajo en azulejos con reparaciones expertas que se integran de forma natural. En Capi Tile & Stone realizamos reemplazos individuales de azulejos, retirada y nueva aplicación de lechada, y sellado profesional para instalaciones nuevas o antiguas. <br/> <br/>Nuestro equipo aborda las reparaciones con la misma atención al detalle que en las instalaciones nuevas. Sirviendo a Avondale y zonas cercanas, ayudamos a extender la vida y el aspecto de tus superficies de azulejo—evitando costosas sustituciones.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
-        button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+        button: 'Obtener una cotización gratuita',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/flooring.webp',
+        '/main/patios.webp',
+        '/main/shower.webp',
+        '/main/fireplace.webp',
       ],
     },
-    'demolition': {
-      image: 'carwash',
-      title: 'Mobile Car Wash <br/> Services in Orlando',
+    demolition: {
+      image: 'dem-services',
+      title: 'Servicios de Demolición',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>We Bring Professional Detailing Right to Your Door</span> <br/> At JZ Pressure Pros, we make car care simple and convenient with our mobile car wash services. Our team travels directly to you, whether at your home, business, or commercial site. We clean both personal and commercial vehicles, including family cars, company trucks, and fleet vans. Choose from four service levels—from a quick exterior wash to deep restoration and interior detailing. No matter which option you select, we’re committed to delivering spotless results and a seamless experience that saves you time and keeps your vehicle looking its best.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Servicios de demolición de superficies y azulejos en Avondale, Arizona</span> <br/> Antes de cualquier gran instalación de azulejos viene la retirada limpia y cuidadosa de lo antiguo. Capi Tile & Stone ofrece servicios profesionales de demolición para suelos, duchas, paredes, chimeneas y encimeras. <br/> <br/> Utilizamos las herramientas y técnicas adecuadas para minimizar el polvo y los daños, preparando tu espacio para su próxima transformación. Ya sea que reemplaces azulejos anticuados o empieces desde cero, nuestro equipo de demolición garantiza un inicio suave para tu proyecto de renovación. Con sede en Avondale, trabajamos en todo Arizona con propietarios y contratistas.",
       project: {
-        title: 'We Bring the Shine to You',
+        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
         description:
-          ' Skip the lines and the wait. Our mobile car wash service comes directly to your home or business. Every detail is handled with care, using eco-friendly products that protect your vehicle and the environmen',
-        text: 'Your car deserves more than a rinse, it deserves attention.',
-        button: 'Get a Free Estimate',
-        image: 'bg-car.webp',
+          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+        button: 'Obtener una cotización gratuita',
+        image: 'bg-main.png',
       },
       carousel: [
-        '/lavado.webp',
-        '/main/com-car.webp',
-        '/main/turn.webp',
-        '/main/wakways.webp',
+        '/main/grout.webp',
+        '/main/demolition.webp',
+        '/main/tile.webp',
+        '/main/floors.webp',
       ],
+    },
+  },
+  gallery: {
+    title: 'Galería',
+    image: 'floors',
+    items: [
+      '/main/grout.webp',
+      '/main/demolition.webp',
+      '/main/tile.webp',
+      '/main/floors.webp',
+      '/main/flooring.webp',
+      '/main/patios.webp',
+      '/main/shower.webp',
+      '/main/fireplace.webp',
+      '/main/before-2-1.webp',
+      '/main/experience1.webp',
+      '/main/experience3.webp',
+      '/main/experience2.webp',
+    ],
+    project: {
+      title: '¿Listo para comenzar tu proyecto de azulejos o piedra?',
+      description:
+        'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+      button: 'Cotización gratis',
+      image: 'bg-main.png',
+    },
+  },
+  'about-us': {
+    image: 'about',
+    title: 'Sobre Nosotros',
+    description:
+      'En Capi Tile & Stone nos especializamos en ofrecer instalaciones personalizadas de azulejos y piedra que reflejan la visión de cada cliente mientras superan sus expectativas. Con más de 23 años de experiencia práctica en la industria, somos reconocidos en Avondale y sus alrededores por nuestra precisión, confianza y mano de obra enfocada en los detalles.<br/> <br class="hidden md:block"/> Lo que nos diferencia no es solo lo que construimos, sino cómo lo construimos: con honestidad, puntualidad y dedicación. Desde duchas y chimeneas personalizadas hasta pisos de gran formato y reparaciones detalladas, nuestro equipo trata cada proyecto como si realmente importara—porque sí importa.<br/> <br class="hidden md:block"/> No creemos en atajos ni en resultados genéricos. Cada espacio merece un toque único, cada corte merece precisión y cada cliente merece un resultado que perdure.',
+    team: {
+      title: 'Nuestro Equipo',
+      description:
+        'Capi Tile & Stone está impulsado por un equipo de profesionales dedicados que aportan pasión y excelencia a cada proyecto. Cada miembro está capacitado no solo en técnicas avanzadas de instalación, sino también en mantener áreas de trabajo limpias, comunicarse claramente con los clientes y ofrecer resultados confiables.<br/> <br class="hidden md:block"/> Nuestros clientes suelen destacar la confianza que sienten desde la primera visita. Muchos incluso dejan sus hogares en nuestras manos mientras viajan o atienden otras responsabilidades. Ese tipo de confianza no es algo que tomemos a la ligera. Se gana a través de calidad constante, un trato respetuoso y la tranquilidad que brindamos al hacer el trabajo bien desde el inicio hasta el final.<br/> <br class="hidden md:block"/> No somos solo instaladores de azulejos. Somos solucionadores de problemas, detallistas y aliados en mejorar tu espacio.',
+    },
+    stand: {
+      title:
+        ' CAPI<br/> <span class="text-accent text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Nuestros Valores</span>',
+      list: [
+        {
+          letter: 'C',
+          title: 'Calidad Artesanal',
+          description:
+            'Cada azulejo, unión y acabado se maneja con precisión y orgullo.',
+        },
+        {
+          letter: 'A',
+          title: 'Responsabilidad',
+          description:
+            'Asumimos la responsabilidad de cada detalle, desde la planificación hasta la ejecución.',
+        },
+        {
+          letter: 'P',
+          title: 'Profesionalismo',
+          description:
+            'Nuestro equipo llega a tiempo, se comunica con claridad y respeta tu espacio.',
+        },
+        {
+          letter: 'I',
+          title: 'Integridad',
+          description:
+            'Cumplimos lo que prometemos y siempre priorizamos la calidad a largo plazo sobre los atajos.',
+        },
+      ],
+    },
+    project: {
+      title: '¿Listo para comenzar tu proyecto de azulejos o piedra?',
+      description:
+        'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+      button: 'Cotización gratis',
+      image: 'bg-main.png',
+    },
+  },
+  contact: {
+    image: 'contact',
+    title: 'Contáctanos',
+    text: 'Formas en que puedes comunicarte',
+    description: 'Contáctanos hoy y un consultor experto te asistirá',
+    schedules: {
+      title2: 'Dirección',
+      title: 'Atención',
+      description: 'Lun-Sáb',
+      text: 'Domingo',
+    },
+    project: {
+      title: '¿Listo para comenzar tu proyecto de azulejos o piedra?',
+      description:
+        'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
+      button: 'Cotización Gratis',
+      image: 'bg-main.png',
     },
   },
   footer: {

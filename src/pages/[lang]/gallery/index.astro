@@ -2,6 +2,7 @@
 import en from '../../../i18n/en';
 import es from '../../../i18n/es';
 import Layout from '../../../layouts/Layout.astro';
+import Project from '../../../sections/main/Project.astro';
 import type { Language } from '../../../types/language.type';
 export function getStaticPaths() {
   return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
@@ -13,5 +14,20 @@ const translations = { es, en };
 const t = translations[lang];
 ---
 <Layout lang={lang} t={t}>
-
+  <section class="py-[155px] md:pt-[371px] md:pb-[250px] lg:py-0 3xl:pt-[371px] 3xl:pb-[250px] h-auto lg:h-[95vh] 3xl:h-auto flex flex-col justify-center items-center w-full relative overflow-hidden">
+    <img src={`/main/floors.webp`} alt="Fondos de Galeria" width="3072" height="4096" class="absolute inset-0 w-full h-full object-cover -z-20" loading="lazy" decoding="async"/>
+    <div class="absolute inset-0 bg-main/80 -z-10"></div>
+    <div class="flex flex-col justify-center items-center gap-2 md:gap-8 translate-y-[10%] lg:translate-y-[30%] 3xl:translate-y-0" data-aos-offset="300" data-aos="flip-down" >
+      <h1 class="text-[38px] md:text-[96px] font-semibold leading-[46px] md:leading-[96px] text-center text-white" set:html={t.gallery.title}></h1>
+      <img src="/line.png" alt="Flecha izquierda" width="1286" height="600"  class="w-[100px] md:w-[200px] h-auto ">
+    </div>
+  </section>
+  <section class="grid grid-cols-3 gap-[10px] max-w-screen lg:max-w-[1142px] py-10 md:py-[93px] w-full px-4 lg:px-0 justify-center items-center mx-auto" data-aos="zoom-in" data-aos-offset="200">
+    {t.gallery.items.map((item, index) => (
+        <div class="w-full h-[153px] sm:h-[350px] lg:h-[450px] rounded-[15px] relative overflow-hidden">
+          <img src={item} alt="Fotos de Galeria" width="3072" height="4096" class="absolute inset-0 w-full h-full object-cover " loading="lazy" decoding="async"/>
+        </div>
+      ))}
+  </section>
+  <Project content={t.gallery.project}/>
 </Layout>
