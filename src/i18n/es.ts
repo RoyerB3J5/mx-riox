@@ -24,24 +24,20 @@ export default {
     ],
     types: [
       {
-        title: 'Floors & Walls',
+        title: 'Pisos y Paredes',
         href: 'floors-walls',
       },
       {
-        title: 'Showers & Bathrooms',
+        title: 'Duchas y Baños',
         href: 'showers-bathrooms',
       },
       {
-        title: 'Fireplaces & Accents',
+        title: 'Chimeneas y Detalles',
         href: 'fireplaces-accents',
       },
       {
-        title: 'Repairs & Grout',
+        title: 'Reparaciones y Lechada',
         href: 'repairs-grout',
-      },
-      {
-        title: 'Demolition Services',
-        href: 'demolition',
       },
     ],
     button: 'Cotización',
@@ -109,10 +105,6 @@ export default {
         {
           title: 'Reparación de Juntas',
           image: 'grout',
-        },
-        {
-          title: 'Demolición',
-          image: 'demolition',
         },
         {
           title: 'Reparación de Azulejos',
@@ -204,11 +196,6 @@ export default {
           image: 'repairs',
           href: 'repairs-grout',
         },
-        {
-          title: 'Servicios de Demolición',
-          image: 'dem-services',
-          href: 'demolition',
-        },
       ],
     },
     completed: {
@@ -231,7 +218,7 @@ export default {
       ],
       name: 'CapiTile&Stone',
       description:
-        'Lavado profesional de casas, limpieza de techos, restauración de entradas y patios, y detallado móvil de autos. Limpiamos, protegemos y renovamos tu espacio.',
+        'Creamos instalaciones personalizadas de azulejos y piedra en Avondale, AZ con un detalle y una calidad incomparables.',
       buttonig: 'Síguenos en Instagram',
     },
     numbers: {
@@ -346,25 +333,6 @@ export default {
         '/main/patios.webp',
         '/main/shower.webp',
         '/main/fireplace.webp',
-      ],
-    },
-    demolition: {
-      image: 'dem-services',
-      title: 'Servicios de Demolición',
-      description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Servicios de demolición de superficies y azulejos en Avondale, Arizona</span> <br/> Antes de cualquier gran instalación de azulejos viene la retirada limpia y cuidadosa de lo antiguo. Capi Tile & Stone ofrece servicios profesionales de demolición para suelos, duchas, paredes, chimeneas y encimeras. <br/> <br/> Utilizamos las herramientas y técnicas adecuadas para minimizar el polvo y los daños, preparando tu espacio para su próxima transformación. Ya sea que reemplaces azulejos anticuados o empieces desde cero, nuestro equipo de demolición garantiza un inicio suave para tu proyecto de renovación. Con sede en Avondale, trabajamos en todo Arizona con propietarios y contratistas.",
-      project: {
-        title: '¿Listo para empezar tu proyecto de azulejos o piedra?',
-        description:
-          'En Capi Tile & Stone convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y mano de obra experta a tu hogar o negocio.',
-        button: 'Obtener una cotización gratuita',
-        image: 'bg-main.png',
-      },
-      carousel: [
-        '/main/grout.webp',
-        '/main/demolition.webp',
-        '/main/tile.webp',
-        '/main/floors.webp',
       ],
     },
   },
@@ -489,24 +457,20 @@ export default {
     ],
     types: [
       {
-        title: 'Floors & Walls',
+        title: 'Pisos y Paredes',
         href: 'floors-walls',
       },
       {
-        title: 'Showers & Bathrooms',
+        title: 'Duchas y Baños',
         href: 'showers-bathrooms',
       },
       {
-        title: 'Fireplaces & Accents',
+        title: 'Chimeneas y Detalles',
         href: 'fireplaces-accents',
       },
       {
-        title: 'Repairs & Grout',
+        title: 'Reparaciones y Lechada',
         href: 'repairs-grout',
-      },
-      {
-        title: 'Demolition Services',
-        href: 'demolition',
       },
     ],
   },

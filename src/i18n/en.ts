@@ -39,10 +39,6 @@ export default {
         title: 'Repairs & Grout',
         href: 'repairs-grout',
       },
-      {
-        title: 'Demolition Services',
-        href: 'demolition',
-      },
     ],
     button: 'Get Estimate',
     phone: 'CALL US',
@@ -108,10 +104,6 @@ export default {
         {
           title: 'Grout Repairs',
           image: 'grout',
-        },
-        {
-          title: 'Demolition',
-          image: 'demolition',
         },
         {
           title: 'Tile Repairs',
@@ -202,11 +194,6 @@ export default {
           image: 'repairs',
           href: 'repairs-grout',
         },
-        {
-          title: 'Demolition Services',
-          image: 'dem-services',
-          href: 'demolition',
-        },
       ],
     },
     completed: {
@@ -229,7 +216,7 @@ export default {
       ],
       name: 'CapiTile&Stone',
       description:
-        'Professional house washing, roof cleaning, driveway and patio restoration, and mobile car detailing. We clean, protect, and refresh your space.',
+        'We create custom tile and stone installations in Avondale, AZ with unmatched detail and quality.',
       buttonig: 'Follow on Instagram',
     },
     numbers: {
@@ -344,25 +331,6 @@ export default {
         '/main/patios.webp',
         '/main/shower.webp',
         '/main/fireplace.webp',
-      ],
-    },
-    demolition: {
-      image: 'dem-services',
-      title: 'Demolition Services',
-      description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Surface Demolition Services in Avondale, Arizona</span> <br/>Before any great tile installation comes the clean, careful removal of what's old. Capi Tile & Stone provides professional demolition services for floors, showers, walls, fireplaces, and countertops. <br/> <br/> We use the right tools and techniques to minimize dust and damage, preparing your space for its next transformation. Whether you’re replacing outdated tile or starting fresh, our demolition team ensures a smooth start to your renovation project. Based in Avondale, we work across Arizona with homeowners and contractors alike.",
-      project: {
-        title: 'Ready to Start Your Tile or Stone Project?',
-        description:
-          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
-        button: 'Get a Free Estimate',
-        image: 'bg-main.png',
-      },
-      carousel: [
-        '/main/grout.webp',
-        '/main/demolition.webp',
-        '/main/tile.webp',
-        '/main/floors.webp',
       ],
     },
   },
@@ -501,10 +469,6 @@ export default {
       {
         title: 'Repairs & Grout',
         href: 'repairs-grout',
-      },
-      {
-        title: 'Demolition Services',
-        href: 'demolition',
       },
     ],
   },

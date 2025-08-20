@@ -42,154 +42,71 @@ const { images, interval = 8000 } = Astro.props as Props;
   </div>
 </div>
 
-<script is:inline>
-  window.addEventListener('load', () => {
-    const carousel = document.querySelector('[data-interval]');
+<script is:inline defer>
+  window.addEventListener("load", () => {
+    const carousel = document.querySelector("[data-interval]");
     if (!carousel) return;
-    const track = carousel.querySelector('.slide-track');
-    const indicators = Array.from(carousel.querySelectorAll('.slide-indicators button'));
-    const intervalMs = parseInt(carousel.getAttribute('data-interval') || '0', 10) || 8000;
+    const track = carousel.querySelector(".slide-track");
+    const indicators = [...carousel.querySelectorAll(".slide-indicators button")];
+    const intervalMs = parseInt(carousel.dataset.interval || "8000", 10);
 
-    // Número real de slides (sin clones)
-    let slides = Array.from(track.children);
-    // Clonación para infinito...
+    let slides = [...track.children];
     const firstClone = slides[0].cloneNode(true);
-    const lastClone  = slides[slides.length - 1].cloneNode(true);
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, track.firstChild);
-    slides = Array.from(track.children); // ahora con clones
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    track.append(firstClone);
+    track.prepend(lastClone);
+    slides = [...track.children];
 
-    let currentIndex = 1;
-    let isTransitioning = false;
-    let autoSlide;
+    let currentIndex = 1, isTransitioning = false, autoSlide, isDragging = false, isInteracting = false;
 
-    function getSlideWidth() {
-      return slides[0].getBoundingClientRect().width;
-    }
-
-    function goTo(index, smooth = true) {
+    const getSlideWidth = () => slides[0].getBoundingClientRect().width;
+    const goTo = (i, smooth = true) => {
       if (isTransitioning && smooth) return;
-      track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
-      track.style.transform  = `translateX(-${getSlideWidth() * index}px)`;
-      currentIndex = index;
-      isTransitioning = smooth;
-    }
-
-    function updateIndicators() {
-      // Mapeamos currentIndex a un “slide real” 0..n‑1
+      track.style.transition = smooth ? "transform .5s ease-in-out" : "none";
+      track.style.transform = `translateX(-${getSlideWidth() * i}px)`;
+      currentIndex = i; isTransitioning = smooth;
+    };
+    const updateIndicators = () => {
       let realIndex = currentIndex - 1;
-      if (currentIndex === 0)           realIndex = slides.length - 3;
+      if (currentIndex === 0) realIndex = slides.length - 3;
       else if (currentIndex === slides.length - 1) realIndex = 0;
-      indicators.forEach((btn, i) =>
-        btn.classList.toggle('bg-secondary', i === realIndex)
-      );
-    }
+      indicators.forEach((b,i) => b.classList.toggle("bg-accent", i===realIndex));
+    };
 
-    // Ajusta al final de la transición para “loop infinito”
-    track.addEventListener('transitionend', () => {
-      if (slides[currentIndex] === firstClone)  goTo(1, false);
-      if (slides[currentIndex] === lastClone)   goTo(slides.length - 2, false);
-      isTransitioning = false;
-      updateIndicators();
+    track.addEventListener("transitionend", () => {
+      if (slides[currentIndex] === firstClone) goTo(1, false);
+      if (slides[currentIndex] === lastClone) goTo(slides.length - 2, false);
+      isTransitioning = false; updateIndicators();
     });
 
-    indicators.forEach(btn =>
-      btn.addEventListener('click', () => {
-        const idx = Number(btn.dataset.index) + 1;
-        goTo(idx);
-        resetAuto();
-      })
-    );
+    indicators.forEach(b => b.addEventListener("click", () => { goTo(+b.dataset.index+1); resetAuto(); }));
 
-    // Auto‑slide
-    function startAuto() { 
-      stopAuto(); // Asegurar que no hay múltiples timers
-      autoSlide = setInterval(() => {
-        if (!isDragging && !isTransitioning) { // Solo auto-cambiar si no hay interacción
-          goTo(currentIndex + 1);
-        }
-      }, intervalMs); 
-    }
-    function stopAuto()  { 
-      if (autoSlide) {
-        clearInterval(autoSlide); 
-        autoSlide = null;
+    let lastTime=0;
+    const loopAuto = t => {
+      if (!lastTime) lastTime = t;
+      if (t-lastTime >= intervalMs && !isDragging && !isTransitioning) {
+        goTo(currentIndex+1); lastTime = t;
       }
-    }
-    function resetAuto() { 
-      stopAuto(); 
-      setTimeout(() => {
-        startAuto(); // Pequeño delay para evitar cambios inmediatos
-      }, 100);
-    }
+      autoSlide=requestAnimationFrame(loopAuto);
+    };
+    const startAuto = ()=>{stopAuto();autoSlide=requestAnimationFrame(loopAuto);}
+    const stopAuto = ()=>{if(autoSlide)cancelAnimationFrame(autoSlide);}
+    const resetAuto = ()=>{stopAuto();setTimeout(startAuto,100);};
 
-    carousel.addEventListener('mouseenter', () => {
-      if (!isInteracting) stopAuto();
-    });
-    carousel.addEventListener('mouseleave', () => {
-      if (!isInteracting && !isDragging) resetAuto();
-    });
+    let startX=0, deltaX=0;
+    track.addEventListener("touchstart", e => {startX=e.touches[0].clientX;isInteracting=true;stopAuto();},{passive:true});
+    track.addEventListener("touchend", e => {deltaX=e.changedTouches[0].clientX-startX;isInteracting=false;
+      if(Math.abs(deltaX)>50) goTo(currentIndex+(deltaX<0?1:-1)); resetAuto();},{passive:true});
 
-    // Swipe touch y Mouse drag
-    let startX = 0, deltaX = 0;
-    let isDragging = false;
-    let isInteracting = false;
-    
-    // Touch events
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      isInteracting = true;
-      stopAuto();
-    });
-    track.addEventListener('touchend', e => {
-      deltaX = e.changedTouches[0].clientX - startX;
-      isInteracting = false;
-      
-      if (Math.abs(deltaX) > 50) {
-        const dir = deltaX < 0 ? 1 : -1;
-        goTo(currentIndex + dir * 1);
-      }
-      resetAuto();
+    track.addEventListener("mousedown", e => {startX=e.clientX;isDragging=true;isInteracting=true;stopAuto();e.preventDefault();});
+    document.addEventListener("mouseup", e => {
+      if(!isDragging)return; deltaX=e.clientX-startX;isDragging=false;isInteracting=false;
+      if(Math.abs(deltaX)>50) goTo(currentIndex+(deltaX<0?1:-1)); resetAuto();
     });
 
-    // Mouse drag events
-    track.addEventListener('mousedown', e => {
-      startX = e.clientX;
-      isDragging = true;
-      isInteracting = true;
-      stopAuto();
-      e.preventDefault();
-    });
+    const init=()=>{slides=[...track.children];goTo(1,false);updateIndicators();};
+    window.addEventListener("resize", init);
 
-    document.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      e.preventDefault();
-    });
-
-    document.addEventListener('mouseup', e => {
-      if (!isDragging) return;
-      
-      deltaX = e.clientX - startX;
-      isDragging = false;
-      isInteracting = false;
-      
-      if (Math.abs(deltaX) > 50) {
-        const dir = deltaX < 0 ? 1 : -1;
-        goTo(currentIndex + dir * 1);
-      }
-      resetAuto();
-    });
-
-    function init() {
-      slides = Array.from(track.children);
-      goTo(1, false);  
-      updateIndicators();
-    }
-    window.addEventListener('resize', () => {
-      init();
-    });
-
-    init();
-    startAuto();
+    init(); startAuto();
   });
 </script>

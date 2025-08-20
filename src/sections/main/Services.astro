@@ -20,14 +20,14 @@ const lang = match ? match[1] : 'en';
           href={`/${lang}/services/${item.href}`} 
           id={`col${index + 1}`}
           class={`group flex flex-col justify-center lg:justify-start items-center relative overflow-hidden h-[127px] lg:h-auto py-0 lg:py-[92px] min-h-none lg:min-h-[489px] px-10 md:px-9 transition‑all duration‑300 cursor-pointer transition-all  ${
-            index < 4 ? 'w-full md:w-[16.25%]' : 'w-full md:w-[35%]'
-          } ${item.image === 'floors' ? 'rounded-t-[15px] lg:rounded-l-[15px] lg:rounded-t-none' : ''} ${item.image === 'dem-services' ? 'rounded-b-[15px] lg:rounded-r-[15px] lg:rounded-bl-none' : ''}`}
+            index < 3 ? 'w-full md:w-[20%]' : 'w-full md:w-[40%]'
+          } ${item.image === 'floors' ? 'rounded-t-[15px] lg:rounded-l-[15px] lg:rounded-t-none' : ''} ${item.image === 'repairs' ? 'rounded-b-[15px] lg:rounded-r-[15px] lg:rounded-bl-none' : ''}`}
         >
             <img src={`/main/${item.image}.webp`} alt="Fondos de Galeria" width="3072" height="4096" class={`absolute inset-0 w-full h-full object-cover -z-20 ${item.image === 'accents' ? 'object-[75%_center]' : item.image === 'bathrooms' ? 'object-[20%_center]' : 'object-center'}`} loading="lazy" decoding="async"/>
             <div class="absolute inset-0 service-bg -z-10"></div>
             <div class="h-auto md:h-[143px] w-full flex justify-center items-center"> 
               <h3 class={`text-[20px] md:text-[24px] lg:text-[40px] font-semibold leading-[30px] text-center text-white transition-opacity duration-300 ${
-                index < 4 ? 'md:opacity-0 md:group-hover:opacity-100' : ''
+                index < 3 ? 'md:opacity-0 md:group-hover:opacity-100' : ''
               }`}>
                 {item.title}
               </h3>
@@ -40,21 +40,19 @@ const lang = match ? match[1] : 'en';
 <script is:inline>
 (() => {
   const container = document.getElementById('hover‑container');
-  const [c1, c2, c3,c4, c5] = [
+  const [c1, c2, c3,c4] = [
     document.getElementById('col1'),
     document.getElementById('col2'),
     document.getElementById('col3'),
-    document.getElementById('col4'),
-    document.getElementById('col5')
+    document.getElementById('col4')
   ];
 
   // función que resetea al estado inicial
   const reset = () => {
-    c1.style.width = '16.25%';
-    c2.style.width = '16.25%';
-    c3.style.width = '16.25%';
-    c4.style.width = '16.25%';
-    c5.style.width = '35%';
+    c1.style.width = '20%';
+    c2.style.width = '20%';
+    c3.style.width = '20%';
+    c4.style.width = '40%';
   };
 
   // media query para md (≥768px)
@@ -67,60 +65,46 @@ const lang = match ? match[1] : 'en';
     c2.replaceWith(c2.cloneNode(true));
     c3.replaceWith(c3.cloneNode(true));
     c4.replaceWith(c4.cloneNode(true));
-    c5.replaceWith(c5.cloneNode(true));
 
     // reobtenemos los nodos después del replace
-    const [nc1, nc2, nc3, nc4, nc5] = [
+    const [nc1, nc2, nc3, nc4] = [
       document.getElementById('col1'),
       document.getElementById('col2'),
       document.getElementById('col3'),
-      document.getElementById('col4'),
-      document.getElementById('col5')
+      document.getElementById('col4')
     ];
 
     if (mql.matches) {
       // solo en md+ aplicamos hover
       nc1.addEventListener('mouseenter', () => {
-        nc1.style.width = '25.625%';
-        nc2.style.width = '16.25%';
-        nc3.style.width = '16.25%';
-        nc4.style.width = '16.25%';
-        nc5.style.width = '25.625%';
+        nc1.style.width = '30%';
+        nc2.style.width = '20%';
+        nc3.style.width = '20%';
+        nc4.style.width = '30%';
       });
       nc2.addEventListener('mouseenter', () => {
-        nc1.style.width = '16.25%';
-        nc2.style.width = '25.625%';
-        nc3.style.width = '16.25%';
-        nc4.style.width = '16.25%';
-        nc5.style.width = '25.625%';
+        nc1.style.width = '20%';
+        nc2.style.width = '30%';
+        nc3.style.width = '20%';
+        nc4.style.width = '30%';
       });
       nc3.addEventListener('mouseenter', () => {
-        nc1.style.width = '16.25%';
-        nc2.style.width = '16.25%';
-        nc3.style.width = '25.625%';
-        nc4.style.width = '16.25%';
-        nc5.style.width = '25.625%';
+        nc1.style.width = '20%';
+        nc2.style.width = '20%';
+        nc3.style.width = '30%';
+        nc4.style.width = '30%';
       });
       nc4.addEventListener('mouseenter', () => {
-        nc1.style.width = '16.25%';
-        nc2.style.width = '16.25%';
-        nc3.style.width = '16.25%';
-        nc4.style.width = '25.625%';
-        nc5.style.width = '25.625%';
-      });
-      nc5.addEventListener('mouseenter', () => {
-        nc1.style.width = '16.25%';
-        nc2.style.width = '16.25%';
-        nc3.style.width = '16.25%';
-        nc4.style.width = '16.25%';
-        nc5.style.width = '35%';
+        nc1.style.width = '20%';
+        nc2.style.width = '20%';
+        nc3.style.width = '20%';
+        nc4.style.width = '40%';
       });
       container.addEventListener('mouseleave', () => {
-        nc1.style.width = '16.25%';
-        nc2.style.width = '16.25%';
-        nc3.style.width = '16.25%';
-        nc4.style.width = '16.25%';
-        nc5.style.width = '35%';
+        nc1.style.width = '20%';
+        nc2.style.width = '20%';
+        nc3.style.width = '20%';
+        nc4.style.width = '40%';
       });
       // y reseteamos para asegurar estado inicial
       reset();
@@ -130,7 +114,6 @@ const lang = match ? match[1] : 'en';
       nc2.style.width = '100%';
       nc3.style.width = '100%';
       nc4.style.width = '100%';
-      nc5.style.width = '100%';
     }
   };
 

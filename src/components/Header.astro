@@ -12,7 +12,7 @@ const { content } = Astro.props as Props;
 const icons = [
   {
     name: 'email',
-    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=info@jzpressurepros.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=capitileandstone@gmail.com',
     label: 'Enviar correo electrónico',
     ariaLabel: 'Contactar por correo electrónico',
   },
@@ -22,13 +22,13 @@ const icons = [
   },*/
   {
     name: 'instagram',
-    href: 'https://www.instagram.com/jzpressurepros/',
+    href: 'https://www.instagram.com/capitileandstone/',
     label: 'Instagram',
     ariaLabel: 'Visitar nuestro perfil de Instagram',
   },
   {
     name: 'facebook',
-    href: 'https://www.facebook.com/jzpressurepros',
+    href: 'https://www.facebook.com/capitileandstone#',
     label: 'Facebook',
     ariaLabel: 'Visitar nuestra página de Facebook',
   },
@@ -70,7 +70,7 @@ const lang = match ? match[1] : 'en';
   </div>
   <div class="bg-secondary w-[calc(100%-24px)] lg:w-full sm:max-w-[1223px] py-4 lg:min-h-[89px] flex justify-between items-center px-7 lg:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
     <a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
-      <img src="/logo-1.svg" alt="Logo de Capi Tile & Stone - Servicio de lavado a presión en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[44px] lg:h-[51px]">
+      <img src="/logo-1.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[44px] lg:h-[51px]">
     </a>
     
     <!-- Menú desktop (lg y arriba) -->
@@ -109,12 +109,12 @@ const lang = match ? match[1] : 'en';
         <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
           <p>{content?.phone}</p>
           <a 
-            href="tel:+14079173034 " 
+            href="tel:+16232979381" 
             class="hover:text-main transition-all duration-300 ease-in-out cursor-pointer"
-            aria-label="Llamar al teléfono +1 (407) 917-3034 "
+            aria-label="Llamar al teléfono +1 (623) 297-9381 "
             title="Llamar ahora"
           >
-            +1 (407) 917-3034 
+            +1 (623) 297-9381 
           </a>
         </div>
       </div>
@@ -151,6 +151,9 @@ const lang = match ? match[1] : 'en';
     role="button"
     tabindex="0"
   >
+  <a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone" class="mb-5">
+    <img src="/logo-1.svg" alt="Logo de Capi Tile & Stone -  en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[60px]">
+  </a>
   <nav class="relative flex items-center flex-col justify-center w-full gap-0">
     {
       content?.nav.map((item, index)=>{
@@ -159,12 +162,12 @@ const lang = match ? match[1] : 'en';
                         (index === 1 && normalized.startsWith('/services'));
         const isServices = index === 1;
         return(
-          <div class={`flex flex-col items-center justify-center gap-[14px] px-0 hover:text-main w-full pt-2 text-center ${isServices ? 'relative' : ''} ${isActive ? 'bg-main text-white' : ''}`} id={`mobile-services-${index}`}>
+          <div class={`flex flex-col items-center justify-center gap-[14px] px-0 hover:text-main w-full pt-2 text-center ${isServices ? 'relative' : ''} ${isActive ? 'bg-main text-white ' : ''}`} id={`mobile-services-${index}`}>
             <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
               <span class={`absolute bottom-0 left-0 h-[2px] bg-main transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0'}`} />
             </a>
             {isServices && (
-              <div class="flex-col justify-center items-center w-full bg-accent divide-y divide-white hidden" id="sub-menu-services">
+              <div class="flex-col justify-center items-center w-full bg-accent divide-y divide-white hidden absolute z-[10] top-0 translate-y-[60px]" id="sub-menu-services">
                 {content.types.map(sub => (
                   <a href={`/${lang}/services/${sub.href}`} class="text-[18px] font-semibold text-white py-3 transition-colors duration-300 ease-in-out cursor-pointer px-6 w-full text-center">{sub.title}</a>
                 ))}
@@ -183,12 +186,12 @@ const lang = match ? match[1] : 'en';
     <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
       <p>{content?.phone}</p>
       <a 
-        href="tel:+14079173034 " 
+        href="tel:+16232979381" 
         class="hover:text-main transition-all duration-300 ease-in-out cursor-pointer"
-        aria-label="Llamar al teléfono +1 (407) 917-3034"
+        aria-label="Llamar al teléfono +1 (623) 297-9381"
         title="Llamar ahora"
       >
-        +1 (407) 917-3034 
+        +1 (623) 297-9381 
       </a>
     </div>
   </div>
@@ -284,39 +287,49 @@ const lang = match ? match[1] : 'en';
   }
 
   function toggleSubMenu(event) {
-    if (isMobile()) {
-      const isSubMenuOpen = !subMenuServices.classList.contains('hidden');
-      
-      // Si el submenu está cerrado, prevenimos la navegación y lo abrimos
-      if (!isSubMenuOpen) {
-        event.preventDefault();
-        subMenuServices.classList.remove('hidden');
-        subMenuServices.classList.add('flex');
-      }
-      // Si el submenu está abierto, permitimos la navegación (no hacemos preventDefault)
-      // y cerramos el submenu después de un pequeño delay para permitir la navegación
-      else {
-        setTimeout(() => {
-          subMenuServices.classList.add('hidden');
-          subMenuServices.classList.remove('flex');
-        }, 100);
-      }
+    // Solo en móvil prestamos atención al toggle
+    if (!isMobile()) return;
+
+    // Seguridad: si no existe el subMenuServices, no hacemos nada
+    if (!subMenuServices) return;
+
+    const isSubMenuOpen = !subMenuServices.classList.contains('hidden');
+
+    // Si el submenu está cerrado, prevenimos la navegación y lo abrimos
+    if (!isSubMenuOpen) {
+      event.preventDefault();
+      subMenuServices.classList.remove('hidden');
+      subMenuServices.classList.add('flex');
+    }
+    // Si el submenu está abierto y se presiona de nuevo, cerramos el submenu
+    // y evitamos la navegación para que el click solo actúe como toggle
+    else {
+      event.preventDefault();
+      subMenuServices.classList.add('hidden');
+      subMenuServices.classList.remove('flex');
     }
   }
 
   openBtn.addEventListener('click', openMenu);
   closeBtn.addEventListener('click', closeMenu);
   
-  // Agregar event listener al enlace dentro del div services-1 (desktop)
-  const servicesLink = servicesDiv?.querySelector('a');
-  if (servicesLink) {
-    servicesLink.addEventListener('click', toggleSubMenu);
+  // Agregar event listener al div padre para que al pulsar el div (no solo el <a>) se active el toggle
+  if (servicesDiv) {
+    servicesDiv.addEventListener('click', (e) => {
+      // Solo actuamos en móvil
+      if (!isMobile()) return;
+      // Ignorar clicks que vayan dirigidos al propio sub-menu (navegación de items)
+      if (e.target.closest('#sub-menu-services')) return;
+      toggleSubMenu(e);
+    });
   }
 
-  // Agregar event listener al enlace dentro del div mobile-services-1 (móvil)
-  const mobileServicesLink = mobileServicesDiv?.querySelector('a');
-  if (mobileServicesLink) {
-    mobileServicesLink.addEventListener('click', toggleSubMenu);
+  if (mobileServicesDiv) {
+    mobileServicesDiv.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      if (e.target.closest('#sub-menu-services')) return;
+      toggleSubMenu(e);
+    });
   }
 
   // Asegurar estado inicial según tamaño

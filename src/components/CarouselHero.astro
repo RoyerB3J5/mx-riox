@@ -60,121 +60,115 @@ const { images, interval = 8000 } = Astro.props as Props;
 </div>
 
 <script is:inline>
-  window.addEventListener('load', () => {
-    const carousel = document.querySelector('.hero-carousel[data-interval]');
-    if (!carousel) return;
-    const track = carousel.querySelector('.hero-carousel-track');
-    const prevBtn = carousel.querySelector('.hero-carousel-prev');
-    const nextBtn = carousel.querySelector('.hero-carousel-next');
-    const indicators = Array.from(carousel.querySelectorAll('.hero-carousel-indicators button'));
-    const intervalMs = parseInt(carousel.getAttribute('data-interval') || '0', 10) || 5000;
+  (function () {
+    if (typeof window === 'undefined') return;
 
-    // Número real de slides (sin clones)
-    let slides = Array.from(track.children);
-    // Clonación para infinito...
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone  = slides[slides.length - 1].cloneNode(true);
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, track.firstChild);
-    slides = Array.from(track.children); // ahora con clones
+    const debounce = (fn, ms = 100) => {
+      let t;
+      return (...a) => { clearTimeout(t); t = setTimeout(() => fn.apply(this, a), ms); };
+    };
 
-    let currentIndex = 1;
-    let isTransitioning = false;
-    let autoSlide;
+    function initCarousel(carousel) {
+      if (!carousel || carousel.dataset.inited) return;
+      carousel.dataset.inited = '1';
 
-    // Calcula cuántos items desplazar por “página”
-    function getPerPage() {
-      const w = window.innerWidth;
-      if (w >= 1024) return 3;     // lg y mayores → 3 imágenes
-      if (w >= 768) return 2;      // md hasta <lg → 2 imágenes
-      return 1;                    // móviles → 1 imagen
+      const track = carousel.querySelector('.hero-carousel-track');
+      const prevBtn = carousel.querySelector('.hero-carousel-prev');
+      const nextBtn = carousel.querySelector('.hero-carousel-next');
+      const indicators = Array.from(carousel.querySelectorAll('.hero-carousel-indicators button'));
+      const intervalMs = parseInt(carousel.getAttribute('data-interval') || '0', 10) || 5000;
+
+      // Número real de slides (sin clones)
+      let slides = Array.from(track.children);
+
+      // Heavy setup (clones/listeners) deferred to idle to avoid blocking main load
+      const setup = () => {
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone  = slides[slides.length - 1].cloneNode(true);
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, track.firstChild);
+        slides = Array.from(track.children); // ahora con clones
+
+        let currentIndex = 1;
+        let isTransitioning = false;
+        let autoSlide;
+
+        function getPerPage() {
+          const w = window.innerWidth;
+          if (w >= 1024) return 3;
+          if (w >= 768) return 2;
+          return 1;
+        }
+
+        function getSlideWidth() {
+          return slides[0].getBoundingClientRect().width;
+        }
+
+        function goTo(index, smooth = true) {
+          if (isTransitioning && smooth) return;
+          track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
+          track.style.transform  = `translateX(-${getSlideWidth() * index}px)`;
+          currentIndex = index;
+          isTransitioning = smooth;
+        }
+
+        function updateIndicators() {
+          let realIndex = currentIndex - 1;
+          if (currentIndex === 0) realIndex = slides.length - 3;
+          else if (currentIndex === slides.length - 1) realIndex = 0;
+          indicators.forEach((btn, i) => btn.classList.toggle('bg-accent', i === realIndex));
+        }
+
+        track.addEventListener('transitionend', () => {
+          if (slides[currentIndex] === firstClone)  goTo(1, false);
+          if (slides[currentIndex] === lastClone)   goTo(slides.length - 2, false);
+          isTransitioning = false;
+          updateIndicators();
+        });
+
+        prevBtn?.addEventListener('click', () => { goTo(currentIndex - getPerPage()); resetAuto(); });
+        nextBtn?.addEventListener('click', () => { goTo(currentIndex + getPerPage()); resetAuto(); });
+
+        indicators.forEach(btn => btn.addEventListener('click', () => { const idx = Number(btn.dataset.index) + 1; goTo(idx); resetAuto(); }));
+
+        function startAuto() { autoSlide = setInterval(() => goTo(currentIndex + getPerPage()), intervalMs); }
+        function stopAuto() { clearInterval(autoSlide); }
+        function resetAuto() { stopAuto(); startAuto(); }
+
+        carousel.addEventListener('mouseenter', stopAuto, { passive: true });
+        carousel.addEventListener('mouseleave', startAuto, { passive: true });
+
+        let startX = 0, deltaX = 0;
+        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+        track.addEventListener('touchend', e => { deltaX = e.changedTouches[0].clientX - startX; if (Math.abs(deltaX) > 50) { const dir = deltaX < 0 ? 1 : -1; goTo(currentIndex + dir * getPerPage()); } resetAuto(); }, { passive: true });
+
+        function init() { slides = Array.from(track.children); goTo(1, false); updateIndicators(); }
+        window.addEventListener('resize', debounce(() => init(), 120));
+
+        init();
+        startAuto();
+      };
+
+      if ('requestIdleCallback' in window) requestIdleCallback(setup, { timeout: 1500 });
+      else setTimeout(setup, 600);
     }
 
-    function getSlideWidth() {
-      return slides[0].getBoundingClientRect().width;
+    // Observe carousels and init when visible
+    const carousels = Array.from(document.querySelectorAll('.hero-carousel[data-interval]'));
+    if (carousels.length === 0) return;
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            initCarousel(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '400px' });
+      carousels.forEach(c => io.observe(c));
+    } else {
+      carousels.forEach(c => initCarousel(c));
     }
-
-    function goTo(index, smooth = true) {
-      if (isTransitioning && smooth) return;
-      track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
-      track.style.transform  = `translateX(-${getSlideWidth() * index}px)`;
-      currentIndex = index;
-      isTransitioning = smooth;
-    }
-
-    function updateIndicators() {
-      // Mapeamos currentIndex a un “slide real” 0..n‑1
-      let realIndex = currentIndex - 1;
-      if (currentIndex === 0)           realIndex = slides.length - 3;
-      else if (currentIndex === slides.length - 1) realIndex = 0;
-      indicators.forEach((btn, i) =>
-        btn.classList.toggle('bg-secondary', i === realIndex)
-      );
-    }
-
-    // Ajusta al final de la transición para “loop infinito”
-    track.addEventListener('transitionend', () => {
-      if (slides[currentIndex] === firstClone)  goTo(1, false);
-      if (slides[currentIndex] === lastClone)   goTo(slides.length - 2, false);
-      isTransitioning = false;
-      updateIndicators();
-    });
-
-    // Prev / Next: utilizamos getPerPage()
-    prevBtn?.addEventListener('click', () => {
-      goTo(currentIndex - getPerPage());
-      resetAuto();
-    });
-    nextBtn?.addEventListener('click', () => {
-      goTo(currentIndex + getPerPage());
-      resetAuto();
-    });
-
-    // Indicadores móviles (único ítem a la vez)
-    indicators.forEach(btn =>
-      btn.addEventListener('click', () => {
-        const idx = Number(btn.dataset.index) + 1;
-        goTo(idx);
-        resetAuto();
-      })
-    );
-
-    // Auto‑slide
-    function startAuto() { autoSlide = setInterval(() => {
-      goTo(currentIndex + getPerPage());
-    }, intervalMs); }
-    function stopAuto()  { clearInterval(autoSlide); }
-    function resetAuto() { stopAuto(); startAuto(); }
-
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-
-    // Swipe touch
-    let startX = 0, deltaX = 0;
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      stopAuto();
-    });
-    track.addEventListener('touchend', e => {
-      deltaX = e.changedTouches[0].clientX - startX;
-      if (Math.abs(deltaX) > 50) {
-        const dir = deltaX < 0 ? 1 : -1;
-        goTo(currentIndex + dir * getPerPage());
-      }
-      resetAuto();
-    });
-
-    // Reposicionar en carga y en resize (por si cambia getPerPage o ancho)
-    function init() {
-      slides = Array.from(track.children);
-      goTo(1, false);  
-      updateIndicators();
-    }
-    window.addEventListener('resize', () => {
-      init();
-    });
-
-    init();
-    startAuto();
-  });
+  })();
 </script>

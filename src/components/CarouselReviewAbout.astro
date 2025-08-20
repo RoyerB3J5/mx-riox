@@ -57,200 +57,81 @@ const { interval = 8000 } = Astro.props as Props;
   </div>
 </div>
 
-<script is:inline>
-  window.addEventListener('load', () => {
-    const carousel = document.querySelector('[data-interval]');
+<script is:inline defer>
+  window.addEventListener("load", () => {
+    const carousel = document.querySelector("[data-interval]");
     if (!carousel) return;
-    
-    const track = document.getElementById('carousel-track');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
-    const indicators = Array.from(document.querySelectorAll('#carousel-indicators button'));
-    const intervalMs = parseInt(carousel.getAttribute('data-interval') || '8000', 10);
 
-    // Número real de slides (sin clones)
-    let slides = Array.from(track.children);
-    
-    // Clonación para infinito - necesitamos más clones para desktop
+    const track = document.getElementById("carousel-track");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const indicators = [...document.querySelectorAll("#carousel-indicators button")];
+    const intervalMs = parseInt(carousel.dataset.interval || "8000", 10);
+
+    // Slides originales y clones
+    let slides = [...track.children];
     const originalSlides = [...slides];
-    
-    // Agregar clones al final
-    originalSlides.forEach(slide => {
-      const clone = slide.cloneNode(true);
-      track.appendChild(clone);
-    });
-    
-    // Agregar clones al inicio
-    originalSlides.reverse().forEach(slide => {
-      const clone = slide.cloneNode(true);
-      track.insertBefore(clone, track.firstChild);
-    });
-    
-    slides = Array.from(track.children); // ahora con clones
-    let currentIndex = originalSlides.length; // empezar en las imágenes originales
-    let isTransitioning = false;
-    let autoSlide;
+    originalSlides.forEach(s => track.append(s.cloneNode(true)));
+    [...originalSlides].reverse().forEach(s => track.prepend(s.cloneNode(true)));
+    slides = [...track.children];
 
-    // Siempre mover de uno en uno (no por páginas como CarouselHero)
-    function getPerPage() {
-      return 1; // Siempre avanzar de uno en uno
-    }
+    const originalCount = originalSlides.length;
+    let currentIndex = originalCount;
+    let isTransitioning = false, autoSlide, startX = 0, deltaX = 0;
 
-    function getSlideWidth() {
-      return slides[0].getBoundingClientRect().width;
-    }
-
-    function goTo(index, smooth = true) {
+    const getSlideWidth = () => slides[0].getBoundingClientRect().width;
+    const goTo = (i, smooth = true) => {
       if (isTransitioning && smooth) return;
-      track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
-      track.style.transform = `translateX(-${getSlideWidth() * index}px)`;
-      currentIndex = index;
-      isTransitioning = smooth;
-    }
-
-    function updateIndicators() {
-      // Calcular el índice real basado en las 4 imágenes originales
-      const originalCount = 4;
+      track.style.transition = smooth ? "transform .5s ease-in-out" : "none";
+      track.style.transform = `translateX(-${getSlideWidth() * i}px)`;
+      currentIndex = i; isTransitioning = smooth;
+    };
+    const updateIndicators = () => {
       let realIndex = (currentIndex - originalCount) % originalCount;
       if (realIndex < 0) realIndex += originalCount;
-      
-      indicators.forEach((btn, i) => {
-        if (i === realIndex) {
-          btn.classList.remove('bg-[#D9D9D9]');
-          btn.classList.add('bg-secondary');
-        } else {
-          btn.classList.remove('bg-secondary');
-          btn.classList.add('bg-[#D9D9D9]');
-        }
-      });
-    }
+      indicators.forEach((btn,i)=>btn.classList.toggle("bg-accent", i===realIndex));
+    };
 
-    // Ajusta al final de la transición para "loop infinito"
-    track.addEventListener('transitionend', () => {
-      const originalCount = 4;
-      
-      // Si estamos muy al final, saltar al inicio de las imágenes originales
-      if (currentIndex >= slides.length - originalCount) {
-        currentIndex = originalCount;
-        goTo(currentIndex, false);
-      }
-      
-      // Si estamos muy al inicio, saltar al final de las imágenes originales  
-      if (currentIndex < originalCount) {
-        currentIndex = slides.length - originalCount - 1;
-        goTo(currentIndex, false);
-      }
-      
-      isTransitioning = false;
-      updateIndicators();
+    track.addEventListener("transitionend", () => {
+      if (currentIndex >= slides.length - originalCount) goTo(originalCount,false);
+      if (currentIndex < originalCount) goTo(slides.length-originalCount-1,false);
+      isTransitioning=false; updateIndicators();
     });
 
-    // Prev / Next: siempre de uno en uno
-    prevBtn?.addEventListener('click', () => {
-      goTo(currentIndex - getPerPage());
-      resetAuto();
-    });
-    
-    nextBtn?.addEventListener('click', () => {
-      goTo(currentIndex + getPerPage());
-      resetAuto();
-    });
-
-    // Indicadores móviles
+    prevBtn?.addEventListener("click", () => { goTo(currentIndex-1); resetAuto(); });
+    nextBtn?.addEventListener("click", () => { goTo(currentIndex+1); resetAuto(); });
     indicators.forEach(btn =>
-      btn.addEventListener('click', () => {
-        const idx = Number(btn.dataset.index);
-        const originalCount = 4;
-        currentIndex = originalCount + idx; // ir al slide específico en la sección original
-        goTo(currentIndex);
-        resetAuto();
-      })
+      btn.addEventListener("click", () => { goTo(originalCount+Number(btn.dataset.index)); resetAuto(); })
     );
 
-    // Auto-slide
-    function startAuto() { 
-      autoSlide = setInterval(() => {
-        goTo(currentIndex + getPerPage());
-      }, intervalMs); 
-    }
-    
-    function stopAuto() { 
-      clearInterval(autoSlide); 
-    }
-    
-    function resetAuto() { 
-      stopAuto(); 
-      startAuto(); 
-    }
+    // Auto-slide optimizado con rAF
+    let lastTime=0;
+    const loopAuto = t => {
+      if (!lastTime) lastTime=t;
+      if (t-lastTime >= intervalMs && !isTransitioning) {
+        goTo(currentIndex+1); lastTime=t;
+      }
+      autoSlide=requestAnimationFrame(loopAuto);
+    };
+    const startAuto=()=>{stopAuto();autoSlide=requestAnimationFrame(loopAuto);}
+    const stopAuto=()=>{if(autoSlide)cancelAnimationFrame(autoSlide);}
+    const resetAuto=()=>{stopAuto();setTimeout(startAuto,100);};
 
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener("mouseenter", stopAuto);
+    carousel.addEventListener("mouseleave", startAuto);
 
     // Swipe touch
-    let startX = 0, deltaX = 0;
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      stopAuto();
-    });
-    
-    track.addEventListener('touchend', e => {
-      deltaX = e.changedTouches[0].clientX - startX;
-      if (Math.abs(deltaX) > 50) {
-        const dir = deltaX < 0 ? 1 : -1;
-        goTo(currentIndex + dir * getPerPage());
-      }
+    track.addEventListener("touchstart", e => { startX=e.touches[0].clientX; stopAuto(); }, {passive:true});
+    track.addEventListener("touchend", e => {
+      deltaX=e.changedTouches[0].clientX-startX;
+      if (Math.abs(deltaX)>50) goTo(currentIndex+(deltaX<0?1:-1));
       resetAuto();
-    });
+    }, {passive:true});
 
-    // Reposicionar en carga y en resize
-    function init() {
-      // Esperar a que las imágenes se carguen antes de calcular
-      const images = track.querySelectorAll('img');
-      let loadedImages = 0;
-      const originalCount = 4;
-      
-      function checkAllImagesLoaded() {
-        loadedImages++;
-        if (loadedImages === images.length) {
-          slides = Array.from(track.children);
-          currentIndex = originalCount; // empezar en las imágenes originales
-          goTo(currentIndex, false);
-          updateIndicators();
-        }
-      }
-      
-      // Si las imágenes ya están cargadas
-      if (images[0] && images[0].complete) {
-        slides = Array.from(track.children);
-        currentIndex = originalCount;
-        goTo(currentIndex, false);
-        updateIndicators();
-      } else {
-        // Esperar a que todas las imágenes se carguen
-        images.forEach(img => {
-          if (img.complete) {
-            checkAllImagesLoaded();
-          } else {
-            img.addEventListener('load', checkAllImagesLoaded);
-            img.addEventListener('error', checkAllImagesLoaded);
-          }
-        });
-      }
-    }
-    
-    window.addEventListener('resize', () => {
-      // En resize, recalcular inmediatamente
-      setTimeout(() => {
-        goTo(currentIndex, false);
-        updateIndicators();
-      }, 100);
-    });
+    // Init + resize
+    const init=()=>{slides=[...track.children];goTo(originalCount,false);updateIndicators();};
+    window.addEventListener("resize",()=>setTimeout(()=>goTo(currentIndex,false),100));
 
-    init();
-    
-    // Iniciar auto-slide después de un pequeño delay para asegurar que todo esté listo
-    setTimeout(() => {
-      startAuto();
-    }, 100);
+    init(); startAuto();
   });
 </script>

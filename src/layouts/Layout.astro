@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import Chatbot from '../components/Chatbot.astro';
 
 type Translations = typeof import('../i18n/en').default;
 
@@ -31,7 +32,12 @@ const { lang, t } = Astro.props;
         visibility: visible;
       }
     </style>
-	
+		<!-- Preconnect para DNS lookup temprano -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Preconnect para widget de chat - optimización de terceros -->
+		<link rel="preconnect" href="https://widgets.leadconnectorhq.com">
+		<link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com">
 		<!-- Load Google Fonts de forma ultra-optimizada -->
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300..700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300..700&display=swap"></noscript>
@@ -44,6 +50,7 @@ const { lang, t } = Astro.props;
 		<main class='flex flex-col w-full items-center'>
 			<slot />
 		</main>
+		<Chatbot />
 		<Footer content={t?.footer}/>
 		
 		<script>
@@ -92,3 +99,93 @@ const { lang, t } = Astro.props;
 		</script>
 	</body>
 </html>
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+		// Observe the visible wrapper elements (form-container) because iframes may be display:none
+		const wrappers = Array.from(document.querySelectorAll('.form-container')).filter(w => w.querySelector('iframe[data-src]'));
+	const EMBED_SRC = "https://link.capitileandstone.com/js/form_embed.js";
+	const FALLBACK_MS = 10000; // 10s fallback
+
+	function ensureEmbedScript() {
+		if (document.querySelector("script[data-form-embed]")) return;
+		const s = document.createElement('script');
+		s.src = EMBED_SRC;
+		s.async = true;
+		s.dataset.formEmbed = 'true';
+		document.body.appendChild(s);
+	}
+
+	function loadForm(iframe) {
+		if (!iframe || iframe.dataset.loaded) return;
+		const dataSrc = iframe.dataset && iframe.dataset.src;
+		if (!dataSrc) return;
+
+		// Show placeholder if present
+		const wrapper = iframe.closest('.form-container') || iframe.parentElement;
+		const placeholder = wrapper ? wrapper.querySelector('.form-placeholder') : null;
+		if (placeholder) placeholder.style.display = 'flex';
+
+		// Ensure iframe is not display:none (some browsers delay load when display:none)
+		try { iframe.style.display = 'block'; } catch (e) {}
+
+		// Use visibility/opacity to animate in once loaded
+		iframe.style.visibility = 'hidden';
+		iframe.style.opacity = '0';
+
+		// fallback: if onload doesn't fire, show iframe after timeout
+			let fallback = setTimeout(() => {
+				if (placeholder) placeholder.style.display = 'none';
+				try { iframe.style.display = ''; } catch (e) {}
+				iframe.style.visibility = '';
+				iframe.style.opacity = '1';
+				iframe.dataset.loaded = '1';
+			}, FALLBACK_MS);
+
+		iframe.onload = function () {
+			clearTimeout(fallback);
+			if (placeholder) placeholder.style.display = 'none';
+			try { iframe.style.display = ''; } catch (e) {}
+			iframe.style.visibility = '';
+			iframe.style.opacity = '1';
+			iframe.dataset.loaded = '1';
+			// adjust height if provided
+			const h = iframe.getAttribute('data-height');
+			if (h) iframe.style.height = h + 'px';
+		};
+
+		// assign src to start loading
+		try {
+			iframe.src = dataSrc;
+		} catch (e) {
+			clearTimeout(fallback);
+		}
+
+		// Load embed library once the iframe starts loading
+		ensureEmbedScript();
+	}
+
+		if (wrappers.length === 0) return;
+
+		if ('IntersectionObserver' in window) {
+			const io = new IntersectionObserver((entries, obs) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const iframe = entry.target.querySelector('iframe[data-src]');
+						if (iframe) loadForm(iframe);
+						obs.unobserve(entry.target);
+					}
+				});
+			}, { rootMargin: '200px' });
+
+			wrappers.forEach(w => io.observe(w));
+		} else {
+			// Fallback: try load after short delay to avoid blocking initial paint
+			setTimeout(() => {
+				wrappers.forEach(w => {
+					const iframe = w.querySelector('iframe[data-src]');
+					if (iframe) loadForm(iframe);
+				});
+			}, 300);
+		}
+});
+</script>

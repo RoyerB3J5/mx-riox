@@ -1,6 +1,4 @@
 ---
-import Button from '../../components/Button.astro';
-
 type Translations = typeof import('../../i18n/es').default;
 type CatalogContent = Translations['main']['catalog'];
 interface Props {
@@ -17,7 +15,7 @@ const { content } = Astro.props as Props;
     </button>
   </div>
   <div class=" w-full md:w-[550px] h-[193px] md:h-[316px] rounded-[15px] overflow-hidden ">
-    <img src="/main/catalog.webp" alt="Catalog Pressure Pros" width="1531" height="880" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+    <img src="/main/catalog.webp" alt="Catalog CapiTile & Stone" width="1531" height="880" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
   </div>
  
 </section>
@@ -25,24 +23,30 @@ const { content } = Astro.props as Props;
     <div class="relative z-60 w-full h-auto flex justify-center items-center ">
       <div class="rounded-[15px] px-4 md:px-10 bg-white border-2 border-secondary w-[90%] md:w-[500px] lg:w-[700px] h-auto relative z-70 overflow-y-auto max-h-[calc(100vh-40px)]">
         <img src="/equis-two.svg" alt="Cerrar imagen" class="absolute top-4 right-4 cursor-pointer w-4 h-4 z-[60]" id="closeCatalogModal">
-        <iframe
-          src="https://link.capitileandstone.com/widget/form/1E0FDxveUKim8p69ZNnR"
-          style="width:100%;height:100%;border:none;border-radius:3px"
-          id="inline-1E0FDxveUKim8p69ZNnR" 
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Form Catalogo"
-          data-height="595"
-          data-layout-iframe-id="inline-1E0FDxveUKim8p69ZNnR"
-          data-form-id="1E0FDxveUKim8p69ZNnR"
-          title="Form Catalogo">
-        </iframe>
-        <script src="https://link.capitileandstone.com/js/form_embed.js"></script>
+        <div class="form-container" id="form-1E0FDxveUKim8p69ZNnR-wrapper" style="min-height:120px;">
+          <div class="form-placeholder" style="display:flex;align-items:center;justify-content:center;">
+            <small>Cargando formulario…</small>
+          </div>
+          <iframe
+            data-src="https://link.capitileandstone.com/widget/form/1E0FDxveUKim8p69ZNnR"
+            style="width:100%;height:100%;border:none;border-radius:3px;display:none;"
+            id="inline-1E0FDxveUKim8p69ZNnR" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Form Catalogo"
+            data-height="595"
+            data-layout-iframe-id="inline-1E0FDxveUKim8p69ZNnR"
+            data-form-id="1E0FDxveUKim8p69ZNnR"
+            title="Form Catalogo" 
+            loading="lazy"
+            sandbox="allow-forms allow-scripts allow-popups allow-same-origin">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>

@@ -29,24 +29,26 @@ const { content } = Astro.props as Props;
   <div class="relative z-60 w-full h-auto flex justify-center items-center">
     <div class="rounded-[15px] px-4 md:px-10 bg-white border-2 border-secondary w-[90%] md:w-[500px] lg:w-[700px] h-auto relative z-70 overflow-y-auto max-h-[calc(100vh-40px)]">
       <img src="/equis-two.svg" alt="Cerrar imagen" class="absolute top-4 right-4 cursor-pointer w-4 h-4 z-[80]" id="closeReferralModal">
-      <iframe
-        src="https://link.capitileandstone.com/widget/form/9opN7aoTctTXeRg4o4ZD"
-        style="width:100%;height:100%;border:none;border-radius:3px"
-        id="inline-9opN7aoTctTXeRg4o4ZD" 
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Form Referral Submission"
-        data-height="585"
-        data-layout-iframe-id="inline-9opN7aoTctTXeRg4o4ZD"
-        data-form-id="9opN7aoTctTXeRg4o4ZD"
-        title="Form Referral Submission">
-      </iframe>
-      <script src="https://link.capitileandstone.com/js/form_embed.js"></script>
+      <div class="form-container" id="form-9opN7aoTctTXeRg4o4ZD-wrapper" style="min-height: 120px;">
+        <div class="form-placeholder" style="display:flex;align-items:center;justify-content:center;">
+          <small>Cargando formulario…</small>
+        </div>
+        <iframe
+          id="inline-9opN7aoTctTXeRg4o4ZD"
+          data-src="https://link.capitileandstone.com/widget/form/9opN7aoTctTXeRg4o4ZD"
+          style="width:100%;height:100%;border:none;border-radius:3px" 
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-activation-type="alwaysActivated"
+          data-deactivation-type="neverDeactivate"
+          data-form-name="Form Referral Submission"
+          data-layout-iframe-id="inline-9opN7aoTctTXeRg4o4ZD"
+          data-form-id="9opN7aoTctTXeRg4o4ZD"
+          title="Form Referral Submission"
+          loading="lazy"
+          sandbox="allow-forms allow-scripts allow-popups allow-same-origin">
+        </iframe>
+      </div>
     </div>
   </div>
 </section>
