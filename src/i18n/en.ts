@@ -65,7 +65,7 @@ export default {
         {
           title: 'Local Trust',
           description:
-            'Avondale-based service known for professionalism, respect and timely delivery.',
+            'Avondale based service known for professionalism, respect, and timely delivery.',
           icon: 'trust',
         },
       ],
@@ -84,7 +84,8 @@ export default {
       years: 'YEARS OF  EXPERIENCE',
     },
     solutions: {
-      description: 'Professional Tile & Stone Services in Avondale, Arizona',
+      description:
+        'Professional Tile & Stone Services in Scottsdale, Paradise Valley, and Surrounding Areas of Arizona',
       title:
         'Custom installations with precision, experience and quality materials.',
       text: 'At Capi Tile & Stone, we offer expert tile and stone installation services tailored to your project. With over 23 years of experience serving homeowners and contractors in Avondale and throughout Arizona, we deliver clean, lasting results with unmatched attention to detail.',
@@ -130,7 +131,7 @@ export default {
           },
           {
             step: 'STEP 02',
-            title: 'On-Site Visit',
+            title: 'On Site Visit',
             icon: 'consultation2',
             description:
               'We visit your space to evaluate the details and materials needed.',
@@ -161,7 +162,7 @@ export default {
       rendering: {
         title:
           "Need Expert Advice <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[26px] lg:leading-[58px] text-main'>Before You Start?</span>",
-        text: 'We don’t believe in cookie-cutter estimates. Every project is different. That’s why we visit your space first—to understand the layout, materials and custom details you need before sending a quote.',
+        text: 'We don’t believe in generic estimates. Every project is different. That’s why we visit your space first to understand the layout, materials, and custom details you need before sending a quote.',
         button: 'GET AN ESTIMATE',
       },
       design: {
@@ -251,7 +252,7 @@ export default {
     project: {
       title: 'Ready to Start Your Tile or Stone Project?',
       description:
-        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+        'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
       button: 'Get a Free Estimate',
       image: 'bg-main.png',
     },
@@ -261,11 +262,11 @@ export default {
       image: 'floors',
       title: 'Floors & <br/>Walls',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile Flooring and Wall Installation in Avondale, Arizona</span> <br/> At Capi Tile & Stone, we specialize in the installation of high-quality tile floors and walls that enhance the beauty, durability, and value of your space. Whether you're remodeling your home, upgrading a commercial space, or starting from scratch, we handle ceramic, porcelain, granite, marble, travertine, slate, saltillo, and even glass tile with precision and expert craftsmanship. <br/> <br/>We proudly serve Avondale and surrounding areas in Arizona, delivering long-lasting results with a clean, detail-focused approach. Every line, corner and transition matters—your floor and walls deserve expert installation that stands the test of time.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile Flooring and Wall Installation in Avondale, Arizona</span> <br/> At Capi Tile & Stone, we specialize in premium tile and stone installations that elevate the beauty, durability, and value of your space. Whether you are remodeling your home, upgrading a commercial property, or starting from scratch, our team works with ceramic, porcelain, granite, marble, travertine, slate, saltillo, and glass tile with precision and expert craftsmanship. <br/> <br/>We proudly serve Avondale and the surrounding areas of Arizona, delivering long-lasting results with a clean, detail-oriented approach. Every line, corner, and transition matters. Your floors and walls deserve expert installation that not only looks flawless but also stands the test of time.",
       project: {
         title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
         image: 'bg-main.png',
       },
@@ -280,11 +281,11 @@ export default {
       image: 'bathrooms',
       title: 'Showers & <br/> Bathrooms',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Custom Shower and Bathroom Tile Installation in Avondale, Arizona</span> <br/> We design and install custom tile showers and bathroom walls with durability, safety, and visual appeal in mind. At Capi Tile & Stone, we build steam showers, bathtub enclosures, standard tile showers and full bathroom tile installations, always tailored to your specific layout and preferences. <br/> <br/> From waterproofing and prep to tile cuts and final sealing, we take care of every detail. Based in Avondale, Arizona, we’re trusted by homeowners who want expert-level finishes and bathrooms built to last. If you're ready to upgrade your space, we’re ready to help.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Custom Shower and Bathroom Tile Installation in Avondale, Arizona</span> <br/>We design and install custom tile showers and bathroom walls with a focus on durability, safety, and visual appeal. At Capi Tile & Stone, our work includes steam showers, bathtub surrounds, classic tile showers, and complete bathroom tile installations. Everything is fully customized to match your layout and personal preferences. <br/> <br/> From surface preparation and waterproofing to precision tile cuts and clean finishing, we handle every step with care. Based in Avondale, Arizona, we are trusted by homeowners who value expert craftsmanship and lasting results. If you're ready to transform your bathroom, we're ready to bring your vision to life.",
       project: {
         title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
         image: 'bg-main.png',
       },
@@ -299,11 +300,11 @@ export default {
       image: 'accents',
       title: 'Fireplaces & Accents',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Fireplace Tile Installation and Stone Accents in Avondale, Arizona</span> <br/>Capi Tile & Stone installs stunning, large-format tile and stone accents that turn ordinary fireplaces into showpieces. We work with natural stone, cultured stone, and stacked stone to create striking vertical surfaces for fireplaces, feature walls, and custom accents throughout your home. <br/> <br/> Our detail-oriented approach ensures tight joints, clean edges and seamless transitions—so your focal point looks flawless from every angle. Located in Avondale, we bring high-end craftsmanship and a modern aesthetic to homes and businesses across Arizona.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Fireplace Tile Installation and Stone Accents in Avondale, Arizona</span> <br/>Capi Tile & Stone installs stunning tile and stone accents in large formats that turn ordinary fireplaces into showpieces. We work with natural stone, cultured stone, and stacked stone to create striking vertical surfaces for fireplaces, feature walls, and custom accents throughout your home. <br/> <br/> Our meticulous approach ensures tight joints, clean edges, and seamless transitions so your focal point looks flawless from every angle. Located in Avondale, we bring exceptional craftsmanship and a modern aesthetic to homes and businesses across Arizona.",
       project: {
         title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
         image: 'bg-main.png',
       },
@@ -318,11 +319,11 @@ export default {
       image: 'repairs',
       title: 'Repairs & Grout',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Grout Repairs in Avondale, Arizona</span> <br/> Whether it’s a cracked tile, missing grout, or worn surfaces, we restore your tilework with expert repairs that blend in seamlessly. At Capi Tile & Stone, we handle individual tile replacements, grout removal and reapplication, and professional grout sealing for new or old installations. <br/> <br/> Our team approaches repairs with the same attention to detail as our new installations. Serving Avondale and nearby areas, we help extend the life and appearance of your tile surfaces—saving you from costly replacements down the line.",
+        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Grout Repairs in Avondale, Arizona</span> <br/> Whether it’s a cracked tile, missing grout, or worn surfaces, we restore your tilework with expert repairs that blend in seamlessly. At Capi Tile & Stone, we handle individual tile replacements, grout removal and reapplication, and professional grout sealing for new or old installations. <br/> <br/> Our team approaches repairs with the same attention to detail as our new installations. Serving Avondale and nearby areas, we help extend the life and appearance of your tile surfaces, saving you from costly replacements in the future.",
       project: {
         title: 'Ready to Start Your Tile or Stone Project?',
         description:
-          'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+          'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
         button: 'Get a Free Estimate',
         image: 'bg-main.png',
       },
@@ -354,7 +355,7 @@ export default {
     project: {
       title: 'Ready to Start Your Tile or Stone Project?',
       description:
-        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+        'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
       button: 'Get a Free Estimate',
       image: 'bg-main.png',
     },
@@ -363,7 +364,7 @@ export default {
     image: 'about',
     title: 'About Us',
     description:
-      'At Capi Tile & Stone, we specialize in delivering custom tile and stone installations that reflect each client’s vision while exceeding expectations. With over 23 years of hands-on experience in the industry, we’re known throughout Avondale and nearby areas for our precision, trustworthiness, and detail-focused craftsmanship. <br/> <br class="hidden md:block"/> What sets us apart is not just what we build, but how we build it—with honesty, punctuality, and care. From custom showers and fireplaces to large-format flooring and intricate repairs, our team treats every project like it matters—because it does.<br/> <br class="hidden md:block"/> We don’t believe in shortcuts or cookie-cutter results. Every space deserves a custom touch, every cut deserves accuracy, and every client deserves a result that lasts.',
+      'At Capi Tile & Stone, we specialize in delivering custom tile and stone installations that reflect each client’s vision while exceeding expectations. With over 23 years of hands-on experience in the industry, we’re known throughout Avondale and nearby areas for our precision, trustworthiness, and detail-focused craftsmanship. <br/> <br class="hidden md:block"/> What sets us apart is not just what we build, but how we build it, with honesty, punctuality, and care. From custom showers and fireplaces to large format flooring and intricate repairs, our team treats every project like it matters because it does.<br/> <br class="hidden md:block"/> We don’t believe in shortcuts or cookie cutter results. Every space deserves a custom touch, every cut deserves accuracy, and every client deserves a result that lasts.',
     team: {
       title: 'Our Team',
       description:
@@ -395,14 +396,14 @@ export default {
           letter: 'I',
           title: 'Integrity',
           description:
-            "We deliver what we promise and always prioritize long-term quality over shortcuts.",
-        }
+            'We deliver what we promise and always prioritize lasting quality over taking shortcuts.',
+        },
       ],
     },
     project: {
       title: 'Ready to Start Your Tile or Stone Project?',
       description:
-        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+        'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
       button: 'Get a Free Estimate',
       image: 'bg-main.png',
     },
@@ -421,13 +422,13 @@ export default {
     project: {
       title: 'Ready to Start Your Tile or Stone Project?',
       description:
-        'At Capi Tile & Stone, we turn your ideas into custom, long-lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
+        'At Capi Tile & Stone, we turn your ideas into custom, long lasting installations. Let’s bring quality, detail and expert craftsmanship to your home or business.',
       button: 'Get a Free Estimate',
       image: 'bg-main.png',
     },
   },
   footer: {
-    text: 'At Capi Tile & Stone, we specialize in custom tile and stone installations that reflect your vision and enhance your space. Serving Avondale and surrounding areas with quality, precision and care. Let’s build something lasting—together.',
+    text: 'At Capi Tile & Stone, we specialize in custom tile and stone installations that reflect your vision and enhance your space. Serving Avondale and surrounding areas with quality, precision and care. Let’s build something lasting together.',
     hours: 'SERVICE HOURS',
     call: 'CALL US',
     links_title: 'QUICK LINKS',
