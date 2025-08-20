@@ -8,7 +8,7 @@ import ContactInfo from '../../../sections/services/ContactInfo.astro';
 import type { Language } from '../../../types/language.type';
 
 export function getStaticPaths() {
-  const services = ['floors-walls', 'showers-bathrooms', 'fireplaces-accents', 'repairs-grout','demolition'];
+  const services = ['floors-walls', 'showers-bathrooms', 'fireplaces-accents', 'repairs-grout'];
   const languages = ['es', 'en'];
 
   return languages.flatMap(lang =>
