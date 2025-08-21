@@ -338,7 +338,7 @@ export default {
   gallery: {
     title: 'Gallery',
     image: 'floors',
-    items: [
+    /*items: [
       '/main/grout.webp',
       '/main/demolition.webp',
       '/main/tile.webp',
@@ -346,6 +346,20 @@ export default {
       '/main/flooring.webp',
       '/main/patios.webp',
       '/main/shower.webp',
+      '/main/fireplace.webp',
+      '/main/before-2-1.webp',
+      '/main/experience1.webp',
+      '/main/experience3.webp',
+      '/main/experience2.webp',
+    ],*/
+    items: [
+      '/main/carousel1.webp',
+      '/main/carousel2.webp',
+      '/main/carousel3.webp',
+      '/main/carousel4.webp',
+      '/main/carousel5.webp',
+      '/main/carousel6.webp',
+      '/main/carousel7.webp',
       '/main/fireplace.webp',
       '/main/before-2-1.webp',
       '/main/experience1.webp',
