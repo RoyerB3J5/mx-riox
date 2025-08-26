@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon/components";
+
+const icons = [
+  {
+    name: 'email',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=capitileandstone@gmail.com',
+  },
+  /*{
+    name: 'map',
+    href: '',
+  },*/
+  {
+    name: 'instagram',
+    href: 'https://www.instagram.com/capitileandstone/',
+  },
+  {
+    name: 'facebook',
+    href: 'https://www.facebook.com/capitileandstone#',
+  },
+];
+---
+<div class="flex justify-center items-center gap-[14px] w-full mt-5">
+	{icons.map(i => (
+            <a href={i.href} class="w-[27px] h-[27px] md:w-[31px] md:h-[31px] rounded-full flex items-center justify-center bg-main flex-shrink-0">
+              <Icon name={i.name} class={"w-4 h-4 md:w-5 md:h-5 text-white"}/>
+            </a>
+          ))}
+</div>

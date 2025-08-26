@@ -1,37 +1,18 @@
 ---
 // Imports optimizados - solo lo esencial al inicio
 import '../styles/global.css';
-import 'aos/dist/aos.css';
-
-import Chatbot from '../components/Chatbot.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-
-type Translations = typeof import('../i18n/en').default;
-
-export interface Props {
-  lang: string;
-  t?: Translations;
-}
-
-const { lang, t } = Astro.props;
 ---
 <!doctype html>
-<html lang={lang} class='overflow-x-hidden'>
+<html lang='en' class='overflow-x-hidden'>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+		<!-- Icons -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		
-		<!-- Crítico: CSS inline para evitar FOUC -->
-		<style is:inline>
-      body {
-	visibility: hidden;
-	font-family: 'Poppins', Arial, sans-serif;
-      }
-      body.visible {
-        visibility: visible;
-      }
-    </style>
+		
 		<!-- Preconnect para DNS lookup temprano -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,65 +22,14 @@ const { lang, t } = Astro.props;
 		<!-- Load Google Fonts (Poppins) de forma ultra-optimizada -->
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
-		<!-- Icons -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		
+				
 		<meta name="generator" content={Astro.generator} />
 		<title>Capi Tile & Stone</title>
 	</head>
-	<body class='font-family antialiased overflow-x-hidden bg-[#FAFAFA] flex flex-col justify-center items-center'>
-		<Header content={t?.header} />
-		<main class='flex flex-col w-full items-center'>
+	<body class='site-bg font-family antialiased overflow-x-hidden bg-[#FAFAFA] flex flex-col justify-center items-center'>
+		<main class='flex flex-col w-full items-center py-[72px] px-6' >
 			<slot />
 		</main>
-		<Chatbot />
-		<Footer content={t?.footer}/>
-		
-		<script>
-			import AOS from 'aos';
-			
-			// Función simplificada para inicializar AOS
-			function initAOS() {
-				try {
-					AOS.init({
-						duration: 1000,
-						once: true,
-						offset: 100,
-						delay: 100,
-						disable: false // Habilitar en todos los dispositivos
-					});
-					console.log('AOS inicializado correctamente');
-				} catch (error) {
-					console.error('Error al inicializar AOS:', error);
-				}
-			}
-
-			function showContent() {
-				document.body.classList.add('visible');
-			}
-
-			// Inicialización optimizada pero funcional
-			function initializeApp() {
-				// Mostrar contenido inmediatamente
-				showContent();
-				
-				// Inicializar AOS con un pequeño delay
-				setTimeout(() => {
-					initAOS();
-				}, 100);
-			}
-
-			// Inicialización según el estado del documento
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', initializeApp);
-			} else {
-				initializeApp();
-			}
-			
-			// Fallback garantizado para mostrar contenido
-			setTimeout(showContent, 500);
-		</script>
 	</body>
 </html>
 <script is:inline>

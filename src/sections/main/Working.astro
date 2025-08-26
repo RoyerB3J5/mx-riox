@@ -23,10 +23,10 @@ const { content } = Astro.props as Props;
     {content.items.map((item, index) => (
       <>
         <div class="relative flex flex-col justify-start items-center pt-[65.5px] lg:pt-[60px] px-10 md:px-5 min-h-[354px] lg:min-h-[443px] h-full max-w-none md:max-w-[240px] " data-aos="fade-up" data-aos-offset={`${index * 80}`}>
-          <div class="absolute top-0 -translate-y-1/2 bg-accent rounded-[15px] p-[10px] w-[114px]">
+          <div class="absolute top-0 -translate-y-1/2 bg-main rounded-[15px] p-[10px] w-[114px]">
             <p class="text-[13px] lg:text-[16px] font-medium  text-center text-white ">{item.step}</p>
           </div>
-          <div class="group bg-accent/10 rounded-full h-[120px] w-[120px] flex justify-center items-center  mb-[30px] lg:mb-[38px] hover:bg-accent">
+          <div class="group bg-main/10 rounded-full h-[120px] w-[120px] flex justify-center items-center  mb-[30px] lg:mb-[38px] hover:bg-accent">
             <img src={`/main/${item.icon}.svg`} alt={item.title} class="w-[60px] h-[60px] working-icon" width="87" height="87"/>
           </div>
           <h3 class="mb-[20px] text-[18px] lg:text-[30px] font-semibold leading-[18px] lg:leading-[30px] text-main text-center mt-[10px] md:mt-0">{item.title}</h3>

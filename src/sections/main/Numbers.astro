@@ -9,18 +9,17 @@ interface Props {
 const { content } = Astro.props as Props;
 ---
 <section class="relative w-full pt-[80px] md:pt-[200px] pb-[80px] md:pb-[75px] overflow-hidden" id="numbers-section">
-  <img src="/main/bg-service.webp" alt="Fondo de chicha" width="1408" height="704" class="absolute inset-0 w-full h-full object-cover -z-20 object-center opacity-30 " loading="lazy" decoding="async">
-  <div class="absolute inset-0 bg-[#6A000017] -z-10"></div>
+  <img src="/main/bg-service-2.webp" alt="Fondo de chicha" width="1408" height="704" class="absolute inset-0 w-full h-full object-cover -z-20 object-center " loading="lazy" decoding="async">
   <div class="relative z-0 flex flex-col justify-center items-center gap-[70px] max-w-screen lg:max-w-[1141px] mx-auto px-4 lg:px-0">
     <div class="flex flex-col lg:flex-row justify-center items-center gap-[71px] lg:gap-[77px]">
       {content.items.map((item,idx) => (
         <div class={`flex flex-col justify-center items-center gap-[5px] max-w-none ${item.number == 500 ? 'md:max-w-[175px]' : 'md:max-w-[243px]'}`}>
-          <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-main w-full flex items-center justify-center gap-1">
+          <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-white w-full flex items-center justify-center gap-1">
             <span>+</span>
             <span class="counter" data-target={item.number.toString()} id={`counter-${idx}`}>0</span>
             <span class={`${item.number == 23 ? 'inline' : 'hidden'}`}>Years</span>
           </p>
-          <p class="text-[18px] md:text-[16px] font-semibold leading-[20px] text-main text-center">{item.title}</p>
+          <p class="text-[18px] md:text-[16px] font-semibold leading-[20px] text-white text-center">{item.title}</p>
         </div>
       ))}
     </div>

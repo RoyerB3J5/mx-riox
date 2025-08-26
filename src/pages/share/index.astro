@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
+import SocialMedia from '../../components/SocialMedia.astro';
+import LayoutSec from '../../layouts/LayoutSec.astro';
+
+const content = [
+  {
+    title: 'Instagram',
+    link: 'https://www.instagram.com/capitileandstone/',
+  },
+  {
+    title: 'Facebook',
+    link: 'https://www.facebook.com/capitileandstone#',
+  },
+  {
+    title: 'Website',
+    link: '/',
+  },
+  {
+    title: 'Our services',
+    link: 'https://instagram.com/kairosigns',
+  },
+  {
+    title: 'Download our Flyer',
+    link: '/en/#flyer',
+  },
+];
+---
+<LayoutSec>
+	<Icon name={'share-1'} class={"w-[44px] h-[44px] absolute top-3 right-3"}/>
+	<section class="w-full flex flex-col justify-center items-center gap-4">
+		<div class="w-full flex flex-col justify-center items-center gap-[3px]">
+			<a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
+        <img src="/logo-4.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[80px] ">
+      </a>
+			<div class="flex flex-col justify-center items-center ">
+				<h1 class="text-[16px] font-bold leading-[175%]">@Kairosigns</h1>
+				<div class="flex justify-center items-center gap-[3px] mt-[2px] mb-[11px]">
+					<Icon name={'map'} class={"w-[9px] h-[11px]"}/>
+					<p class="text-[10.5px] leading-[22px] font-heveltica">Lima, Peru</p>
+				</div>
+				<p class="font-heveltica text-[12px] leading-[18px] max-w-[204px] text-center">Impactful designs that will take your brand to the next level</p>
+			</div>
+			<SocialMedia />
+		</div>
+    <div class="w-full flex flex-col justify-center items-center gap-3">
+      {
+        content.map((item) => (
+          <a class="w-full" href={item.link}>
+            <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center ${item.title === "Download our Flyer" ? "animate-shake" : ""}`}>
+              <p class="font-heveltica text-[14px] font-medium leading-[140%]">{item.title}</p>
+            </div>
+          </a>
+          
+        ))
+      }
+    </div>
+    <div class="w-[236px] flex flex-col justify-center items-center gap-12 py-[34px] rounded-[15px] bg-[#eeeeee] mt-4">
+      <div class="flex flex-col justify-center items-center gap-4">
+        <p class="font-helveltica text-[16px] font-bold leading-[140%]">Scan me for more info</p>
+        <div class="w-[168px] h-[168px] rounded-[5px] border-[3px] border-secondary">
+
+        </div>
+      </div>
+      <div class="flex flex-col justify-center items-center gap-4">
+        <p class="font-helveltica text-[16px] font-bold leading-[140%]">Give me a review</p>
+        <div class="w-[168px] h-[168px] rounded-[5px] border-[3px] border-secondary">
+
+        </div>
+      </div>   
+    </div>      
+		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[40px] ">
+			<p class="font-heveltica text-[14px] font-normal leading-[140%]">Powered by</p>
+			<img src="/inkshape.svg" alt="Logo de Inkshape" width="117" height="30"/>
+		</div>
+	</section>
+</LayoutSec>

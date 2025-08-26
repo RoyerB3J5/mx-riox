@@ -10,10 +10,10 @@ const currentPath = Astro.url.pathname;
 const match = currentPath.match(/^\/(en|es)/);
 const lang = match ? match[1] : 'en';
 ---
-<section class="w-full pt-[60px] pb-[60px] md:pb-[86px] md:pt-[65px] mx-auto relative overflow-hidden bg-accent/10">
-  {/*<img src="/main/bg-service.webp" alt="Fondo de soluciones" width="4096" height="2730" class="absolute inset-0 w-full h-full object-cover -z-30 " loading="lazy" decoding="async">*/}
+<section class="w-full pt-[60px] pb-[60px] md:pb-[86px] md:pt-[65px] mx-auto relative overflow-hidden ">
+  <img src="/main/bg-service.webp" alt="Fondo de soluciones" width="4096" height="2730" class="absolute inset-0 w-full h-full object-cover -z-30 " loading="lazy" decoding="async">
   <div class="flex flex-col justify-center items-center gap-[22px] md:gap-[65px] max-w-screen lg:max-w-[1140px] mx-auto px-4 lg:px-0">
-    <h2 set:html={content.title} class="text-center text-[28px] md:text-[32px] lg:text-[48px] font-semibold leading-[32px] md:leading-[46px] text-main max-w-[350px] md:max-w-[750px]"></h2>
+    <h2 set:html={content.title} class="text-center text-[28px] md:text-[32px] lg:text-[48px] font-semibold leading-[32px] md:leading-[46px] text-white max-w-[350px] md:max-w-[750px]"></h2>
     <div class="w-full min-h-none lg:min-h-[489px] rounded-[15px] flex flex-col lg:flex-row" data-aos="fade-up" data-aos-offset="100" id="hover‑container">
       {content.items.map((item, index) => (
         <a 
