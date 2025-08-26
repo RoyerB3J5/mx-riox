@@ -42,10 +42,10 @@ const lang = match ? match[1] : 'en';
 ---
 <header class="fixed top-3 lg:top-0 left-0 right-0 z-20 w-full flex flex-col justify-center items-center transition-top duration-300 ease-in-out "
   id="site-header">
-  <div class="w-full bg-main justify-center hidden lg:flex">
+  <div class="w-full bg-secondary justify-center hidden lg:flex">
     <div class="w-full flex justify-center lg:justify-between items-center  max-w-none xl:max-w-[1154px] px-3">
       <div class="flex items-center gap-[6px]">
-        <Icon name={"map"} class={"w-[16px] h-[16px] text-secondary"} aria-label="Ubicación" title="Nuestra ubicación"/>
+        <Icon name={"map"} class={"w-[16px] h-[16px] text-white"} aria-label="Ubicación" title="Nuestra ubicación"/>
         <p class="text-[16px] font-semibold leading-[52px] text-white">Avondale, Arizona</p>
       </div>
       <div class="hidden md:flex items-center gap-[22px]">
@@ -68,7 +68,7 @@ const lang = match ? match[1] : 'en';
       </div>
     </div>
   </div>
-  <div class="bg-secondary w-[calc(100%-24px)] xl:w-full sm:max-w-[1223px] py-4 lg:min-h-[89px] flex justify-between items-center px-7 md:px-4 xl:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
+  <div class="bg-main w-[calc(100%-24px)] xl:w-full sm:max-w-[1223px] py-4 lg:min-h-[89px] flex justify-between items-center px-7 md:px-4 xl:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
     <a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
       <img src="/logo-1.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[44px] md:h-[30px] xl:h-[51px]">
     </a>
@@ -83,14 +83,14 @@ const lang = match ? match[1] : 'en';
                             (index === 1 && normalized.startsWith('/services'));
             const isServices = index === 1;
             return(
-              <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-main w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
+              <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-secondary w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
                 <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
-                  <span class={`absolute bottom-0 left-0 h-[2px] bg-white group-hover:bg-main transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-main'}`} />
+                  <span class={`absolute bottom-0 left-0 h-[2px] bg-secondary group-hover:bg-white transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-main'}`} />
                 </a>
                 {isServices && (
                   <div class="dropdown-menu absolute top-full left-0 mt-0 w-[190px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
                     {content.types.map(sub => (
-                      <div class="text-[18px] font-semibold text-secondary py-2 hover:bg-main hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
+                      <div class="text-[18px] font-semibold text-main py-2 hover:bg-main hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
                         <a href={`/${lang}/services/${sub.href}`} class="block w-full h-full">{sub.title}</a>
                       </div>
                     ))}
@@ -101,7 +101,7 @@ const lang = match ? match[1] : 'en';
           })
         }
       </nav>
-      <Button class="bg-[#E2E2E2] ml-[27.5px] mr-[27px] h-[52px] flex items-center text-main" href={`/${lang}/contact#info`}>
+      <Button class="bg-secondary text-white ml-[27.5px] mr-[27px] h-[52px] flex items-center " href={`/${lang}/contact#info`}>
         {content?.button}
       </Button>
       <div class="flex justify-center items-center gap-[6px] px-[7px]">
@@ -138,7 +138,7 @@ const lang = match ? match[1] : 'en';
 </header>
 
 <!-- Menú móvil independiente (lg para abajo) -->
-<div class="fixed top-0 right-0 bottom-0 lg:hidden flex items-center bg-secondary text-white flex-col justify-center h-screen w-[90%] z-[60] py-6 gap-8 transform translate-x-full transition-transform duration-300 ease-out" id="mobile-menu">
+<div class="fixed top-0 right-0 bottom-0 lg:hidden flex items-center bg-main text-white flex-col justify-center h-screen w-[90%] z-[60] py-6 gap-8 transform translate-x-full transition-transform duration-300 ease-out" id="mobile-menu">
   <img 
     src="/equis.svg" 
     alt="Cerrar menú" 
@@ -162,9 +162,9 @@ const lang = match ? match[1] : 'en';
                         (index === 1 && normalized.startsWith('/services'));
         const isServices = index === 1;
         return(
-          <div class={`flex flex-col items-center justify-center gap-[14px] px-0 hover:text-main w-full pt-2 text-center ${isServices ? 'relative' : ''} ${isActive ? 'bg-main text-white ' : ''}`} id={`mobile-services-${index}`}>
+          <div class={`flex flex-col items-center justify-center gap-[14px] px-0 hover:text-white w-full pt-2 text-center ${isServices ? 'relative' : ''} ${isActive ? 'bg-secondary text-white ' : ''}`} id={`mobile-services-${index}`}>
             <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
-              <span class={`absolute bottom-0 left-0 h-[2px] bg-main transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0'}`} />
+              <span class={`absolute bottom-0 left-0 h-[2px] bg-secondary transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0'}`} />
             </a>
             {isServices && (
               <div class="flex-col justify-center items-center w-full bg-accent divide-y divide-white hidden absolute z-[10] top-0 translate-y-[60px]" id="sub-menu-services">
@@ -178,7 +178,7 @@ const lang = match ? match[1] : 'en';
       })
     }
   </nav>
-  <Button class="bg-main ml-[27.5px] mr-[27px] h-[52px] flex items-center" href={`/${lang}/contact#info`}>
+  <Button class="bg-secondary ml-[27.5px] mr-[27px] h-[52px] flex items-center" href={`/${lang}/contact#info`}>
     {content?.button}
   </Button>
   <div class="flex justify-center items-center gap-4 px-[7px]">
