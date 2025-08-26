@@ -37,7 +37,7 @@ const { content } = Astro.props as Props;
             {content.items.map(item=>(
               <div class="flex items-center gap-[7px] md:gap-4">
                 <Icon name={"check"} class={"shrink-0 h-[20px] md:h-[44px] w-[20px] md:w-[44px] text-secondary"}/>
-                <p class="text-[16px] font-medium leading-[25px] text-secondary">{item}</p>
+                <p class="text-[16px] font-medium leading-[25px] text-main">{item}</p>
               </div>
             ))}
           </div>
