@@ -26,7 +26,7 @@ const lang = match ? match[1] : 'en';
             <img src={`/main/${item.image}.webp`} alt="Fondos de Galeria" width="3072" height="4096" class={`absolute inset-0 w-full h-full object-cover -z-20 ${item.image === 'accents' ? 'object-[75%_center]' : item.image === 'bathrooms' ? 'object-[20%_center]' : 'object-center'}`} loading="lazy" decoding="async"/>
             <div class="absolute inset-0 service-bg -z-10"></div>
             <div class="h-auto md:h-[143px] w-full flex justify-center items-center"> 
-              <h3 class={`text-[20px] md:text-[24px] lg:text-[40px] font-semibold leading-[30px] text-center text-white transition-opacity duration-300 ${
+              <h3 class={`text-[20px] md:text-[24px] lg:text-[40px] font-semibold leading-[40px] text-center text-white transition-opacity duration-300 ${
                 index < 3 ? 'md:opacity-0 md:group-hover:opacity-100' : ''
               }`}>
                 {item.title}

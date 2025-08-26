@@ -46,7 +46,7 @@ export default {
   main: {
     hero: {
       title:
-        'Tile & Stone <span class="font-black md:font-semibold">Installation Experts in Scottsdale</span> <span class="font-bold md:font-semibold">, Paradise Valley, and Surrounding Areas of Arizona</span>',
+        'Tile & Stone <br class="hidden md:block"/> <span class="font-black md:font-semibold">Installation Experts <br class="hidden md:block"/>  in Scottsdale</span> <span class="font-bold md:font-semibold">, Paradise Valley, and Surrounding Areas of Arizona</span>',
       button1: 'Call now',
       button2: 'Get Your Free Quote Now',
       lists: [

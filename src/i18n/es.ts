@@ -40,15 +40,15 @@ export default {
         href: 'repairs-grout',
       },
     ],
-    button: 'Obtener Presupuesto',
+    button: 'Presupuesto',
     phone: 'LLÁMANOS',
   },
   main: {
     hero: {
       title:
-        'Expertos en Instalación de <span class="font-black md:font-semibold">Azulejo y Piedra en Scottsdale</span> <span class="font-bold md:font-semibold">, Paradise Valley y Áreas Circundantes de Arizona</span>',
+        'Expertos en Instalación <br class="hidden md:block"/>de <span class="font-black md:font-semibold">Azulejo y Piedra en Scottsdale</span> <span class="font-bold md:font-semibold">, Paradise Valley y Áreas Circundantes de Arizona</span>',
       button1: 'Llamar ahora',
-      button2: 'Obtén Tu Cotización Gratuita Ahora',
+      button2: 'Cotización Gratuita Ahora',
       lists: [
         {
           title: 'Calidad Duradera',
