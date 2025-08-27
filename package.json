@@ -13,11 +13,17 @@
     "check": "biome check --write ."
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@tailwindcss/vite": "^4.1.12",
     "@types/aos": "^3.0.7",
+    "@types/qrcode": "^1.5.5",
     "aos": "^2.3.4",
     "astro": "^5.13.0",
     "astro-icon": "^1.1.5",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {

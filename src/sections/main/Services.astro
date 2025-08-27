@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname;
 const match = currentPath.match(/^\/(en|es)/);
 const lang = match ? match[1] : 'en';
 ---
-<section class="w-full pt-[60px] pb-[60px] md:pb-[86px] md:pt-[65px] mx-auto relative overflow-hidden ">
+<section class="w-full pt-[60px] pb-[60px] md:pb-[86px] md:pt-[65px] mx-auto relative overflow-hidden " id="services">
   <img src="/main/bg-service.webp" alt="Fondo de soluciones" width="4096" height="2730" class="absolute inset-0 w-full h-full object-cover -z-30 " loading="lazy" decoding="async">
   <div class="flex flex-col justify-center items-center gap-[22px] md:gap-[65px] max-w-screen lg:max-w-[1140px] mx-auto px-4 lg:px-0">
     <h2 set:html={content.title} class="text-center text-[28px] md:text-[32px] lg:text-[48px] font-semibold leading-[32px] md:leading-[46px] text-white max-w-[350px] md:max-w-[750px]"></h2>
