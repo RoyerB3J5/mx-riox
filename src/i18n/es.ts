@@ -92,23 +92,23 @@ export default {
       items: [
         {
           title: 'Instalación de Pisos',
-          image: 'flooring',
+          image: 'floors',
         },
         {
           title: 'Instalación de Duchas',
-          image: 'shower',
+          image: 'bathrooms',
         },
         {
           title: 'Instalación de Chimeneas',
-          image: 'fireplace',
+          image: 'accents',
         },
         {
           title: 'Reparaciones de Lechada',
-          image: 'grout',
+          image: 'repairs',
         },
         {
           title: 'Reparaciones de Azulejos',
-          image: 'tile',
+          image: 'repairs-2',
         },
       ],
     },
@@ -203,18 +203,18 @@ export default {
         "Mira Nuestros <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[30px] lg:leading-[58px] text-main'>Proyectos Recientes Completados</span>",
       button: 'VER TODOS LOS PROYECTOS',
       images: [
-        '/main/floors.webp',
-        '/main/bathrooms.webp',
-        '/main/accents.webp',
-        '/main/repairs.webp',
+        '/main/carnew1.webp',
+        '/main/carnew2.webp',
+        '/main/carnew3.webp',
+        '/main/carnew6.webp',
         '/main/exp-3.webp',
         '/main/experience1.webp',
-        '/main/flooring.webp',
-        '/main/shower.webp',
-        '/main/fireplace.webp',
-        '/main/grout.webp',
+        '/main/carnew4.webp',
+        '/main/carnew5.webp',
+        '/main/carnew7.webp',
+        '/main/before-1-1.webp',
         '/main/exp-2.webp',
-        '/main/tile.webp',
+        '/main/before-2-1.webp',
       ],
       name: 'CapiTile&Stone',
       description:
@@ -260,8 +260,10 @@ export default {
   },
   services: {
     'floors-walls': {
-      image: 'floors',
+      image: 'bg-service',
+      arrow:'arrow-down-3',
       title: 'Pisos y <br/>Paredes',
+      image2:"floors",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación de Pisos y Paredes de Azulejo en Avondale, Arizona</span> <br/> En Capi Tile & Stone, nos especializamos en instalaciones premium de azulejo y piedra que elevan la belleza, durabilidad y valor de tu espacio. Ya sea que estés remodelando tu hogar, actualizando una propiedad comercial o comenzando desde cero, nuestro equipo trabaja con cerámica, porcelana, granito, mármol, travertino, pizarra, saltillo y azulejo de vidrio con precisión y artesanía experta. <br/> <br/>Servimos con orgullo a Avondale y las áreas circundantes de Arizona, ofreciendo resultados duraderos con un enfoque limpio y orientado al detalle. Cada línea, esquina y transición importa. Tus pisos y paredes merecen una instalación experta que no solo se vea impecable sino que también resista la prueba del tiempo.",
       project: {
@@ -272,15 +274,17 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/flooring.webp',
+        '/main/before-1-1.webp',
         '/main/patios.webp',
-        '/main/shower.webp',
+        '/main/carnew6.webp',
         '/main/before-2-1.webp',
       ],
     },
     'showers-bathrooms': {
-      image: 'bathrooms',
+      image: 'bg-service-2',
+      arrow:'arrow-down-2',
       title: 'Duchas y <br/> Baños',
+      image2:"bathrooms",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación Personalizada de Duchas y Paredes de Baño con Azulejo en Avondale, Arizona</span> <br/>Diseñamos e instalamos duchas personalizadas y paredes de baño con azulejo con un enfoque en la durabilidad, seguridad y atractivo visual. En Capi Tile & Stone, nuestro trabajo incluye duchas de vapor, surrounds de bañera, duchas clásicas de azulejo e instalaciones completas de azulejo para baños. Todo está completamente personalizado para que coincida con tu diseño y preferencias personales. <br/> <br/> Desde la preparación de la superficie y la impermeabilización hasta los cortes precisos de azulejo y los acabados limpios, manejamos cada paso con cuidado. Con base en Avondale, Arizona, somos confiados por propietarios que valoran la artesanía experta y los resultados duraderos. Si estás listo para transformar tu baño, nosotros estamos listos para dar vida a tu visión.",
       project: {
@@ -291,15 +295,17 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/bathrooms.webp',
+        '/main/carnew5.webp',
         '/main/carousel3.webp',
         '/main/carousel6.webp',
-        '/main/shower.webp',
+        '/main/carousel7.webp',
       ],
     },
     'fireplaces-accents': {
-      image: 'accents',
+      image: 'bg-service',
+      arrow:'arrow-down-3',
       title: 'Chimeneas y Acabados',
+      image2:"accents",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Instalación de Azulejo para Chimeneas y Acabados de Piedra en Avondale, Arizona</span> <br/>Capi Tile & Stone instala impresionantes acabados de azulejo y piedra en formatos grandes que convierten chimeneas ordinarias en puntos focales. Trabajamos con piedra natural, piedra cultivada y piedra apilada para crear superficies verticales llamativas para chimeneas, paredes destacadas y acabados personalizados en toda tu casa. <br/> <br/> Nuestro enfoque meticuloso garantiza juntas ajustadas, bordes limpios y transiciones perfectas para que tu punto focal se vea impecable desde todos los ángulos. Ubicados en Avondale, llevamos una artesanía excepcional y una estética moderna a hogares y negocios en todo Arizona.",
       project: {
@@ -311,14 +317,16 @@ export default {
       },
       carousel: [
         '/main/accents.webp',
-        '/main/before-2-1.webp',
+        '/main/carousel2.webp',
         '/main/carousel1.webp',
-        '/main/fireplace.webp',
+        '/main/carnew3.webp',
       ],
     },
     'repairs-grout': {
-      image: 'repairs',
+      image: 'bg-solutions',
+      arrow:'arrow-down',
       title: 'Reparaciones y Lechada',
+      image2:"repairs",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Reparaciones de Azulejo y Lechada en Avondale, Arizona</span> <br/> Ya sea una pieza de azulejo agrietada, lechada faltante o superficies desgastadas, restauramos tu trabajo de azulejo con reparaciones expertas que se integran a la perfección. En Capi Tile & Stone, manejamos reemplazos de azulejos individuales, remoción y reaplicación de lechada, y sellado profesional de lechada para instalaciones nuevas o antiguas. <br/> <br/> Nuestro equipo aborda las reparaciones con la misma atención al detalle que nuestras nuevas instalaciones. Sirviendo a Avondale y áreas cercanas, ayudamos a extender la vida y apariencia de tus superficies de azulejo, ahorrándote costosos reemplazos en el futuro.",
       project: {
@@ -329,8 +337,8 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/flooring.webp',
-        '/main/grout.webp',
+        '/main/floors.webp',
+        '/main/repairs-2.webp',
         '/main/carousel2.webp',
         '/main/experience3.webp',
       ],

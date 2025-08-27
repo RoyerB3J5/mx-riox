@@ -9,8 +9,8 @@ const currentPath = Astro.url.pathname;
 const match = currentPath.match(/^\/(en|es)/);
 const lang = match ? match[1] : 'en';
 ---
-<section class="pt-[112px] pb-[92px] md:py-[120.5px] flex flex-col lg:flex-row gap-8 lg:gap-4 justify-center items-center w-full max-w-screen md:max-w-none px-4 md:px-0 relative overflow-hidden bg-accent">
-  {/* <img src={`/main/${content?.image}`} alt="Backgorunde de Projects" width="3001" height="1078" class="absolute inset-0 w-full h-full object-cover -z-20 object-[right_center] md:object-center" loading="lazy" decoding="async"> */}
+<section class="pt-[112px] pb-[92px] md:py-[120.5px] flex flex-col lg:flex-row gap-8 lg:gap-4 justify-center items-center w-full max-w-screen md:max-w-none px-4 md:px-0 relative overflow-hidden ">
+  <img src={`/main/bg-service.webp`} alt="Backgorunde de Projects" width="3001" height="1078" class="absolute inset-0 w-full h-full object-cover -z-20 object-[right_center] md:object-center" loading="lazy" decoding="async"> 
   <div class="order-2 lg:order-1 flex flex-col justify-center items-center gap-[32px] z-10">
     <div class="flex flex-col justify-center items-center gap-[20px] max-w-[537px] px-3 md:px-0">
       <h2 class="text-white font-semibold text-[28px] md:text-[40px] leading-[30px] md:leading-[46px] text-center ">{content?.title}</h2>

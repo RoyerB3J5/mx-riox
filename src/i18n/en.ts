@@ -92,23 +92,23 @@ export default {
       items: [
         {
           title: 'Flooring Installation',
-          image: 'flooring',
+          image: 'floors',
         },
         {
           title: 'Shower Installation',
-          image: 'shower',
+          image: 'bathrooms',
         },
         {
           title: 'Fireplace Installation',
-          image: 'fireplace',
+          image: 'accents',
         },
         {
           title: 'Grout Repairs',
-          image: 'grout',
+          image: 'repairs',
         },
         {
           title: 'Tile Repairs',
-          image: 'tile',
+          image: 'repairs-2',
         },
       ],
     },
@@ -202,18 +202,18 @@ export default {
         "Check out our Recent <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[30px] lg:leading-[58px] text-main'>Completed Projects</span>",
       button: 'VIEW ALL PROJECTS',
       images: [
-        '/main/floors.webp',
-        '/main/bathrooms.webp',
-        '/main/accents.webp',
-        '/main/repairs.webp',
+        '/main/carnew1.webp',
+        '/main/carnew2.webp',
+        '/main/carnew3.webp',
+        '/main/carnew6.webp',
         '/main/exp-3.webp',
         '/main/experience1.webp',
-        '/main/flooring.webp',
-        '/main/shower.webp',
-        '/main/fireplace.webp',
-        '/main/grout.webp',
+        '/main/carnew4.webp',
+        '/main/carnew5.webp',
+        '/main/carnew7.webp',
+        '/main/before-1-1.webp',
         '/main/exp-2.webp',
-        '/main/tile.webp',
+        '/main/before-2-1.webp',
       ],
       name: 'CapiTile&Stone',
       description:
@@ -259,8 +259,10 @@ export default {
   },
   services: {
     'floors-walls': {
-      image: 'floors',
+      image: 'bg-service',
+      arrow:'arrow-down-3',
       title: 'Floors & <br/>Walls',
+      image2:"floors",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile Flooring and Wall Installation in Avondale, Arizona</span> <br/> At Capi Tile & Stone, we specialize in premium tile and stone installations that elevate the beauty, durability, and value of your space. Whether you are remodeling your home, upgrading a commercial property, or starting from scratch, our team works with ceramic, porcelain, granite, marble, travertine, slate, saltillo, and glass tile with precision and expert craftsmanship. <br/> <br/>We proudly serve Avondale and the surrounding areas of Arizona, delivering long-lasting results with a clean, detail-oriented approach. Every line, corner, and transition matters. Your floors and walls deserve expert installation that not only looks flawless but also stands the test of time.",
       project: {
@@ -271,15 +273,17 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/flooring.webp',
+        '/main/before-1-1.webp',
         '/main/patios.webp',
-        '/main/shower.webp',
+        '/main/carnew6.webp',
         '/main/before-2-1.webp',
       ],
     },
     'showers-bathrooms': {
-      image: 'bathrooms',
+      image: 'bg-service-2',
+      arrow:'arrow-down-2',
       title: 'Showers & <br/> Bathrooms',
+      image2:"bathrooms",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Custom Shower and Bathroom Tile Installation in Avondale, Arizona</span> <br/>We design and install custom tile showers and bathroom walls with a focus on durability, safety, and visual appeal. At Capi Tile & Stone, our work includes steam showers, bathtub surrounds, classic tile showers, and complete bathroom tile installations. Everything is fully customized to match your layout and personal preferences. <br/> <br/> From surface preparation and waterproofing to precision tile cuts and clean finishing, we handle every step with care. Based in Avondale, Arizona, we are trusted by homeowners who value expert craftsmanship and lasting results. If you're ready to transform your bathroom, we're ready to bring your vision to life.",
       project: {
@@ -290,15 +294,17 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/bathrooms.webp',
+        '/main/carnew5.webp',
         '/main/carousel3.webp',
         '/main/carousel6.webp',
-        '/main/shower.webp',
+        '/main/carousel7.webp',
       ],
     },
     'fireplaces-accents': {
-      image: 'accents',
+      image: 'bg-service',
+      arrow:'arrow-down-3',
       title: 'Fireplaces & Accents',
+      image2:"accents",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Fireplace Tile Installation and Stone Accents in Avondale, Arizona</span> <br/>Capi Tile & Stone installs stunning tile and stone accents in large formats that turn ordinary fireplaces into showpieces. We work with natural stone, cultured stone, and stacked stone to create striking vertical surfaces for fireplaces, feature walls, and custom accents throughout your home. <br/> <br/> Our meticulous approach ensures tight joints, clean edges, and seamless transitions so your focal point looks flawless from every angle. Located in Avondale, we bring exceptional craftsmanship and a modern aesthetic to homes and businesses across Arizona.",
       project: {
@@ -310,14 +316,16 @@ export default {
       },
       carousel: [
         '/main/accents.webp',
-        '/main/before-2-1.webp',
+        '/main/carousel2.webp',
         '/main/carousel1.webp',
-        '/main/fireplace.webp',
+        '/main/carnew3.webp',
       ],
     },
     'repairs-grout': {
-      image: 'repairs',
+      image: 'bg-solutions',
+      arrow:'arrow-down',
       title: 'Repairs & Grout',
+      image2:"repairs",
       description:
         "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Tile and Grout Repairs in Avondale, Arizona</span> <br/> Whether it’s a cracked tile, missing grout, or worn surfaces, we restore your tilework with expert repairs that blend in seamlessly. At Capi Tile & Stone, we handle individual tile replacements, grout removal and reapplication, and professional grout sealing for new or old installations. <br/> <br/> Our team approaches repairs with the same attention to detail as our new installations. Serving Avondale and nearby areas, we help extend the life and appearance of your tile surfaces, saving you from costly replacements in the future.",
       project: {
@@ -328,8 +336,8 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/flooring.webp',
-        '/main/grout.webp',
+        '/main/floors.webp',
+        '/main/repairs-2.webp',
         '/main/carousel2.webp',
         '/main/experience3.webp',
       ],

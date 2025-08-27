@@ -12,7 +12,7 @@ const { content } = Astro.props as Props;
   <div class="flex flex-col justify-center items-center max-w-none lg:max-w-[537px]">
     <h3 set:html={content.title} class="text-[28px] lg:text-[40px] font-medium lg:font-normal leading-[28px] lg:leading-[46px] text-center text-main mb-[18px] "></h3>
     <p class="text-[16px] leading-[20px] md:leading-[25px] font-medium mb-4 px-[20px] md:px-0 text-center md:text-start text-main">{content.text}</p>
-    <Button class='bg-accent px-[38px] h-[42px] flex items-center text-white' href='contact#info'>
+    <Button class='bg-secondary px-[38px] h-[42px] flex items-center text-white' href='contact#info'>
       {content.button}
     </Button>
   </div>

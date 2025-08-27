@@ -13,9 +13,9 @@ const { content } = Astro.props as Props;
   <div class="relative z-0 flex flex-col justify-center items-center gap-[70px] max-w-screen lg:max-w-[1141px] mx-auto px-4 lg:px-0">
     <div class="flex flex-col lg:flex-row justify-center items-center gap-[71px] lg:gap-[77px]">
       {content.items.map((item,idx) => (
-        <div class={`flex flex-col justify-center items-center gap-[5px] max-w-none ${item.number == 500 ? 'md:max-w-[175px]' : 'md:max-w-[243px]'}`}>
+        <div class={`flex flex-col justify-center items-center gap-[5px] max-w-none ${item.number == 500 ? 'md:max-w-[185px]' : 'md:max-w-[213px]'}`}>
           <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-white w-full flex items-center justify-center gap-1">
-            <span>+</span>
+            <span class="text-secondary">+</span>
             <span class="counter" data-target={item.number.toString()} id={`counter-${idx}`}>0</span>
             <span class={`${item.number == 23 ? 'inline' : 'hidden'}`}>Years</span>
           </p>
