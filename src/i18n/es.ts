@@ -316,7 +316,7 @@ export default {
         image: 'bg-main.png',
       },
       carousel: [
-        '/main/accents.webp',
+        '/main/before-1-1.webp',
         '/main/carousel2.webp',
         '/main/carousel1.webp',
         '/main/carnew3.webp',

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import FormReview from './FormReview';
 
 function Starts() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -49,11 +50,7 @@ function Starts() {
           );
         })}
       </div>
-      {showForm && (
-        <section>
-          <p>Formulario</p>
-        </section>
-      )}
+      {showForm && <FormReview/>}
     </>
   );
 }

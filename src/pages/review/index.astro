@@ -5,20 +5,23 @@ import Starts from '../../components/Starts';
 import LayoutSec from '../../layouts/LayoutSec.astro';
 ---
 <LayoutSec>
-	<section class="w-full flex flex-col justify-center items-center gap-4 h-full">
-		<div class="w-full flex flex-col justify-center items-center gap-[20px]">
-			<a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
-        <img src="/logo-4.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[80px] ">
-      </a>
-			<div class="flex flex-col justify-center items-center ">
-				<p class="font-heveltica text-[16px] leading-[22px] max-w-[320px] text-center">We hope you <span class="text-secondary text-[20px]">❤</span> the experience  <br/>  with <span class="font-bold">Capi Tile & Stone</span>. <br/> Your feedback means the world to us!</p>
-			</div>
-		</div>
-    <div class="bg-secondary rounded-[15px] w-full text-white flex flex-col justify-center items-center gap-4 py-5">
-      <p class="text-[16px] font-medium text-center">Please tap the option that best <br/>Reflects the quality of our service</p>
-			<Starts client:idle />
+	<section class="w-full flex flex-col justify-center items-center gap-4 h-full py-10">
+    <div class="w-full flex flex-col justify-center items-center gap-4 min-h-[60vh]">
+      <div class="w-full flex flex-col justify-center items-center gap-[20px]">
+        <a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
+          <img src="/logo-4.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[80px] ">
+        </a>
+        <div class="flex flex-col justify-center items-center ">
+          <p class="font-heveltica text-[16px] leading-[22px] max-w-[320px] text-center">We hope you <span class="text-secondary text-[20px]">❤</span> the experience  <br/>  with <span class="font-bold">Capi Tile & Stone</span>. <br/> Your feedback means the world to us!</p>
+        </div>
+      </div>
+      <div class="bg-secondary rounded-[15px] w-full text-white flex flex-col justify-center items-center gap-4 py-5 ">
+        <p class="text-[16px] font-medium text-center">Please tap the option that best <br/>Reflects the quality of our service</p>
+        <Starts client:idle />
+      </div>
     </div>
-    <section class="flex flex-col justify-center items-center gap-3 w-full py-8  absolute bottom-0">
+		
+    <section class="flex flex-col justify-center items-center gap-3 w-full pt-8 bottom-0">
         <div class="flex justify-center items-center gap-3">
           <a href="https://www.facebook.com/capitileandstone#" target="_blank">
             <CiFacebook className="size-8 sm:size-7 text-[#878787]" />
