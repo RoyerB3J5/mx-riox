@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Button from './Button.astro';
 import ChangeLanguage from './ChangeLanguage.astro';
+import { ImMobile } from 'react-icons/im';
 
 type Translations = typeof import('../i18n/en').default;
 type HeaderContent = Translations['header'];
@@ -46,7 +47,7 @@ const lang = match ? match[1] : 'en';
     <div class="w-full flex justify-center lg:justify-between items-center  max-w-none xl:max-w-[1154px] px-3">
       <div class="flex items-center gap-[6px]">
         <Icon name={"map"} class={"w-[16px] h-[16px] text-white"} aria-label="Ubicación" title="Nuestra ubicación"/>
-        <p class="text-[16px] font-semibold leading-[52px] text-white">Arizona</p>
+        <p class="text-[16px] font-semibold leading-[52px] text-white">Arizona - USA</p>
       </div>
       <div class="hidden md:flex items-center gap-[22px]">
         <div class="flex items-center gap-[6px]">
@@ -105,12 +106,12 @@ const lang = match ? match[1] : 'en';
         {content?.button}
       </Button>
       <div class="flex justify-center items-center gap-[6px] px-[7px]">
-        <img src="/phone.webp" alt="Icono de teléfono" width="33" height="48" class="block w-[33px] h-[48px]">
+        <ImMobile className='block w-[38px] h-[56px] text-secondary'/>
         <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
           <p>{content?.phone}</p>
           <a 
             href="tel:+16232979381" 
-            class="hover:text-main transition-all duration-300 ease-in-out cursor-pointer"
+            class="hover:text-secondary transition-all duration-300 ease-in-out cursor-pointer"
             aria-label="Llamar al teléfono +1 (623) 297-9381 "
             title="Llamar ahora"
           >

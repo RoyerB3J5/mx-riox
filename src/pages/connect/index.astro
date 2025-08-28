@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
-import QRCard from '../../components/QRCard.astro';
 import SocialMedia from '../../components/SocialMedia.astro';
 import LayoutSec from '../../layouts/LayoutSec.astro';
 
@@ -20,7 +19,7 @@ const content = [
   },
   {
     title: 'Our services',
-    link: '/en/#services',
+    link: '/en/services',
   },
   {
     title: 'Download our Flyer',
@@ -35,12 +34,12 @@ const content = [
         <img src="/logo-4.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[80px] ">
       </a>
 			<div class="flex flex-col justify-center items-center ">
-				<h1 class="text-[16px] font-bold leading-[175%]">@Kairosigns</h1>
+				<h1 class="text-[16px] font-bold leading-[175%]">@capitileandstone</h1>
 				<div class="flex justify-center items-center gap-[3px] mt-[2px] mb-[11px]">
 					<Icon name={'map'} class={"w-[9px] h-[11px]"}/>
-					<p class="text-[10.5px] leading-[22px] font-heveltica">Lima, Peru</p>
+					<p class="text-[10.5px] leading-[22px] font-heveltica">Ariona - USA</p>
 				</div>
-				<p class="font-heveltica text-[12px] leading-[18px] max-w-[204px] text-center">Impactful designs that will take your brand to the next level</p>
+				<p class="text-[16px] font-medium text-center">Custom Tile & Stone Work in Arizona That Makes a Visible Impact</p>
 			</div>
 			<SocialMedia />
 		</div>
@@ -55,14 +54,12 @@ const content = [
           
         ))
       }
-    </div>
-    <div class="w-[236px] flex flex-col justify-center items-center gap-12 py-[34px] rounded-[15px] bg-[#eeeeee] mt-4">
-      <QRCard url={"https://capi-tile-stone.vercel.app/links"} label="Scan me for more info" />
-    <QRCard url={"https://capi-tile-stone.vercel.app/review"} label="Give me a review" /> 
-    </div>      
-		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[40px] ">
-			<p class="font-heveltica text-[14px] font-normal leading-[140%]">Powered by</p>
-			<img src="/inkshape.svg" alt="Logo de Inkshape" width="117" height="30"/>
-		</div>
+    </div>    
+		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[30px]">
+          <p class="text-[12px] font-normal leading-[140%] text-[#878787]">Powered by</p>
+          <a href="https://inkshapegroup.com/en/">
+            <img src="/footer-logo.webp" alt="Imagen del Footer" width="3745" height="996" class="w-[110px]  h-[29px] cursor-pointer">
+          </a>
+        </div>
 	</section>
 </LayoutSec>

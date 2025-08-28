@@ -72,7 +72,7 @@ export default {
     },
     experience: {
       description:
-        'Custom Tile & Stone Work in Avondale That Makes a Visible Impact',
+        'Custom Tile & Stone Work in Arizona That Makes a Visible Impact',
       description2:
         'We turn ordinary floors, fireplaces and showers into clean, high-end installations. <br/> <br class="block md:hidden"/> <span class="font-bold">With 23+ years of experience, our detailed craftsmanship brings value, beauty and durability to every project.</span>',
       items: [
@@ -207,7 +207,7 @@ export default {
         '/main/carnew3.webp',
         '/main/carnew6.webp',
         '/main/exp-3.webp',
-        '/main/experience1.webp',
+        '/main/bathrooms.webp',
         '/main/carnew4.webp',
         '/main/carnew5.webp',
         '/main/carnew7.webp',
@@ -339,7 +339,7 @@ export default {
         '/main/floors.webp',
         '/main/repairs-2.webp',
         '/main/carousel2.webp',
-        '/main/experience3.webp',
+        '/main/carnew6.webp',
       ],
     },
   },

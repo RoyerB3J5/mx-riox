@@ -72,7 +72,7 @@ export default {
     },
     experience: {
       description:
-        'Trabajos Personalizados de Azulejo y Piedra en Avondale que Hacen un Impacto Visible',
+        'Trabajos Personalizados de Azulejo y Piedra en Arizona que Hacen un Impacto Visible',
       description2:
         'Convertimos pisos, chimeneas y duchas ordinarias en instalaciones limpias y de alta gama. <br/> <br class="block md:hidden"/> <span class="font-bold">Con más de 23 años de experiencia, nuestra artesanía detallada aporta valor, belleza y durabilidad a cada proyecto.</span>',
       items: [
@@ -208,7 +208,7 @@ export default {
         '/main/carnew3.webp',
         '/main/carnew6.webp',
         '/main/exp-3.webp',
-        '/main/experience1.webp',
+        '/main/bathrooms.webp',
         '/main/carnew4.webp',
         '/main/carnew5.webp',
         '/main/carnew7.webp',
@@ -340,7 +340,7 @@ export default {
         '/main/floors.webp',
         '/main/repairs-2.webp',
         '/main/carousel2.webp',
-        '/main/experience3.webp',
+        '/main/carnew6.webp',
       ],
     },
   },
