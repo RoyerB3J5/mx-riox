@@ -9,35 +9,26 @@ interface Props {
 const { content } = Astro.props as Props;
 ---
 <section class="w-full flex items-center justify-center relative ">
-  <img src="/main/hero-2.webp" alt="Fondo de soluciones" width="2048" height="1536" class="absolute inset-0 w-full h-full object-cover -z-20 object-[60%_center] md:object-center" loading="lazy" decoding="async">
+  <img src="/main/hero-2.webp" alt="Fondo de soluciones" width="2048" height="1536" class="absolute inset-0 w-full h-full object-cover -z-20 object-[60%_center] md:object-center" loading="eager" decoding="async">
   <div class="absolute inset-0 w-full h-full -z-10 bg-black/40 block md:hidden"></div>
-  <div class="w-full max-w-screen md:max-w-[1217px] flex flex-col lg:flex-row justify-center md:justify-center lg:justify-center items-center gap-4 md:gap-[80px] px-5 md:px-0 pt-[114px] pb-[80px] md:py-[150px] lg:py-0 3xl:pt-[300px] 3xl:pb-[180px] h-[100vh] md:h-auto lg:h-[100vh] 3xl:h-auto " data-aos="fade-up" data-aos-duration="2000">
+  <div class="w-full max-w-screen md:max-w-[1117px] flex flex-col lg:flex-row justify-center md:justify-center lg:justify-start items-center gap-4 md:gap-[80px] px-5 md:px-0 pt-[114px] pb-[80px] md:py-[150px] lg:py-0 3xl:pt-[300px] 3xl:pb-[180px] h-[100vh] md:h-auto lg:h-[100vh] 3xl:h-auto " data-aos="fade-up" data-aos-duration="2000">
     <div class=" flex flex-col items-center justify-center w-full pt-[22px] md:pt-[10%] 3xl:pt-0 max-w-[560px]" >
       <h1 class="text-center text-[31px] md:text-[44px] leading-[45px] md:leading-[46px] font-semibold text-white  mb-4 md:mb-2" set:html={content.title}></h1>
       <img src="/main/google.webp" alt="Icono de Google" width="993" height="400" class="mb-[26px] md:mb-[30px] h-[45px] md:h-[45px] w-auto">
       <div class="flex flex-col md:flex-row justify-center items-center gap-[18px] w-full md:w-auto relative z-[20] ">
-        <Button class='bg-secondary w-full md:w-auto text-white ' href="tel:+14076206653">
+        <Button class='bg-secondary w-full md:w-auto text-white ' href="tel:+16783086271">
           {content.button1}
         </Button>
         <Button class='bg-main w-full md:w-auto text-white ' href='contact#info'>
           {content.button2}
         </Button>
       </div>
-    </div>
-    <iframe
-        src="https://player.mux.com/fJIrI6nJMirMQi4Lwrp9s19RvU2JvHaOT00PK6qstdEw?metadata-video-title=VIDEO+CAPI&video-title=VIDEO+CAPI&accent-color=%23e90c0c"
-        class="w-full aspect-[960/544] sm:w-[560px] lg:w-full max-w-[550px] rounded-[20px] overflow-hidden bg-transparent mt-0 lg:mt-[80px] 3xl:mt-0"
-        style="border: none;"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-        allowfullscreen
-    ></iframe>
-
-    
+    </div>    
   </div>
   <div class="absolute bottom-0  w-screen md:w-auto px-4 lg:px-0 z-[0] pointer-events-none">
   <div class="shadow-div translate-y-[89%] md:translate-y-5/6 bg-[#E8E8E8] py-10 md:py-[35px] rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-[28px] lg:gap-[68px] w-full px-[32px] lg:px-[95px] max-w-screen lg:max-w-none pointer-events-auto">
     {content.lists.map(item => (
-      <div class="flex flex-col justify-center md:justify-between lg:justify-center items-center gap-[18px] md:gap-[13px] w-full max-w-none lg:max-w-[341px]">
+      <div class="flex flex-col justify-center md:justify-between lg:justify-center items-center gap-[18px] md:gap-[13px] w-full max-w-none lg:max-w-[301px]">
         <img src={`/main/${item.icon}.svg`} alt={item.icon} width="70" height="68" class="max-h-[57px] lg:max-h-[68px]" />
         <div class="flex flex-col justify-center items-center gap-[6px] w-full ">
           <p class="text-[15px] lg:text-[24px] font-semibold text-center text-main">{item.title}</p>

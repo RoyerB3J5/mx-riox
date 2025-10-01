@@ -17,7 +17,7 @@ const { content } = Astro.props as Props;
           <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-white w-full flex items-center justify-center gap-1">
             <span class="text-secondary">+</span>
             <span class="counter" data-target={item.number.toString()} id={`counter-${idx}`}>0</span>
-            <span class={`${item.number == 23 ? 'inline' : 'hidden'}`}>Years</span>
+            <span class={`${item.number == 30 ? 'inline' : 'hidden'}`}>Years</span>
           </p>
           <p class="text-[18px] md:text-[16px] font-semibold leading-[20px] text-white text-center">{item.title}</p>
         </div>
