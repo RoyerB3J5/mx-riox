@@ -3,11 +3,12 @@ import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
 import SocialMedia from '../../components/SocialMedia.astro';
 import LayoutSec from '../../layouts/LayoutSec.astro';
+import SaveContact from '../../components/SaveContact.astro';
 
 const content = [
   {
     title: 'Instagram',
-    link: 'https://www.instagram.com/capitileandstone/',
+    link: 'https://www.instagram.com/mgrioxplumbing/',
   },
   {
     title: 'Facebook',
@@ -28,32 +29,36 @@ const content = [
 ];
 ---
 <LayoutSec>
-	<section class="w-full flex flex-col justify-center items-center gap-4 pt-3">
+	<section class="w-full flex flex-col justify-center items-center gap-4 py-6">
 		<div class="w-full flex flex-col justify-center items-center gap-[3px]">
-			<a href="/" aria-label="Ir a la página principal" title="Inicio - Capi Tile & Stone">
-        <img src="/logo-4.svg" alt="Logo de Capi Tile & Stone - Servicio en Avondale, Arizona" width="1164" height="457" class="cursor-pointer w-auto h-[80px] ">
+			<a href="/" aria-label="Ir a la página principal" title="Inicio - MgRiox Plumbing">
+        <img src="/logo-color.webp" alt="Logo de MgRiox Plumbing - Servicio en Atlanta, Georgia" width="1300" height="728" class="cursor-pointer w-auto h-[110px] ">
       </a>
 			<div class="flex flex-col justify-center items-center ">
-				<h1 class="text-[16px] font-bold leading-[175%]">@capitileandstone</h1>
+				<h1 class="text-[16px] font-bold leading-[175%]">@mgrioxplumbing</h1>
 				<div class="flex justify-center items-center gap-[3px] mt-[2px] mb-[11px]">
 					<Icon name={'map'} class={"w-[9px] h-[11px]"}/>
-					<p class="text-[10.5px] leading-[22px] font-heveltica">Arizona - USA</p>
+					<p class="text-[10.5px] leading-[22px] font-heveltica">Atlanta - USA</p>
 				</div>
-				<p class="text-[16px] font-medium text-center">Custom Tile & Stone Work in Arizona That Makes a Visible Impact</p>
+        {/* Falta */}
+				<p class="text-[16px] font-medium text-center">Custom Tile & Stone Work in Atlanta That Makes a Visible Impact</p>
 			</div>
 			<SocialMedia />
 		</div>
-    <div class="w-full flex flex-col justify-center items-center gap-3">
+    <div class="w-full flex flex-col justify-center items-center gap-3 max-w-[500px]">
       {
         content.map((item) => (
           <a class="w-full" href={item.link}>
             <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center ${item.title === "Download our Flyer" ? "animate-shake" : ""}`}>
-              <p class="font-heveltica text-[14px] font-medium leading-[140%]">{item.title}</p>
+              <p class="font-heveltica text-[14px] font-bold leading-[140%]">{item.title}</p>
             </div>
           </a>
           
         ))
       }
+      <button class="w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center font-heveltica text-[14px] font-bold leading-[140%] cursor-pointer" id="open-contact-panel">
+        Save Contact
+      </button>
     </div>    
 		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[30px]">
           <p class="text-[12px] font-normal leading-[140%] text-[#878787]">Powered by</p>
@@ -62,4 +67,151 @@ const content = [
           </a>
         </div>
 	</section>
+  <div class="fixed bg-black/30 w-screen h-screen top-0 left-0 flex items-end" style="z-index:9999; pointer-events: none;" id="contact-panel">
+    <div id="contact-panel-inner" class="w-full h-[80%] rounded-t-[20px] bg-white relative flex flex-col justify-start items-center gap-8 py-6 transform translate-y-full transition-transform duration-300 ease-in-out" style="z-index:10000; pointer-events: auto;">
+  <img src="/share.svg" alt="Compartir" class="absolute top-5 left-5 w-6 h-6 cursor-pointer share-btn">
+      <img src="/equis-black.svg" alt="Cerrar panel" class="absolute top-5 right-5 w-5 h-5 cursor-pointer" id="close-panel">
+      <p class="text-[16px]">MG Riox Plumbing</p>
+      <div class="flex flex-col justify-center items-start gap-8 mt-3">
+        <p class="text-[18px] font-bold mb-5 w-full text-center">MG Riox Plumbing</p>
+        <div class="flex justify-center items-center gap-5 text-[16px] font-medium">
+          <p class="font-bold text-[22px]">@</p>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mgrioxplumbing@gmail.com">mgrioxplumbing@gmail.com</a>
+        </div>
+        <div class="flex justify-center items-center gap-5 text-[16px] font-medium">
+          <img src="/phone.svg" alt="Telefono" class="w-6 h-6">
+          <a href="tel:+16783086271">+1 (678) 308-6271</a>
+        </div>
+        <div class="flex justify-center items-center gap-5 text-[16px] font-medium">
+          <img src="/map-1.svg" alt="Ubicación" class="w-6 h-6">
+          <a >Atlanta, Usa</a>
+        </div>
+        <div class="flex justify-center items-center gap-5 text-[16px] font-medium">
+          <img src="/web.svg" alt="Telefono" class="w-6 h-6">
+          <a href="/connect">mgrioxplumbing.net</a>
+        </div>
+        <SaveContact />
+      </div>
+    </div>
+  </div>
 </LayoutSec>
+<script is:inline>
+  const openContactPanelButton = document.getElementById('open-contact-panel');
+  const contactPanel = document.getElementById('contact-panel');
+  const contactPanelInner = document.getElementById('contact-panel-inner');
+  const closePanelButton = document.getElementById('close-panel');
+
+  // guard: si no existen elementos, no hacemos nada
+  if (!openContactPanelButton || !contactPanel || !contactPanelInner) {
+    // nothing to do
+  } else {
+    const TRANSITION_MS = 350; // slightly larger than duration-300
+
+    let scrollY = 0;
+    let previousBodyStyles = {};
+    function showPanel() {
+      contactPanel.style.display = 'flex';
+      contactPanel.style.pointerEvents = 'auto';
+      // lock scroll by fixing body in place (works better on mobile)
+      scrollY = window.scrollY || window.pageYOffset || 0;
+      previousBodyStyles = {
+        position: document.body.style.position || '',
+        top: document.body.style.top || '',
+        left: document.body.style.left || '',
+        right: document.body.style.right || '',
+        width: document.body.style.width || '',
+        overflow: document.body.style.overflow || '',
+      };
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      // force a reflow so the transition runs
+      void contactPanelInner.offsetWidth;
+      contactPanelInner.classList.remove('translate-y-full');
+      contactPanelInner.classList.add('translate-y-0');
+    }
+
+    function completeHide() {
+      contactPanel.style.display = 'none';
+      contactPanel.style.pointerEvents = 'none';
+      // restore previous body styles and scroll position
+      document.body.style.position = previousBodyStyles.position || '';
+      document.body.style.top = previousBodyStyles.top || '';
+      document.body.style.left = previousBodyStyles.left || '';
+      document.body.style.right = previousBodyStyles.right || '';
+      document.body.style.width = previousBodyStyles.width || '';
+      document.body.style.overflow = previousBodyStyles.overflow || '';
+      window.scrollTo(0, scrollY);
+    }
+
+    function hidePanel() {
+      // slide down
+      contactPanelInner.classList.remove('translate-y-0');
+      contactPanelInner.classList.add('translate-y-full');
+
+      // Wait for transitionend, but also use a timeout fallback
+      let done = false;
+      function onTransition() {
+        if (done) return;
+        done = true;
+        completeHide();
+        contactPanelInner.removeEventListener('transitionend', onTransition);
+      }
+
+      contactPanelInner.addEventListener('transitionend', onTransition);
+      // fallback in case transitionend doesn't fire
+      setTimeout(() => onTransition(), TRANSITION_MS + 100);
+    }
+
+    openContactPanelButton.addEventListener('click', showPanel);
+
+    // Share buttons: open native share sheet when supported
+    const shareButtons = document.querySelectorAll('.share-btn');
+    if (shareButtons && shareButtons.length) {
+      shareButtons.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          const shareData = {
+            title: 'NuVision Windows',
+            text: 'NuVision Windows — professional window and door replacement services',
+            url: window.location.href,
+          };
+
+          if (navigator.share) {
+            try {
+              await navigator.share(shareData);
+              return;
+            } catch (err) {
+              // user cancelled or error; fall through to clipboard fallback
+              console.warn('share failed or cancelled', err);
+            }
+          }
+
+          // Fallback: copy URL to clipboard and notify user
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            // small user feedback; prefer a non-blocking toast in the future
+            alert('Enlace copiado al portapapeles. Pega y comparte donde quieras.');
+          } catch (err) {
+            // last resort: open native share via mailto as a helper
+            console.warn('clipboard write failed', err);
+          }
+        });
+      });
+    }
+
+    // close button (may be null if removed inside component)
+    if (closePanelButton) closePanelButton.addEventListener('click', hidePanel);
+
+    // allow clicking the backdrop (outside inner panel) to close
+    contactPanel.addEventListener('click', (e) => {
+      if (e.target === contactPanel) hidePanel();
+    });
+
+    // Inicialmente ocultar el panel
+    contactPanel.style.display = 'none';
+    contactPanel.style.pointerEvents = 'none';
+  }
+</script>
