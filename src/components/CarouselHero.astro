@@ -10,7 +10,7 @@ const { images, interval = 8000 } = Astro.props as Props;
 <div class="relative px-2 sm:px-5 lg:px-0 md:max-w-[90%] lg:max-w-[1138px] w-full hero-carousel" data-interval={interval}>
   <!-- Prev arrow -->
   <button
-    class="hidden md:flex absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full z-10 w-10 h-10 items-center justify-center text-[40px] text-accent cursor-pointer hero-carousel-prev"
+    class="hidden md:flex absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full z-10 w-10 h-10 items-center justify-center text-[40px] text-main cursor-pointer hero-carousel-prev"
     aria-label="Previous slide"
   >
     ‹
@@ -41,7 +41,7 @@ const { images, interval = 8000 } = Astro.props as Props;
 
   <!-- Next arrow -->
   <button
-    class="hidden md:flex absolute top-1/2 right-0 -translate-y-1/2 translate-x-full z-10 w-10 h-10 items-center justify-center text-[40px] text-accent cursor-pointer hero-carousel-next"
+    class="hidden md:flex absolute top-1/2 right-0 -translate-y-1/2 translate-x-full z-10 w-10 h-10 items-center justify-center text-[40px] text-main cursor-pointer hero-carousel-next"
     aria-label="Next slide"
   >
     ›

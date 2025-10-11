@@ -14,7 +14,7 @@ const { content } = Astro.props as Props;
   <div class="flex flex-col justify-center items-center gap-[40px] md:gap-0 w-full" data-aos="fade-down">  
     <div class="flex flex-col justify-center items-center gap-[53px] w-full mb-0 md:mb-[53px]">
       <div class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end px-0 md:px-8 w-full gap-[18px] md:gap-0">
-        <h2 set:html={content.title} class="text-main text-[28px] lg:text-[40px] font-normal leading-[30px] lg:leading-[46px] text-center md:text-start max-w-none md:max-w-[537px] "></h2>
+        <h2 set:html={content.title} class="text-black text-[28px] lg:text-[40px] font-normal leading-[30px] lg:leading-[46px] text-center md:text-start max-w-none md:max-w-[537px] "></h2>
         <Button class='bg-secondary text-white px-[38px]' href='gallery'>
             {content.button}
           </Button>
@@ -24,7 +24,7 @@ const { content } = Astro.props as Props;
   </div>
   <div class="flex flex-col justify-center items-center gap-7 w-full max-w-screen md:max-w-[1138] px-4 md:px-0 mt-0 md:mt-[80px] lg:mt-[130px]">
     <div class="w-full flex md:justify-start justify-center items-start md:items-center gap-[26px] px-3">
-      <div class="w-[50px] md:w-[62px] h-[50px] md:h-[62px] rounded-full border-[1px] border-accent overflow-hidden flex items-center justify-center flex-shrink-0 p-2 ">
+      <div class="w-[50px] md:w-[62px] h-[50px] md:h-[62px] rounded-full border-[1px] border-main overflow-hidden flex items-center justify-center flex-shrink-0 p-2 ">
         <img src="/mini-logo.png" alt="Mini insignia de Capi Tile & Stone" width="100" height="100" class="w-full h-full object-contain" loading="lazy" decoding="async">
       </div>
       

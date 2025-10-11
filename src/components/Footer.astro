@@ -45,7 +45,7 @@ const lang = match ? match[1] : 'en';
       <div class="flex items-center gap-[6px]">
           {icons.map(i => (
             <a href={i.href} class="w-[27px] h-[27px] md:w-[31px] md:h-[31px] rounded-full flex items-center justify-center bg-main flex-shrink-0">
-              <Icon name={i.name} class={"w-4 h-4 md:w-5 md:h-5 text-white"}/>
+              <Icon name={i.name} class={"w-4 h-4 md:w-5 md:h-5 text-blue-light"}/>
             </a>
           ))}
         </div>
@@ -53,7 +53,7 @@ const lang = match ? match[1] : 'en';
     <div class="flex flex-col items-center justify-center gap-9 lg:gap-[55px]">
       <div class="flex flex-col items-center justify-center gap-2 md:gap-[13px]">
         <p class="text-[16px] md:text-[24px] font-semibold leading-[20px] text-center text-secondary">{content?.hours}</p>
-        <p class="text-[14px] md:text-[24px] leading-[20px] text-center text-main">7:00am - 8:00pm</p>
+        <p class="text-[14px] md:text-[24px] leading-[20px] text-center text-black">7:00am - 8:00pm</p>
       </div>
       <div class="flex flex-col items-center justify-center gap-2 md:gap-[13px]">
         <p class="text-[16px] md:text-[15px] font-semibold leading-[20px] text-center text-secondary">{content?.call}</p>
@@ -72,12 +72,12 @@ const lang = match ? match[1] : 'en';
             <div class="relative flex flex-col justify-center items-end">
               {isServices ? (
                 <button 
-                  class={`services-toggle w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-main ${isActive?'font-bold':'font-medium'} cursor-pointer`}
+                  class={`services-toggle w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-black ${isActive?'font-bold':'font-medium'} cursor-pointer`}
                   data-services-menu
                   set:html={item.label}
                 ></button>
               ) : (
-                <a href={`/${lang}${item.href}`} class={`w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-main ${isActive?'font-bold':'font-medium'}`} set:html={item.label}></a>
+                <a href={`/${lang}${item.href}`} class={`w-full text-center lg:text-right text-[15px] leading-[20px] uppercase hover:font-bold transition-all duration-300 ease-in-out text-black ${isActive?'font-bold':'font-medium'}`} set:html={item.label}></a>
               )}
               {isServices && (
                 <div class="services-dropdown hidden flex-col items-end justify-center gap-0 bg-accent mt-2 rounded-md shadow-lg overflow-hidden transition-all duration-300 ease-in-out absolute z-[20] top-[15px] w-[190px] md:right-0 md:left-auto left-1/2 md:translate-x-0 -translate-x-1/2">

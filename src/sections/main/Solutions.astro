@@ -21,67 +21,30 @@ const { content } = Astro.props as Props;
         <p class="text-center text-[16px] font-normal lg:font-medium leading-[20px] md:leading-[25px] ">{content.text}</p>
       </div>
     </div>
-    <div class="w-full flex flex-col gap-[22px] ">
-      {Array.from({ length: Math.ceil(content.items.length / 3) }, (_, rowIndex) => {
-        const startIndex = rowIndex * 3;
-        const rowItems = content.items.slice(startIndex, startIndex + 3);
+  <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-[22px]">
+      {content.items.map((item, index) => {
+        const rowIndex = Math.floor(index / 3);
         const isPar = rowIndex % 2 === 0;
 
-        // If the row has 3 items, keep the existing grid behaviour.
-        if (rowItems.length === 3) {
-          return (
-            <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]" data-aos={isPar ? 'fade-right' : 'fade-left'}>
-              {rowItems.map(item => (
-                <div class="w-full flex justify-center">
-                  <div
-                    class={`relative
-                          w-full md:w-[361.5px] h-[120px] md:h-[415px]
-                          rounded-[15px]
-                          overflow-hidden
-                          bg-cover
-                          transition-all duration-200
-                          group `}
-                    style={`background-image: url('/main/${item.image}.webp'); background-position: center;`}
-                  >
-                    <div class="absolute inset-0 bg-[rgba(4,35,64,0.32)] pointer-events-none"></div>
-                    <div class="absolute inset-0 bg-main/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
-                    <div class="relative flex justify-center items-center h-full px-[25px]">
-                      <p class="text-white text-[22px] md:text-[24px] font-medium md:font-semibold text-center leading-[25px]">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          );
-        }
-
-        // For rows with 1 or 2 items: center them while keeping the same visual width
-        // as the grid columns (use max-width matching md:w-[361.5px]).
         return (
-          <div class="w-full flex flex-col sm:flex-row justify-center gap-[22px]" data-aos={isPar ? 'fade-right' : 'fade-left'}>
-            {rowItems.map(item => (
-              <div class="w-full max-w-none sm:max-w-[361.5px] flex justify-center">
-                <div
-                  class={`relative w-full h-[120px] md:h-[415px]
-                        rounded-[15px]
-                        overflow-hidden
-                        bg-cover
-                        transition-all duration-200
-                        group `}
-                  style={`background-image: url('/main/${item.image}.webp'); background-position: center;`}
-                >
-                  <div class="absolute inset-0 bg-[rgba(4,35,64,0.32)] pointer-events-none"></div>
-                  <div class="absolute inset-0 bg-main/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
-                  <div class="relative flex justify-center items-center h-full px-[25px]">
-                    <p class="text-white text-[22px] md:text-[24px] font-medium md:font-semibold text-center leading-[25px]">
-                      {item.title}
-                    </p>
-                  </div>
-                </div>
+          <div class="w-full flex justify-center" data-aos={isPar ? 'fade-right' : 'fade-left'}>
+            <div
+              class={`relative w-full max-w-[361.5px] h-[120px] md:h-[415px]
+                    rounded-[15px]
+                    overflow-hidden
+                    bg-cover
+                    transition-all duration-200
+                    group `}
+              style={`background-image: url('/main/${item.image}.webp'); background-position: center;`}
+            >
+              <div class="absolute inset-0 bg-[rgba(4,35,64,0.32)] pointer-events-none"></div>
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
+              <div class="relative flex justify-center items-center h-full px-[25px]">
+                <p class="text-white text-[22px] md:text-[24px] font-medium md:font-semibold text-center leading-[25px]">
+                  {item.title}
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         );
       })}

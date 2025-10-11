@@ -46,7 +46,7 @@ const lang = match ? match[1] : 'en';
   <div class="w-full bg-secondary justify-center hidden lg:flex">
     <div class="w-full flex justify-center lg:justify-between items-center  max-w-none xl:max-w-[1154px] px-3">
       <div class="flex items-center gap-[6px]">
-        <Icon name={"map"} class={"w-[16px] h-[16px] text-white"} aria-label="Ubicación" title="Nuestra ubicación"/>
+        <Icon name={"map"} class={"w-[16px] h-[16px] text-blue-light"} aria-label="Ubicación" title="Nuestra ubicación"/>
         <p class="text-[16px] font-semibold leading-[52px] text-white">Atlanta, Georgia</p>
       </div>
       <div class="hidden md:flex items-center gap-[22px]">
@@ -60,7 +60,7 @@ const lang = match ? match[1] : 'en';
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon name={i.name} class={"w-5 h-5 text-white"} aria-hidden="true"/>
+              <Icon name={i.name} class={"w-5 h-5 text-blue-light"} aria-hidden="true"/>
               <span class="sr-only">{i.label}</span>
             </a>
           ))}
@@ -84,9 +84,9 @@ const lang = match ? match[1] : 'en';
                             (index === 1 && normalized.startsWith('/services'));
             const isServices = index === 1;
             return(
-              <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-secondary w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
+              <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-blue-light w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
                 <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
-                  <span class={`absolute bottom-0 left-0 h-[2px] bg-secondary group-hover:bg-white transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-main'}`} />
+                  <span class={`absolute bottom-0 left-0 h-[2px] bg-blue-dark group-hover:bg-white transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-white'}`} />
                 </a>
                 {isServices && (
                   <div class="dropdown-menu absolute top-full left-0 mt-0 w-[190px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
@@ -106,7 +106,7 @@ const lang = match ? match[1] : 'en';
         {content?.button}
       </Button>
       <div class="flex justify-center items-center gap-[6px] px-[7px]">
-        <ImMobile className='block w-[38px] h-[56px] text-secondary'/>
+        <ImMobile className='block w-[38px] h-[56px] text-white'/>
         <div class="text-white text-[16px] font-semibold leading-[24px] flex flex-col items-start justify-center">
           <p>{content?.phone}</p>
           <a 

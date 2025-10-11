@@ -30,25 +30,24 @@ const { content } = Astro.props as Props;
     <div class="order-1 md:order-1 flex flex-col items-center md:items-start justify-center py-[48px] md:py-0 max-w-none md:max-w-[478px] max-h-none md:max-h-[648px]" data-aos="fade-left">
       <div class="flex flex-col justify-center items-start text-[28px] md:text-[44px] font-semibold leading-[24px] mb-8">
         <h2 class=" text-secondary h-[43px] md:h-[72px] flex items-center">The MG Riox</h2>
-        <p class="text-main">Difference</p>
+        <p class="text-black">Difference</p>
       </div>
-      
-      <p class="text-[16px] md:text-[18px] leading-[20px] md:leading-[25px] text-center md:text-start font-bold max-w-none md:max-w-[356px] text-main" set:html={content.description}></p>
-      <p set:html={content.description2} class="mt-[17px] md:mt-5 text-[16px] md:text-[16px] leading-[20px] md:leading-[25px] text-center md:text-start font-medium main"></p>
+      <p class="text-[16px] md:text-[18px] leading-[20px] md:leading-[25px] text-center md:text-start font-bold max-w-none md:max-w-[356px] text-black" set:html={content.description}></p>
+      <p set:html={content.description2} class="mt-[17px] md:mt-2 text-[16px] md:text-[16px] leading-[20px] md:leading-[25px] text-center md:text-start font-medium main"></p>
       <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-[29px] md:gap-[43px] mt-[28px] md:mt-[73px] w-full py-1 md:py-0">
         <div class="flex flex-col justify-between items-center md:items-start gap-[29px] md:gap-[62px] w-full">
           <div class="flex flex-col gap-2 md:gap-[16px]">
             {content.items.map(item=>(
               <div class="flex items-center gap-[7px] md:gap-4">
                 <Icon name={"check"} class={"shrink-0 h-[20px] md:h-[44px] w-[20px] md:w-[44px] text-secondary"}/>
-                <p class="text-[16px] font-medium leading-[25px] text-main">{item}</p>
+                <p class="text-[16px] font-medium leading-[25px] text-black">{item}</p>
               </div>
             ))}
           </div>
         </div>
         <div class="max-w-none md:max-w-[183px] flex flex-col justify-center items-center gap-[3px] px-[24px] md:px-[20px] pt-[4.5px] md:pt-[27px] pb-[10.5px] md:pb-[39px] border-t-[5px] border-accent bg-main text-white">
-          <p class="text-[32px] md:text-[45px] text-center font-semibold leading-[60px]">30 <span class="text-secondary">+</span></p>
-          <p class="text-[15px] md:text-[16px] uppercase font-semibold leading-[20px] text-center">{content.years}</p>
+          <p class="text-[32px] md:text-[45px] text-center font-semibold leading-[60px]">30 <span class="text-blue-light">+</span></p>
+          <p class="text-[15px] md:text-[16px] uppercase font-semibold leading-[20px] text-center text-white">{content.years}</p>
         </div>
       </div>
     </div>

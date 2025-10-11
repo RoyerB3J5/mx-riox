@@ -31,9 +31,9 @@ const { content } = Astro.props as Props;
       <div class="flex flex-col justify-center md:justify-between lg:justify-center items-center gap-[18px] md:gap-[13px] w-full max-w-none lg:max-w-[301px]">
         <img src={`/main/${item.icon}.svg`} alt={item.icon} width="70" height="68" class="max-h-[57px] lg:max-h-[68px]" />
         <div class="flex flex-col justify-center items-center gap-[6px] w-full ">
-          <p class="text-[15px] lg:text-[24px] font-semibold text-center text-main">{item.title}</p>
-          <div class="w-full h-[2px] bg-main"></div>
-          <p class="text-[13px] md:text-[15px] leading-[20px] text-center max-w-[341px] lg:max-w-none text-main">{item.description}</p>
+          <p class="text-[15px] lg:text-[24px] font-semibold text-center text-black">{item.title}</p>
+          <div class="w-full h-[2px] bg-black"></div>
+          <p class="text-[13px] md:text-[15px] leading-[20px] text-center max-w-[341px] lg:max-w-none text-black">{item.description}</p>
         </div>
       </div>
     ))}
