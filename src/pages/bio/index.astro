@@ -46,11 +46,13 @@ const content = [
 			</div>
 			<SocialMedia />
 		</div>
+    {/*${item.title === "Download our Flyer" ? "animate-shake" : ""} */}
     <div class="w-full flex flex-col justify-center items-center gap-3 max-w-[500px]">
       {
         content.map((item) => (
           <a class="w-full" href={item.link}>
-            <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center ${item.title === "Download our Flyer" ? "animate-shake" : ""}`}>
+            <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center`}>
+              
               <p class="font-heveltica text-[14px] font-bold leading-[140%]">{item.title}</p>
             </div>
           </a>
