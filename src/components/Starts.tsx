@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import { FaStar } from 'react-icons/fa';
-import FormReview from './FormReview';
+import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
+import FormReview from "./FormReview";
 
 function Starts() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [rating, setRating] = useState<number | null>(null);
   const showForm = rating !== null && rating <= 3;
   const total = 5;
-  const reviewLink = 'https://g.page/r/CVEXIn4L5xyMEBM/review';
+  const reviewLink = "https://maps.app.goo.gl/7whydDpD3D1kb4ZS7";
 
   // Move any client-only side effects (redirect) into useEffect so SSR won't break.
   useEffect(() => {
     if (rating !== null && rating === total - 1) {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         window.location.href = reviewLink;
       }
     }
@@ -22,7 +22,7 @@ function Starts() {
     setRating(index);
   };
 
-  const STAR_KEYS = ['s1', 's2', 's3', 's4', 's5'];
+  const STAR_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 
   return (
     <>
@@ -50,7 +50,7 @@ function Starts() {
           );
         })}
       </div>
-      {showForm && <FormReview/>}
+      {showForm && <FormReview />}
     </>
   );
 }
