@@ -10,7 +10,8 @@ const { carouselImages } = Astro.props as Props;
 <section class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-7 pb-10 md:pb-[50px] max-w-screen md:max-w-[1100px] px-4 lg:px-0 w-full min-h-[660px] h-full">
   <div class="flex flex-col justify-center items-center gap-4 w-full max-w-[600px]">
     <CarouselServices images={carouselImages}/>
-    <img src="/mockup.webp" alt="Mockup de Capi Tile" width="2383" height="1602" class="w-full h-auto rounded-[15px] max-w-[600px] hidden lg:block">
+    {/* <img src="/mockup.webp" alt="Mockup de Capi Tile" width="2383" height="1602" class="w-full h-auto rounded-[15px] max-w-[600px] hidden lg:block"> */}
+    <div class="w-full h-auto rounded-[15px] max-w-[600px] hidden lg:block bg-gray-400 aspect-[2383/1602]"></div>
   </div>
   
   <div class="w-full lg:w-[484px] h-auto">
