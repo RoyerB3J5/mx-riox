@@ -16,23 +16,23 @@ const { content } = Astro.props as Props;
       <h1 class="text-center text-[31px] md:text-[44px] leading-[45px] md:leading-[46px] font-semibold text-white  mb-4 md:mb-2" set:html={content.title}></h1>
       <img src="/main/google.webp" alt="Icono de Google" width="993" height="400" class="mb-[26px] md:mb-[30px] h-[45px] md:h-[45px] w-auto">
       <div class="flex flex-col md:flex-row justify-center items-center gap-[18px] w-full md:w-auto relative z-[20] ">
-        <Button class='bg-secondary w-full md:w-auto text-white ' href="tel:+16783086271">
+        <Button class='bg-main w-full md:w-auto text-white ' href="tel:+16783086271">
           {content.button1}
         </Button>
-        <Button class='bg-main w-full md:w-auto text-white ' href='contact#info'>
+        <Button class='bg-secondary w-full md:w-auto text-white ' href='contact#info'>
           {content.button2}
         </Button>
       </div>
     </div>    
   </div>
   <div class="absolute bottom-0  w-screen md:w-auto px-4 lg:px-0 z-[0] pointer-events-none">
-  <div class="shadow-div translate-y-[89%] md:translate-y-5/6 bg-[#E8E8E8] py-10 md:py-[35px] rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-[28px] lg:gap-[68px] w-full px-[32px] lg:px-[95px] max-w-screen lg:max-w-none pointer-events-auto">
+  <div class="shadow-div translate-y-[89%] md:translate-y-5/6 bg-[#FAFAFA] py-10 md:py-[35px] rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-[28px] lg:gap-[68px] w-full px-[32px] lg:px-[95px] max-w-screen lg:max-w-none pointer-events-auto">
     {content.lists.map(item => (
       <div class="flex flex-col justify-center md:justify-between lg:justify-center items-center gap-[18px] md:gap-[13px] w-full max-w-none lg:max-w-[301px]">
         <img src={`/main/${item.icon}.svg`} alt={item.icon} width="70" height="68" class="max-h-[57px] lg:max-h-[68px]" />
         <div class="flex flex-col justify-center items-center gap-[6px] w-full ">
           <p class="text-[15px] lg:text-[24px] font-semibold text-center text-black">{item.title}</p>
-          <div class="w-full h-[2px] bg-black"></div>
+          <div class="w-full h-[2px] bg-secondary"></div>
           <p class="text-[13px] md:text-[15px] leading-[20px] text-center max-w-[341px] lg:max-w-none text-black">{item.description}</p>
         </div>
       </div>

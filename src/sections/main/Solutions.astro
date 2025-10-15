@@ -14,7 +14,7 @@ const { content } = Astro.props as Props;
         <a href="/">
           <img src="/logo-white.webp" alt="Logo de Mg Riox Plumbing" width="1300" height="728" class="cursor-pointer w-auto h-[80px] lg:h-[95px]">
         </a>
-        <h3 set:html={content.description} class="text-center text-[28px] lg:text-[40px] font-semibold leading-[35px] lg:leading-[46px] text-white max-w-[336px] lg:max-w-none"></h3>
+        <h3 set:html={content.description} class="text-center text-[28px] lg:text-[40px] font-semibold leading-[35px] lg:leading-[46px] text-main max-w-[336px] lg:max-w-none"></h3>
       </div>
       <div class="flex flex-col justify-center items-center gap-[20px] md:gap-[22px] py-[31px] md:pb-[21px] md:pt-[28px] px-[27px] md:px-[18px] bg-secondary max-w-[550px] rounded-[15px] text-[#FAFAFA]">
         <h2 class="text-center text-[20px] lg:text-[32px] font-semibold leading-[25px] lg:leading-[46px] max-w-[279px] lg:max-w-none">{content.title}</h2>

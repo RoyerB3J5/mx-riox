@@ -12,12 +12,12 @@
 }
 
 @theme {
-  --color-main: #02135B;
-  --color-secondary: #0000C4;
-  --color-accent: #0000C4;
-  --color-blue-light:#CECEF4;
-  --color-blue-dark:#CECEF4;
-  --color-dark: #475059;
+  --color-main: #0A2A59;
+  --color-secondary: #C60500;
+  --color-accent: #C60500;
+  --color-blue:#0000C4;
+  --color-blue-2:#4A5C70;
+  --color-dark: #9B9B9B;
   --color-background: #D9D9D9;
   --color-background-dark: #787878;
   --font-family: 'Poppins', sans-serif;

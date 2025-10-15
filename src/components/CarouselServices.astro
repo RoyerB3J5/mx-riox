@@ -70,7 +70,7 @@ const { images, interval = 8000 } = Astro.props as Props;
       let realIndex = currentIndex - 1;
       if (currentIndex === 0) realIndex = slides.length - 3;
       else if (currentIndex === slides.length - 1) realIndex = 0;
-      indicators.forEach((b,i) => b.classList.toggle("bg-accent", i===realIndex));
+      indicators.forEach((b,i) => b.classList.toggle("bg-main", i===realIndex));
     };
 
     track.addEventListener("transitionend", () => {

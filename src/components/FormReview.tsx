@@ -40,7 +40,7 @@ export default function NuvisionForm() {
         padding: 0,
         overflow: 'hidden', // Oculta cualquier contenido que se desborde
       }}
-      className="bg-[#0000C4]"
+      className="bg-[#0A2A59]"
     >
       {!loaded && (
         <div

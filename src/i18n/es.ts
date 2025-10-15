@@ -397,7 +397,7 @@ export default {
     },
     stand: {
       title:
-        'MG RIOX<br/> <span class="text-main text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Nuestros valores</span>',
+        'MG RIOX<br/> <span class="text-secondary text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Nuestros valores</span>',
       list: [
         {
           letter: "M",

@@ -43,10 +43,10 @@ const lang = match ? match[1] : 'en';
 ---
 <header class="fixed top-3 lg:top-0 left-0 right-0 z-20 w-full flex flex-col justify-center items-center transition-top duration-300 ease-in-out "
   id="site-header">
-  <div class="w-full bg-secondary justify-center hidden lg:flex">
+  <div class="w-full bg-main justify-center hidden lg:flex">
     <div class="w-full flex justify-center lg:justify-between items-center  max-w-none xl:max-w-[1154px] px-3">
       <div class="flex items-center gap-[6px]">
-        <Icon name={"map"} class={"w-[16px] h-[16px] text-blue-light"} aria-label="Ubicación" title="Nuestra ubicación"/>
+        <Icon name={"map"} class={"w-[16px] h-[16px] text-secondary"} aria-label="Ubicación" title="Nuestra ubicación"/>
         <p class="text-[16px] font-semibold leading-[52px] text-white">Atlanta, Georgia</p>
       </div>
       <div class="hidden md:flex items-center gap-[22px]">
@@ -60,7 +60,7 @@ const lang = match ? match[1] : 'en';
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon name={i.name} class={"w-5 h-5 text-blue-light"} aria-hidden="true"/>
+              <Icon name={i.name} class={"w-5 h-5 text-white"} aria-hidden="true"/>
               <span class="sr-only">{i.label}</span>
             </a>
           ))}
@@ -69,9 +69,9 @@ const lang = match ? match[1] : 'en';
       </div>
     </div>
   </div>
-  <div class="bg-main w-[calc(100%-24px)] xl:w-full sm:max-w-[1223px] py-4 lg:min-h-[89px] flex justify-between items-center px-7 md:px-4 xl:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
+  <div class="bg-main w-[calc(100%-24px)] xl:w-full sm:max-w-[1223px] py-2 lg:min-h-[89px] flex justify-between items-center px-7 md:px-4 xl:px-[48px] relative lg:top-[23px] rounded-[20px] mx-auto shadow-lg sm:shadow-none">
     <a href="/" aria-label="Ir a la página principal" title="Inicio Mg Riox Plumbing">
-      <img src="/logo-white.webp" alt="Logo de Mg Riox Plumbing - Servicio en Atlanta, Georgia" width="1300" height="728" class="cursor-pointer w-auto h-[44px] md:h-[30px] xl:h-[55px]">
+      <img src="/logo-white.webp" alt="Logo de Mg Riox Plumbing - Servicio en Atlanta, Georgia" width="1300" height="728" class="cursor-pointer w-auto h-[44px] md:h-[30px] xl:h-[65px]">
     </a>
     
     <!-- Menú desktop (lg y arriba) -->
@@ -86,12 +86,12 @@ const lang = match ? match[1] : 'en';
             return(
               <div class={`flex flex-row items-center justify-center gap-[14px] px-[7px] hover:text-blue-light w-auto py-0 text-center ${isServices ? 'relative group dropdown-parent' : ''} ${isActive ? 'bg-transparent ' : ''}`} id={`services-${index}`}>
                 <a href={`/${lang}${item.href}`} class="text-[18px] text-center font-semibold leading-[52px] relative transition-colors duration-300" set:html={item.label}>
-                  <span class={`absolute bottom-0 left-0 h-[2px] bg-blue-dark group-hover:bg-white transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-white'}`} />
+                  <span class={`absolute bottom-0 left-0 h-[2px] bg-white group-hover:bg-white transition-all duration-300 ease-out  ${isActive ? 'w-full' : 'w-0 group-hover:w-full group-hover:bg-white'}`} />
                 </a>
                 {isServices && (
                   <div class="dropdown-menu absolute top-full left-0 mt-0 w-[190px] flex-col items-center bg-white z-40 hidden group-hover:flex opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 ease-out -translate-x-[20%] shadow-lg">
                     {content.types.map(sub => (
-                      <div class="text-[18px] font-semibold text-main py-2 hover:bg-main hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
+                      <div class="text-[18px] font-semibold text-main py-2 hover:bg-secondary hover:text-white transition-colors duration-200 ease-in-out cursor-pointer px-6 w-full text-center">
                         <a href={`/${lang}/services/${sub.href}`} class="block w-full h-full">{sub.title}</a>
                       </div>
                     ))}
