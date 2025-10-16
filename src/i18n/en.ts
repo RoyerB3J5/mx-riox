@@ -378,7 +378,7 @@ export default {
       title: "Ready to Fix or Upgrade Your Plumbing?",
       description:
         "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-      button: "Get a Free Estimate",
+      button: "Get a Quote Now",
       image: "bg-main.png",
     },
   },
@@ -438,7 +438,7 @@ export default {
       title: "Ready to Fix or Upgrade Your Plumbing?",
       description:
         "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-      button: "Get a Free Estimate",
+      button: "Get a Quote Now",
       image: "bg-main.png",
     },
   },
@@ -455,7 +455,7 @@ export default {
       title: "Ready to Fix or Upgrade Your Plumbing?",
       description:
         "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-      button: "Get a Free Estimate",
+      button: "Get a Quote Now",
       image: "bg-main.png",
     },
   },
