@@ -48,7 +48,7 @@ export default {
       title:
         'Expert Plumbers in <br class="hidden md:block"/> <span class="font-black md:font-semibold">Atlanta, Buckhead &  <br class="hidden md:block"/> </span> <span class="font-bold md:font-semibold">Surrounding Areas</span>',
       button1: "Call now",
-      button2: "Get Your Free Quote Now",
+      button2: "Get a Quote Now",
       lists: [
         {
           title: "Guaranteed Quality",
@@ -267,7 +267,7 @@ export default {
       title: "Ready to Fix or Upgrade Your Plumbing?",
       description:
         "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-      button: "Get a Free Estimate",
+      button: "Get a Quote Now",
       image: "bg-main.png",
     },
   },
@@ -283,7 +283,7 @@ export default {
         title: "Ready to Fix or Upgrade Your Plumbing?",
         description:
           "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-        button: "Get a Free Estimate",
+        button: "Get a Quote Now",
         image: "bg-main.png",
       },
       carousel: [
@@ -304,7 +304,7 @@ export default {
         title: "Ready to Fix or Upgrade Your Plumbing?",
         description:
           "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-        button: "Get a Free Estimate",
+        button: "Get a Quote Now",
         image: "bg-main.png",
       },
       carousel: [
@@ -325,7 +325,7 @@ export default {
         title: "Ready to Fix or Upgrade Your Plumbing?",
         description:
           "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-        button: "Get a Free Estimate",
+        button: "Get a Quote Now",
         image: "bg-main.png",
       },
       carousel: [
@@ -346,7 +346,7 @@ export default {
         title: "Ready to Fix or Upgrade Your Plumbing?",
         description:
           "At MG Riox Plumbing, we provide reliable solutions for homes, businesses, and new construction. Let’s bring professionalism, experience, and guaranteed service to your next project.",
-        button: "Get a Free Estimate",
+        button: "Get a Quote Now",
         image: "bg-main.png",
       },
       carousel: [
