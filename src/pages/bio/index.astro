@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../../styles/global.css';
-import QRCard from '../../components/QRCard.astro';
 import SocialMedia from '../../components/SocialMedia.astro';
 import LayoutSec from '../../layouts/LayoutSec.astro';
 import SaveContact from '../../components/SaveContact.astro';
@@ -21,7 +20,7 @@ const content = [
   },
   {
     title: 'Our services',
-    link: '/en/#services',
+    link: '/en/services',
   },
   {
     title: 'Download our Flyer',
@@ -30,7 +29,7 @@ const content = [
 ];
 ---
 <LayoutSec>
-	<section class="w-full flex flex-col justify-center items-center gap-4 py-12">
+	<section class="w-full flex flex-col justify-center items-center gap-4 py-6">
 		<div class="w-full flex flex-col justify-center items-center gap-[3px]">
 			<a href="/" aria-label="Ir a la página principal" title="Inicio - MgRiox Plumbing">
         <img src="/logo-color.webp" alt="Logo de MgRiox Plumbing - Servicio en Atlanta, Georgia" width="1300" height="728" class="cursor-pointer w-auto h-[110px] ">
@@ -51,8 +50,7 @@ const content = [
       {
         content.map((item) => (
           <a class="w-full" href={item.link}>
-            <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center`}>
-              
+            <div class={`w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center `}>
               <p class="font-heveltica text-[14px] font-bold leading-[140%]">{item.title}</p>
             </div>
           </a>
@@ -62,12 +60,8 @@ const content = [
       <button class="w-full bg-secondary py-[10px] h-[47px] rounded-[10px] text-white flex justify-center items-center font-heveltica text-[14px] font-bold leading-[140%] cursor-pointer" id="open-contact-panel">
         Save Contact
       </button>
-    </div>
-    <div class="w-[236px] flex flex-col justify-center items-center gap-12 py-[34px] rounded-[15px] bg-[#eeeeee] mt-4">
-      <QRCard url={"https://mgrioxplumbing.net/connect"} label="Scan me for more info" />
-      <QRCard url={"https://mgrioxplumbing.net/review"} label="Give me a review" /> 
-    </div>      
-		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[40px]">
+    </div>    
+		<div class="flex  flex-col justify-center items-center gap-[9px] mt-[30px]">
           <p class="text-[12px] font-normal leading-[140%] text-[#878787]">Powered by</p>
           <a href="https://inkshapegroup.com/en/">
             <img src="/footer-logo.webp" alt="Imagen del Footer" width="3745" height="996" class="w-[110px]  h-[29px] cursor-pointer">
