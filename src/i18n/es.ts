@@ -232,7 +232,7 @@ export default {
       ],
       name: "MgRioxPlumbing",
       description:
-        "Creamos instalaciones personalizadas de azulejos y piedra en Avondale, AZ con un detalle y calidad incomparables.",
+        "Expertos en soluciones de fontanería y servicios integrales para hogares y negocios. Calidad y fiabilidad a su alcance.",
       buttonig: "Síguenos en Instagram",
     },
     numbers: {

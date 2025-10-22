@@ -231,7 +231,7 @@ export default {
       ],
       name: "MgRioxPlumbing",
       description:
-        "We create custom tile and stone installations in Avondale, AZ with unmatched detail and quality.",
+        "Experts in plumbing solutions and comprehensive services for homes and businesses. Quality and reliability within your reach.",
       buttonig: "Follow on Instagram",
     },
     numbers: {
