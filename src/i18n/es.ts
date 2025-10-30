@@ -268,7 +268,7 @@ export default {
       title: "¿Listo para reparar o mejorar tu fontanería?",
       description:
         "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-      button: "Obtener un presupuesto gratuito",
+      button: "Obtener Presupuesto Ahora",
       image: "bg-main.png",
     },
   },
@@ -284,7 +284,7 @@ export default {
         title: "¿Listo para reparar o mejorar tu fontanería?",
         description:
           "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-        button: "Obtener un presupuesto gratuito",
+        button: "Obtener Presupuesto Ahora",
         image: "bg-main.png",
       },
       carousel: [
@@ -306,7 +306,7 @@ export default {
         title: "¿Listo para reparar o mejorar tu fontanería?",
         description:
           "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-        button: "Obtener un presupuesto gratuito",
+        button: "Obtener Presupuesto Ahora",
         image: "bg-main.png",
       },
       carousel: [
@@ -327,7 +327,7 @@ export default {
         title: "¿Listo para reparar o mejorar tu fontanería?",
         description:
           "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-        button: "Obtener un presupuesto gratuito",
+        button: "Obtener Presupuesto Ahora",
         image: "bg-main.png",
       },
       carousel: [
@@ -349,7 +349,7 @@ export default {
         title: "¿Listo para reparar o mejorar tu fontanería?",
         description:
           "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-        button: "Obtener un presupuesto gratuito",
+        button: "Obtener Presupuesto Ahora",
         image: "bg-main.png",
       },
       carousel: [
@@ -381,7 +381,7 @@ export default {
       title: "¿Listo para Comenzar Tu Proyecto de Azulejo o Piedra?",
       description:
         "En Capi Tile & Stone, convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y artesanía experta a tu hogar o negocio.",
-      button: "Obtener un Presupuesto Gratuito",
+      button: "Obtener Presupuesto Ahora",
       image: "bg-main.png",
     },
   },
@@ -441,7 +441,7 @@ export default {
       title: "¿Listo para reparar o mejorar tu fontanería?",
       description:
         "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-      button: "Obtener un presupuesto gratuito",
+      button: "Obtener Presupuesto Ahora",
       image: "bg-main.png",
     },
   },
@@ -458,7 +458,7 @@ export default {
       title: "¿Listo para reparar o mejorar tu fontanería?",
       description:
         "En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
-      button: "Obtener un presupuesto gratuito",
+      button: "Obtener Presupuesto Ahora",
       image: "bg-main.png",
     },
   },
