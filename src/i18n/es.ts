@@ -48,7 +48,7 @@ export default {
       title:
         'Fontaneros expertos en <br class="hidden md:block"/> <span class="font-black md:font-semibold">Atlanta, Buckhead & <br class="hidden md:block"/> </span> <span class="font-bold md:font-semibold">zonas aledañas</span>',
       button1: "Llamar ahora",
-      button2: "Solicita tu cotización gratis ahora",
+      button2: "Solicita tu cotización ahora",
       lists: [
         {
           title: "Calidad garantizada",
