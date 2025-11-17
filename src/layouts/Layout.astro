@@ -36,8 +36,8 @@ const { lang, t } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<!-- Preconnect para widget de chat - optimización de terceros -->
-		<link rel="preconnect" href="https://widgets.leadconnectorhq.com">
-		<link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com">
+		<link rel="preconnect" href="https://beta.leadconnectorhq.com">
+		<link rel="dns-prefetch" href="https://beta.leadconnectorhq.com">
 		<!-- Load Google Fonts (Poppins) de forma ultra-optimizada -->
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
@@ -48,6 +48,45 @@ const { lang, t } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>MG Riox Plumbing</title>
 		<meta name="description" content="MG Riox Plumbing - Experts in plumbing solutions and comprehensive services for homes and businesses. Quality and reliability within your reach." />
+		<meta name="robots" content="index,follow" />
+		<link rel="canonical" href={Astro.site ?? '/'} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="MG Riox Plumbing" />
+		<meta property="og:title" content="MG Riox Plumbing" />
+		<meta property="og:description" content="MG Riox Plumbing - Experts in plumbing solutions and comprehensive services for homes and businesses." />
+		<meta property="og:image" content={`${Astro.site ?? ''}/main/bg-solutions.webp`} />
+		<meta property="og:image:alt" content="MG Riox Plumbing" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="MG Riox Plumbing" />
+		<meta name="twitter:description" content="MG Riox Plumbing - Experts in plumbing solutions and comprehensive services for homes and businesses." />
+		<meta name="twitter:image" content={`${Astro.site ?? ''}/main/bg-solutions.webp`} />
+
+		<!-- Hreflang (add more if you add more language routes) -->
+		<link rel="alternate" href={Astro.site ?? '/'} hreflang="en" />
+		<link rel="alternate" href={`${Astro.site ?? ''}/es/`} hreflang="es" />
+
+		<!-- Structured data: LocalBusiness -->
+		<script type="application/ld+json">
+		{JSON.stringify({
+		  "@context": "https://schema.org",
+		  "@type": "LocalBusiness",
+		  "name": "MG Riox Plumbing",
+		  "image": [(Astro.site ?? '') + '/logo-1.svg'],
+		  "telephone": "+1 (678) 308-6271",
+		  "email": "mgrioxplumbing@gmail.com",
+		  "address": {
+		    "@type": "PostalAddress",
+		    "addressLocality": "Atlanta",
+		    "addressRegion": "GA",
+		    "addressCountry": "US"
+		  },
+		  "url": (Astro.site ?? '')
+		})}
+		</script>
 	</head>
 	<body class='font-family antialiased overflow-x-hidden bg-[#FAFAFA] flex flex-col justify-center items-center'>
 		<Header content={t?.header} />

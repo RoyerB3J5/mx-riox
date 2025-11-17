@@ -380,7 +380,7 @@ export default {
     project: {
       title: "¿Listo para Comenzar Tu Proyecto de Azulejo o Piedra?",
       description:
-        "En Capi Tile & Stone, convertimos tus ideas en instalaciones personalizadas y duraderas. Llevemos calidad, detalle y artesanía experta a tu hogar o negocio.",
+        "En MG Riox Plumbing, ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.",
       button: "Obtener Presupuesto Ahora",
       image: "bg-main.png",
     },

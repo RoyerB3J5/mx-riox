@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+const site = String(Astro.site ?? '');
+// List main routes. Extend this array if you add more pages.
+const routes = [
+  '/',
+  '/en/',
+  '/en/about-us/',
+  '/en/contact/',
+  '/en/gallery/',
+  '/en/services/',
+  '/bio/',
+  '/connect/',
+  '/review/'
+];
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {routes.map((r) => {
+    const loc = site ? site.replace(/\/$/, '') + r : r;
+    return `  <url>\n    <loc>${loc}</loc>\n  </url>\n`;
+  }).join('')}
+</urlset>

@@ -71,7 +71,7 @@
 }
 
 .site-bg {
-  background-image: url('/bg-line.png');
+  background-image: url('/main/bg-gallery.webp');
   background-size: cover;        /* ocupa toda la pantalla */
   background-position: center;   /* ajustar como necesites */
   background-repeat: no-repeat;
