@@ -1,192 +1,132 @@
-<!-- Placeholder visible (no es botón, pero es focusable para accesibilidad) -->
-<div id="chatbot-placeholder"
-     tabindex="0"
-     aria-label="Abrir chat"
-     aria-hidden="true"
-     style="position:fixed;right:20px;bottom:20px;z-index:9999;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;box-shadow:0 6px 18px rgba(0,0,0,0.12);background:#0A2A59;color:#fff;font-size:18px;cursor:pointer;"
-     class="chatbot-placeholder ">
-  💬
+<!-- Chatbot lazy-load widget: carga bajo demanda para mejorar UX -->
+<div class="chatbot-wrapper" aria-hidden="false">
+  <button id="chatbot-toggle" aria-label="Abrir chat" class="chatbot-button"
+    >💬</button
+  >
+  <div id="chatbot-loading" class="chatbot-loading" aria-hidden="true" hidden>
+    ...
+  </div>
 </div>
 
+<noscript>
+  <a href="/connect/" class="chatbot-noscript">Contacta con nosotros</a>
+</noscript>
+
 <style>
-  .chatbot-placeholder {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    /* Por defecto visible (desktop) */
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  .chatbot-wrapper {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
   }
-  
-  /* Solo en mobile: oculto por defecto */
-  @media (max-width: 640px) {
-    .chatbot-placeholder {
-      opacity: 0;
-      transform: translateY(20px);
-      pointer-events: none;
-    }
-    
-    .chatbot-placeholder.show-mobile {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+  .chatbot-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0A2A59;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chatbot-loading {
+    position: fixed;
+    right: 86px;
+    bottom: 28px;
+    background: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .chatbot-noscript {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #0A2A59;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
   }
 </style>
 
-<script is:inline>
-(function () {
-  if (typeof window === 'undefined') return;
-  // Configuración
-  const BREAKPOINT = 640; // sm
-  const SCROLL_THRESHOLD = 100; // px
-  const WIDGET_SRC = 'https://beta.leadconnectorhq.com/loader.js';
-  const WIDGET_RESOURCE = 'https://beta.leadconnectorhq.com/chat-widget/loader.js';
-  const WIDGET_ID = '68f285818570cd925f4105d2';
-  const VIEWPORT_PRELOAD_MARGIN = 200;
-  const IDLE_TIMEOUT = 2000;
+<script>
+  (() => {
+    const WIDGET_ID = '68f285818570cd925f4105d2';
+    const RES_URL = 'https://beta.leadconnectorhq.com/chat-widget/loader.js';
+    const SRC = 'https://beta.leadconnectorhq.com/loader.js';
+    let loaded = false;
+    const btn = document.getElementById('chatbot-toggle');
+    const spinner = document.getElementById('chatbot-loading');
+    let idleTimer: any;
 
-  let widgetLoaded = false;
-  let showChat = false;
-  let ticking = false;
-  let observer = null;
-
-  const isSmallScreen = () => window.innerWidth < BREAKPOINT;
-  const shouldShow = () => isSmallScreen() ? window.scrollY > SCROLL_THRESHOLD : true;
-
-  function setVisibility(val) {
-    const placeholder = document.getElementById('chatbot-placeholder');
-    if (!placeholder) return;
-    
-    // Actualizar visibilidad del placeholder
-    if (isSmallScreen()) {
-      if (val) {
-        placeholder.classList.add('show-mobile');
-        placeholder.setAttribute('aria-hidden', 'false');
-      } else {
-        placeholder.classList.remove('show-mobile');
-        placeholder.setAttribute('aria-hidden', 'true');
-      }
-    } else {
-      // En desktop siempre visible
-      placeholder.classList.remove('show-mobile');
-      placeholder.setAttribute('aria-hidden', 'false');
+    function insertScript() {
+      if (loaded) return;
+      loaded = true;
+      if (spinner) spinner.hidden = false;
+      const s = document.createElement('script');
+      s.src = SRC;
+      s.setAttribute('data-resources-url', RES_URL);
+      s.setAttribute('data-widget-id', WIDGET_ID);
+      s.async = true;
+      s.onload = () => {
+        if (spinner) spinner.hidden = true;
+      };
+      s.onerror = () => {
+        if (spinner) spinner.hidden = true;
+        console.error('Chat widget failed to load');
+      };
+      document.body.appendChild(s);
     }
-    
-    // Solo carga el widget la primera vez que debe mostrarse
-    if (val && !widgetLoaded) loadWidgetScript();
-    showChat = val;
-  }
 
-  function loadWidgetScript() {
-    if (widgetLoaded) return;
-    const s = document.createElement('script');
-    s.src = WIDGET_SRC;
-    s.setAttribute('data-resources-url', WIDGET_RESOURCE);
-    s.setAttribute('data-widget-id', WIDGET_ID);
-    s.async = true;
-    s.defer = true;
-    document.head.appendChild(s);
-    widgetLoaded = true;
-  }
-
-  // Preconnect para reducir latencia
-  function tryPreconnect() {
-    if (document.querySelector('link[data-chat-preconnect]')) return;
-    try {
-      const origin = new URL(WIDGET_SRC).origin;
-      const l = document.createElement('link');
-      l.rel = 'preconnect';
-      l.href = origin;
-      l.setAttribute('data-chat-preconnect', '1');
-      l.crossOrigin = '';
-      document.head.appendChild(l);
-    } catch (e) { /* noop */ }
-  }
-
-  function update() {
-    const should = shouldShow();
-    setVisibility(should);
-  }
-
-  function onScrollResize() {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        update();
-        ticking = false;
-      });
-      ticking = true;
+    function onFirstInteraction() {
+      clearTimeout(idleTimer);
+      insertScript();
+      removeInteractionListeners();
     }
-  }
 
-  // Setup del IntersectionObserver para preload optimizado
-  function setupObserver() {
-    const el = document.getElementById('chatbot-placeholder');
-    if (!el) return;
-    
-    if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            tryPreconnect();
-          }
-        });
-      }, { root: null, rootMargin: `${VIEWPORT_PRELOAD_MARGIN}px`, threshold: 0 });
-      observer.observe(el);
+    function removeInteractionListeners() {
+      window.removeEventListener('pointerdown', onFirstInteraction);
+      window.removeEventListener('keydown', onFirstInteraction);
     }
-  }
 
-  // Interacciones en el placeholder
-  function setupInteractions() {
-    const ph = document.getElementById('chatbot-placeholder');
-    if (!ph) return;
+    // Load after a short idle as fallback (adjust ms as desired)
+    idleTimer = setTimeout(() => insertScript(), 3000);
 
-    ph.addEventListener('mouseenter', tryPreconnect, { passive: true });
-    ph.addEventListener('focus', tryPreconnect, { passive: true });
+    // Load on first user interaction (tap/scroll/keyboard)
+    window.addEventListener('pointerdown', onFirstInteraction, { once: true });
+    window.addEventListener('keydown', onFirstInteraction, { once: true });
 
-    // Click o teclado abre el chat: cargamos el script inmediatamente
-    ph.addEventListener('click', function (e) {
-      e.preventDefault();
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => loadWidgetScript(), { timeout: IDLE_TIMEOUT });
-      } else {
-        setTimeout(loadWidgetScript, 100);
-      }
-    });
-    
-    ph.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(() => loadWidgetScript(), { timeout: IDLE_TIMEOUT });
-        } else {
-          setTimeout(loadWidgetScript, 100);
+        if (!loaded) {
+          clearTimeout(idleTimer);
+          insertScript();
+          return;
         }
-      }
-    });
-  }
-
-  // Primera interacción general -> preconnect
-  function onFirstInteraction() {
-    tryPreconnect();
-    document.removeEventListener('click', onFirstInteraction);
-    document.removeEventListener('keydown', onFirstInteraction);
-  }
-
-  // Ejecutar solo en cliente
-  if (typeof window !== 'undefined') {
-    // Update inicial
-    update();
-    
-    // Setup de observers e interacciones
-    setupObserver();
-    setupInteractions();
-    
-    // Listeners
-    window.addEventListener('scroll', onScrollResize, { passive: true });
-    window.addEventListener('resize', onScrollResize);
-    document.addEventListener('click', onFirstInteraction, { passive: true });
-    document.addEventListener('keydown', onFirstInteraction, { passive: true });
-  }
-
-})();
+        // Si el widget ya está cargado, intentamos abrirlo si expone API común
+        try {
+          if (window.LC_API && typeof window.LC_API.open_chat === 'function') {
+            window.LC_API.open_chat();
+          } else if (
+            window.LC_API &&
+            typeof window.LC_API.toggle === 'function'
+          ) {
+            window.LC_API.toggle();
+          } else if (
+            window.leadconnector &&
+            typeof window.leadconnector.open === 'function'
+          ) {
+            window.leadconnector.open();
+          }
+        } catch (err) {
+          /* no-op */
+        }
+      });
+    }
+  })();
 </script>
