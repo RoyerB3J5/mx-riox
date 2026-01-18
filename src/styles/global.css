@@ -1,50 +1,53 @@
-@import "tailwindcss";
-
-/* Fuente fallback optimizada para Poppins */
-@font-face {
-  font-family: 'Poppins Fallback';
-  src: local('Arial'), local('Helvetica'), local('sans-serif');
-  font-display: swap;
-}
-
-* {
-  font-family: 'Poppins', 'Poppins Fallback', Arial, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+@import 'tailwindcss';
 
 @theme {
-  --color-main: #0A2A59;
-  --color-secondary: #C60500;
-  --color-accent: #C60500;
-  --color-blue:#0000C4;
-  --color-blue-2:#4A5C70;
-  --color-dark: #9B9B9B;
-  --color-background: #D9D9D9;
+  --font-family: 'Red Hat Text', 'NeueMontreal', sans-serif;
+  --font-title: 'Titillium Web', sans-serif;
+  --color-main: #0a2a59;
+  --color-secondary: #c60500;
+  --color-accent: #c60500;
+  --color-blue: #0000c4;
+  --color-blue-2: #4a5c70;
+  --color-dark: #9b9b9b;
+  --color-background: #d9d9d9;
   --color-background-dark: #787878;
-  --font-family: 'Poppins', sans-serif;
+  --color-paragraph: #424242;
   --breakpoint-xs: 25rem;
   --breakpoint-3xl: 106rem;
 }
 
-.shadow-div{
+.shadow-div {
   box-shadow: 0px 13px 24.5px 0px rgba(0, 0, 0, 0.25);
 }
-.shadow-design{
-  box-shadow: 0px 6px 14.4px 0px rgba(0, 0, 0, 0.25)
+.shadow-design {
+  box-shadow: 0px 6px 14.4px 0px rgba(0, 0, 0, 0.25);
 }
-.gray-gradient{
-  background: rgba(4, 35, 64, 0.20);
+.gray-gradient {
+  background: rgba(4, 35, 64, 0.2);
 }
 .service-bg {
   background: rgba(4, 35, 64, 0.32);
 }
-.slide-hidden{
+.slide-hidden {
   transform: translateX(100%);
-  opacity: 0; 
+  opacity: 0;
 }
-.slide-visible{
+.slide-visible {
   transform: translateX(0);
-  opacity:1;
-  transition: transform 1s ease-out, opacity 1s ease-out;
+  opacity: 1;
+  transition:
+    transform 1s ease-out,
+    opacity 1s ease-out;
+}
+.shadow-item {
+  box-shadow:
+    0 75px 21px 0 rgba(0, 0, 0, 0),
+    0 48px 19px 0 rgba(0, 0, 0, 0.01),
+    0 27px 16px 0 rgba(0, 0, 0, 0.03),
+    0 12px 12px 0 rgba(0, 0, 0, 0.04),
+    0 3px 7px 0 rgba(0, 0, 0, 0.05);
 }
 @keyframes shake {
   0%,
@@ -72,9 +75,9 @@
 
 .site-bg {
   background-image: url('/main/bg-gallery.webp');
-  background-size: cover;        /* ocupa toda la pantalla */
-  background-position: center;   /* ajustar como necesites */
+  background-size: cover; /* ocupa toda la pantalla */
+  background-position: center; /* ajustar como necesites */
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* se queda fija al hacer scroll */
+  background-attachment: fixed; /* se queda fija al hacer scroll */
   min-height: 100vh;
 }

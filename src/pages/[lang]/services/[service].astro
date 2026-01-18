@@ -8,7 +8,12 @@ import ContactInfo from '../../../sections/services/ContactInfo.astro';
 import type { Language } from '../../../types/language.type';
 
 export function getStaticPaths() {
-  const services = ["residential-plumbing", "water-heaters", "commercial-plumbing", "bathroom-renovation"];
+  const services = [
+    'residential-plumbing',
+    'water-heaters',
+    'commercial-plumbing',
+    'bathroom-renovation',
+  ];
   const languages = ['es', 'en'];
 
   return languages.flatMap(lang =>
@@ -26,7 +31,6 @@ const t = translations[lang];
 
 // Obtener los datos del servicio específico
 const serviceData = t.services[service as keyof typeof t.services];
-
 ---
 
 <Layout lang={lang} t={t}>

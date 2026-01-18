@@ -9,51 +9,130 @@ interface Props {
 }
 const { content } = Astro.props as Props;
 ---
-<section class="pt-[510px] md:pt-[276px] pb-[58px] md:pb-[115px] flex flex-col justify-center items-center gap-8 md:gap-[52px] max-w-screen lg:max-w-[1145px] px-4 lg:px-0">
-  <div class="w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-10 lg:gap-[86px]">
-    <div class="relative order-2 md:order-1 w-full md:w-[581px] h-[574px] md:h-[647px]" data-aos="fade-right">
-      <!-- Experience 1: Fila 1, Columna 1 -->
-      <div class="absolute block md:hidden lg:block bottom-0 md:top-0 left-0 w-full md:w-[236px] h-[288px] md:h-[244px] rounded-[10px] overflow-hidden">
-        <img src="/main/exp-2.webp" alt="Experiencia 1" width="235" height="245" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+
+<section class="w-full flex flex-col justify-center items-center gap-10 sm:gap-4">
+  <div
+    class="w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-4"
+  >
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 grid-rows-3 sm:grid-rows-4 gap-4 w-full max-w-none sm:max-w-[50%] lg:max-w-[70%] h-full min-h-[638px]"
+      data-aos="fade-right"
+    >
+      <div
+        class="col-start-1 row-start-1 row-span-2 rounded-[8px] lg:flex items-center justify-center relative overflow-hidden hidden"
+      >
+        <img
+          src="/main/exp-2.webp"
+          alt="Experiencia 2 MG Riox"
+          loading="lazy"
+          decoding="async"
+          width="700"
+          height="446"
+          class="w-full h-full inset-0 absolute object-cover"
+        />
       </div>
-      
-      <!-- Experience 2: Fila 2, Columna 1 -->
-      <div class="hidden lg:block absolute bottom-0 left-0 w-full md:w-[236px] h-[544px] md:h-[382px] rounded-[10px] overflow-hidden">
-        <img src="/main/exp-3.webp" alt="Experiencia 2" width="237" height="383" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 80% center;" loading="lazy" decoding="async">
+      <div
+        class="col-start-1 row-start-3 row-span-2 rounded-[8px] hidden lg:flex items-center justify-center relative overflow-hidden"
+      >
+        <img
+          src="/main/exp-1.webp"
+          alt="Experiencia 1 MG Riox"
+          loading="lazy"
+          decoding="async"
+          width="700"
+          height="446"
+          class="w-full h-full inset-0 absolute object-cover"
+        />
       </div>
-      
-      <!-- Experience 3: Toda la Columna 2 -->
-      <div class="absolute top-0 right-0 w-full lg:w-[324px] h-[254px] md:h-[647px] rounded-[10px] overflow-hidden">
-        <img src="/main/exp-1.webp" alt="Experiencia 3" width="325" height="648" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 17% center;"  loading="lazy" decoding="async">
+      <div
+        class="col-start-1 lg:col-start-2 row-start-1 row-span-3 rounded-[8px] flex items-center justify-center relative overflow-hidden"
+      >
+        <img
+          src="/main/exp-3.webp"
+          alt="Experiencia 3 MG Riox"
+          loading="lazy"
+          decoding="async"
+          width="1350"
+          height="900"
+          class="w-full h-full inset-0 absolute object-cover"
+        />
+      </div>
+      <div
+        class="col-start-1 lg:col-start-2 row-start-4 bg-main text-white px-8 sm:flex items-center gap-4 justify-center box-border border-l-[9px] border-secondary hidden"
+      >
+        <p class="text-[#FAFAFA] text-[72px] font-bold leading-[115%]">30+</p>
+        <p
+          class="text-[#FAFAFA] text-[24px] uppercase font-medium leading-[140%]"
+        >
+          {content.years}
+        </p>
       </div>
     </div>
-    <div class="order-1 md:order-1 flex flex-col items-center md:items-start justify-center py-[48px] md:py-0 max-w-none md:max-w-[478px] max-h-none md:max-h-[648px]" data-aos="fade-left">
-      <div class="flex flex-col justify-center items-start text-[28px] md:text-[44px] font-semibold leading-[24px] mb-8">
-        <h2 class=" text-main h-[43px] md:h-[72px] flex items-center">The MG Riox</h2>
-        <p class="text-main">Difference</p>
-      </div>
-      <p class="text-[16px] md:text-[18px] leading-[20px] md:leading-[25px] text-center md:text-start font-bold max-w-none md:max-w-[356px] text-secondary" set:html={content.description}></p>
-      <p set:html={content.description2} class="mt-[17px] md:mt-2 text-[16px] md:text-[16px] leading-[20px] md:leading-[25px] text-center md:text-start font-medium main"></p>
-      <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-[29px] md:gap-[43px] mt-[28px] md:mt-[73px] w-full py-1 md:py-0">
-        <div class="flex flex-col justify-between items-center md:items-start gap-[29px] md:gap-[62px] w-full">
-          <div class="flex flex-col gap-2 md:gap-[16px]">
-            {content.items.map(item=>(
-              <div class="flex items-center gap-[7px] md:gap-4">
-                <Icon name={"check"} class={"shrink-0 h-[20px] md:h-[44px] w-[20px] md:w-[44px] text-secondary"}/>
-                <p class="text-[16px] font-medium leading-[25px] text-main">{item}</p>
-              </div>
-            ))}
-          </div>
+    <div
+      class="flex flex-col items-start justify-center max-w-none sm:max-w-[50%] lg:max-w-[30%] gap-6"
+      data-aos="fade-left"
+    >
+      <div class="flex flex-col justify-center items-start gap-4">
+        <div
+          class="flex flex-col justify-center items-start text-main font-title text-[32px] sm:text-[56px] leading-[135%] sm:leading-[115%] font-semibold"
+        >
+          <h2>The MG Riox</h2>
+          <p>Difference</p>
         </div>
-        <div class="max-w-none md:max-w-[183px] flex flex-col justify-center items-center gap-[3px] px-[24px] md:px-[20px] pt-[4.5px] md:pt-[27px] pb-[10.5px] md:pb-[39px] border-t-[5px] border-accent bg-main text-white">
-          <p class="text-[32px] md:text-[45px] text-center font-semibold leading-[60px]">30 <span class="text-blue-light">+</span></p>
-          <p class="text-[15px] md:text-[16px] uppercase font-semibold leading-[20px] text-center text-white">{content.years}</p>
+        <p
+          class="text-[18px] leading-[160%] font-semibold text-secondary max-w-[80%]"
+          set:html={content.description}
+        />
+      </div>
+      <p
+        set:html={content.description2}
+        class="text-paragraph text-[14px] font-normal leading-[170%]"
+      />
+      <div
+        class="flex flex-col md:flex-row justify-center items-center md:items-start gap-6"
+      >
+        <div
+          class="flex flex-col justify-center items-center md:items-start gap-6 w-full"
+        >
+          <div class="flex flex-col gap-6">
+            {
+              content.items.map((item) => (
+                <div class="flex items-center gap-4">
+                  <Icon
+                    name={'check'}
+                    class={
+                      'shrink-0 h-[20px] md:h-[44px] w-[20px] md:w-[44px] text-secondary'
+                    }
+                  />
+                  <p class="text-[14px] font-semibold leading-[170%] text-[#1F2933]">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="flex flex-col lg:flex-row justify-center items-center gap-[18px] md:gap-8 lg:gap-[45px] w-full">
-    <BeforeAfter beforeImage='/main/before-1-2.webp' afterImage='/main/before-1-1.webp'/>
-    <BeforeAfter beforeImage='/main/before-2-2.webp' afterImage='/main/before-2-1.webp'/>
+  <div
+    class="col-start-1 lg:col-start-2 row-start-4 bg-main text-white px-8 flex items-center gap-4 justify-center box-border border-l-[9px] border-secondary sm:hidden py-8"
+  >
+    <p class="text-[#FAFAFA] text-[72px] font-bold leading-[115%]">30+</p>
+    <p class="text-[#FAFAFA] text-[24px] uppercase font-medium leading-[140%]">
+      {content.years}
+    </p>
+  </div>
+  <div
+    class="flex flex-col md:flex-row justify-center items-center gap-4 w-full"
+  >
+    <BeforeAfter
+      beforeImage="/main/before-1-2.webp"
+      afterImage="/main/before-1-1.webp"
+    />
+    <BeforeAfter
+      beforeImage="/main/before-2-2.webp"
+      afterImage="/main/before-2-1.webp"
+    />
   </div>
 </section>

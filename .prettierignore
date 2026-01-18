@@ -1,0 +1,7 @@
+node_modules/
+.cache/
+.astro/
+dist/
+public/
+build/
+*.min.js

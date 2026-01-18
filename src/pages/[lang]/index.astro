@@ -7,6 +7,7 @@ import Completed from '../../sections/main/Completed.astro';
 import Experience from '../../sections/main/Experience.astro';
 import Hero from '../../sections/main/Hero.astro';
 import Information from '../../sections/main/Information.astro';
+import List from '../../sections/main/List.astro';
 import Numbers from '../../sections/main/Numbers.astro';
 import Project from '../../sections/main/Project.astro';
 import Services from '../../sections/main/Services.astro';
@@ -22,14 +23,20 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en };
 const t = translations[lang];
 ---
+
 <Layout lang={lang} t={t}>
-  <Hero content={t.main.hero}/>
-  <Experience content={t.main.experience}/>
-  <Solutions content={t.main.solutions}/>
-  <Information content={t.main.information}/>
-  <Services content={t.main.services}/>
-  <Completed content={t.main.completed}/>
-  <Numbers content={t.main.numbers}/>
-  <Catalog content={t.main.catalog}/>
-  <Project content={t.main.project}/>
+  <Hero content={t.main.hero} />
+  <List content={t.main.hero.lists} />
+  <section
+    class="w-full max-w-scree xl:max-w-7xl px-5 xl:px-0 py-25 sm:py-30 gap-25 sm:gap-30 flex flex-col justify-center items-center bg-[#FAFAFA]"
+  >
+    <Experience content={t.main.experience} />
+    <Solutions content={t.main.solutions} />
+  </section>
+  <Information content={t.main.information} />
+  <Services content={t.main.services} />
+  <Completed content={t.main.completed} />
+  <Numbers content={t.main.numbers} />
+  <Catalog content={t.main.catalog} />
+  <Project content={t.main.project} />
 </Layout>

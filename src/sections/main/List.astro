@@ -1,0 +1,48 @@
+---
+type Translations = typeof import('../../i18n/es').default;
+type HeroContent = Translations['main']['hero']['lists'];
+interface Props {
+  content: HeroContent;
+}
+const { content } = Astro.props as Props;
+---
+
+<section class="w-full flex justify-center items-center relative py-20 sm:py-16">
+  <div>
+    <img
+      src="/back.webp"
+      alt="Fondo de Mg Riox"
+      width="1920"
+      height="1080"
+      class="absolute inset-0 w-full h-full object-cover -z-20"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div
+    class="w-full max-w-screen xl:max-w-7xl px-5 xl:px-0 flex flex-col md:flex-row justify-between items-center md:items-start gap-14 sm:gap-10 md:gap-0"
+  >
+    {
+      content.map((item) => (
+        <div class="flex flex-col justify-center items-center gap-6">
+          <div class="flex flex-col jutify-center items-center gap-4">
+            <img
+              src={`/main/${item.icon}.svg`}
+              alt={item.title}
+              width="43"
+              height="43"
+              class="w-[43px] h-[43px]"
+              decoding="async"
+              loading="lazy"
+            />
+            <div class="w-full h-0.5 bg-secondary" />
+          </div>
+          <div class="flex flex-col justify-center items-center gap-2">
+            <h3 class="text-[#FAFAFA] text-center text-[18px] font-semibold leading-[160%]">{item.title}</h3>
+            <p set:html={item.description} class="text-[#FAFAFA] text-center text-[14px] font-normal leading-[170%]" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

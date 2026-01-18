@@ -15,53 +15,61 @@ const {
   afterImage,
   altBefore = 'Antes',
   altAfter = 'Después',
-  width = 550,
-  height = 415,
+  width = 640,
+  height = 417,
 } = Astro.props;
 
 // Generar ID único para cada instancia
 const uniqueId = Math.random().toString(36).substr(2, 9);
 ---
+
 <style>
   .ba-image-wrapper {
     --pos: 50%;
   }
-</style> 
+</style>
 
 <div
   id={`ba-container-${uniqueId}`}
-  class={`relative mx-auto overflow-hidden select-none rounded-[15px] w-full h-[254px] md:w-[${width}px] md:h-[${height}px]`}
-
+  class={`relative mx-auto overflow-hidden select-none rounded-[15px] w-full`}
+  style={`aspect-ratio: ${width}/${height}; max-width: ${width}px;`}
 >
-  <div id={`ba-labels-${uniqueId}`} class="absolute z-[5] bg-black/40 w-full h-full flex justify-between items-center px-4 opacity-0 transition-opacity duration-300 pointer-events-none">
-    <div class="py-2 w-[100px] bg-secondary/30 rounded-[5px] flex justify-center font-medium">
+  <div
+    id={`ba-labels-${uniqueId}`}
+    class="absolute z-[5] bg-black/40 w-full h-full flex justify-between items-center px-4 opacity-0 transition-opacity duration-300 pointer-events-none"
+  >
+    <div
+      class="py-2 w-[100px] bg-secondary/30 rounded-[5px] flex justify-center font-medium"
+    >
       <p class="text-white text-[18px]">Before</p>
     </div>
-    <div class="py-2 w-[100px] bg-secondary/30 rounded-[5px] flex justify-center font-medium">
+    <div
+      class="py-2 w-[100px] bg-secondary/30 rounded-[5px] flex justify-center font-medium"
+    >
       <p class="text-white text-[18px]">After</p>
     </div>
-  </div>  
+  </div>
   <!-- Imagen de fondo: siempre al tamaño natural -->
   <img
     src={beforeImage}
     alt={altBefore}
-    class={`absolute top-0 left-0 w-full h-[254px] md:w-[${width}px] md:h-[${height}px] `}
+    class={`absolute inset-0 w-full h-full object-cover`}
     loading="lazy"
     decoding="async"
-    width="640"
-    height="427"
+    width={width}
+    height={height}
   />
 
   <!-- Imagen "después" a tamaño completo, siempre fija -->
   <img
     src={afterImage}
     alt={altAfter}
-    class={`absolute top-0 left-0 w-full h-[254px] md:w-[${width}px] md:h-[${height}px] `}
+    class={`absolute inset-0 w-full h-full object-cover`}
     style={` clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);`}
     loading="lazy"
     decoding="async"
-    width="640"
-    height="427"
+    width={width}
+    height={height}
   />
 
   <!-- Barra divisoria / handler -->
@@ -70,26 +78,30 @@ const uniqueId = Math.random().toString(36).substr(2, 9);
     class="absolute top-0 bottom-0 w-1.5 bg-white z-[10]"
     style="left: 50%;"
   >
-    <div id={`ba-circle-${uniqueId}`} class="w-[35px] h-[35px] rounded-full cursor-pointer flex items-center justify-center bg-white shadow-lg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <Icon name={"arrow"} class={"w-[25px] h-[25px]"}/>
+    <div
+      id={`ba-circle-${uniqueId}`}
+      class="w-[35px] h-[35px] rounded-full cursor-pointer flex items-center justify-center bg-white shadow-lg"
+      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+    >
+      <Icon name={'arrow'} class={'w-[25px] h-[25px]'} />
     </div>
   </div>
 </div>
 <script is:inline define:vars={{ uniqueId }}>
-  (function(){
+  (function () {
     const container = document.getElementById(`ba-container-${uniqueId}`);
-    const handle    = document.getElementById(`ba-handle-${uniqueId}`);
-    const circle    = document.getElementById(`ba-circle-${uniqueId}`);
-    const labels    = document.getElementById(`ba-labels-${uniqueId}`);
-    const afterImg  = container.querySelector('img[alt="Después"]');
+    const handle = document.getElementById(`ba-handle-${uniqueId}`);
+    const circle = document.getElementById(`ba-circle-${uniqueId}`);
+    const labels = document.getElementById(`ba-labels-${uniqueId}`);
+    const afterImg = container.querySelector('img[alt="Después"]');
     let dragging = false;
 
     const update = (clientX) => {
       const rect = container.getBoundingClientRect();
       let pct = (clientX - rect.left) / rect.width;
       pct = Math.min(1, Math.max(0, pct));
-      const percStr = (pct * 100) + '%';
-      
+      const percStr = pct * 100 + '%';
+
       // Actualizar clip-path de la imagen "después" - ahora del lado derecho
       afterImg.style.clipPath = `polygon(${percStr} 0, 100% 0, 100% 100%, ${percStr} 100%)`;
       handle.style.left = percStr;
@@ -126,7 +138,7 @@ const uniqueId = Math.random().toString(36).substr(2, 9);
       circle.style.cursor = 'grabbing';
       labels.style.opacity = '0'; // Ocultar durante el arrastre
     });
-    
+
     circle.addEventListener('touchstart', (e) => {
       e.preventDefault();
       dragging = true;
@@ -138,7 +150,7 @@ const uniqueId = Math.random().toString(36).substr(2, 9);
       dragging = false;
       circle.style.cursor = 'grab';
     });
-    
+
     window.addEventListener('touchend', () => {
       dragging = false;
     });
