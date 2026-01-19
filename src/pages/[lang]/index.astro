@@ -10,8 +10,10 @@ import Information from '../../sections/main/Information.astro';
 import List from '../../sections/main/List.astro';
 import Numbers from '../../sections/main/Numbers.astro';
 import Project from '../../sections/main/Project.astro';
+import Referral from '../../sections/main/Referral.astro';
 import Services from '../../sections/main/Services.astro';
 import Solutions from '../../sections/main/Solutions.astro';
+import Working from '../../sections/main/Working.astro';
 import type { Language } from '../../types/language.type';
 export function getStaticPaths() {
   return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
@@ -32,6 +34,8 @@ const t = translations[lang];
   >
     <Experience content={t.main.experience} />
     <Solutions content={t.main.solutions} />
+    <Referral content={t.main.information.referral} />
+    <Working content={t.main.information.working} />
   </section>
   <Information content={t.main.information} />
   <Services content={t.main.services} />

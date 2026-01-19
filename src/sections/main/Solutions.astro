@@ -28,7 +28,7 @@ const { content } = Astro.props as Props;
   >
     {
       content.items.map((item) => (
-        <div class="md:shadow-item flex justify-start items-center rounded-[8px] p-6 md:py-4 lg:py-9 md:px-3 lg:px-8 gap-2 h-full bg-white">
+        <div class="shadow-item flex justify-start items-center rounded-[8px] p-6 md:py-4 lg:py-9 md:px-3 lg:px-8 gap-2 h-full bg-white">
           <img
             src={`/main/${item.image}.svg`}
             alt={item.title}

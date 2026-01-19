@@ -129,44 +129,44 @@ export default {
     information: {
       referral: {
         title:
-          'Comparte confianza. Recomienda a <br class="hidden md:block"/>un amigo.',
+          'Comparte confianza.<br/> Recomienda a un amigo.',
         text1:
-          'Si has probado nuestros servicios de fontanería, conoces la calidad y el profesionalismo que ofrecemos. Muchos de nuestros nuevos clientes llegan por recomendación, porque un buen servicio habla por sí mismo. Si conoces a alguien en Atlanta o en las zonas aledañas que necesite un fontanero de confianza, recomiéndanos. Nosotros lo atenderemos con la misma dedicación y garantía.',
+          'Si has probado nuestros servicios de fontanería, conoces la calidad y el profesionalismo que ofrecemos. Muchos de nuestros nuevos clientes llegan por recomendación, porque un buen servicio habla por sí mismo.<br class="block"/> <br class="block"/> Si conoces a alguien en Atlanta o en las zonas aledañas que necesite un fontanero de confianza, recomiéndanos. Nosotros lo atenderemos con la misma dedicación y garantía.',
         button: 'Haz clic para recomendar a alguien',
       },
       working: {
         title: 'Cómo trabajamos',
         items: [
           {
-            step: 'PASO 01',
+            step: 'PASO 1',
             title: 'Contacto',
             icon: 'contact',
             description:
               'Comunícate por teléfono o mensaje y cuéntanos tus necesidades de fontanería.',
           },
           {
-            step: 'PASO 02',
+            step: 'PASO 2',
             title: 'Visita en el lugar',
             icon: 'consultation2',
             description:
               'Programamos un horario conveniente para inspeccionar el problema y entender lo que se requiere.',
           },
           {
-            step: 'PASO 03',
+            step: 'PASO 3',
             title: 'Presupuesto',
             icon: 'design2',
             description:
               'Recibes un presupuesto detallado adaptado a tu proyecto de fontanería específico.',
           },
           {
-            step: 'PASO 04',
+            step: 'PASO 4',
             title: 'Acuerdo',
             icon: 'deal',
             description:
               'Una vez aprobado, confirmamos los detalles y agendamos el servicio.',
           },
           {
-            step: 'PASO 05',
+            step: 'PASO 5',
             title: 'Servicio completado',
             icon: 'installation',
             description:

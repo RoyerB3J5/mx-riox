@@ -127,44 +127,44 @@ export default {
     },
     information: {
       referral: {
-        title: 'Share Trust. Refer a <br class="hidden md:block"/>Friend. ',
+        title: 'Share Trust.<br/> Refer a Friend. ',
         text1:
-          'If you’ve experienced our plumbing services, you know the quality and professionalism we deliver. Many of our new clients come from referrals, because great service speaks for itself.If you know someone in Atlanta or the surrounding areas who needs a reliable plumber, send them our way. We’ll take care of them with the same dedication and guarantee.',
+          'If you’ve experienced our plumbing services, you know the quality and professionalism we deliver. Many of our new clients come from referrals, because great service speaks for itself.<br class="block"/> <br class="block"/>If you know someone in Atlanta or the surrounding areas who needs a reliable plumber, send them our way. We’ll take care of them with the same dedication and guarantee.',
         button: 'Click Here to Refer Someone',
       },
       working: {
         title: 'How We Work',
         items: [
           {
-            step: 'STEP 01',
+            step: 'STEP 1',
             title: 'Contact',
             icon: 'contact',
             description:
               'Reach out by phone or message and tell us about your plumbing needs.',
           },
           {
-            step: 'STEP 02',
+            step: 'STEP 2',
             title: 'On Site Visit',
             icon: 'consultation2',
             description:
               'We schedule a convenient time to inspect the issue and understand what’s required.',
           },
           {
-            step: 'STEP 03',
+            step: 'STEP 3',
             title: 'Estimate',
             icon: 'design2',
             description:
               'You receive a detailed estimate tailored to your specific plumbing project.',
           },
           {
-            step: 'STEP 04',
+            step: 'STEP 4',
             title: 'Agreement',
             icon: 'deal',
             description:
               'Once approved, we confirm the details and schedule your service.',
           },
           {
-            step: 'STEP 05',
+            step: 'STEP 5',
             title: 'Service Completed',
             icon: 'installation',
             description:
