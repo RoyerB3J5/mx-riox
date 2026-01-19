@@ -10,34 +10,34 @@ interface Props {
 }
 const { content } = Astro.props as Props;
 ---
-<section class="flex flex-col justify-center items-center gap-[61px] md:gap-0 pt-[50px] pb-[70px] md:py-[115px] overflow-y-visible max-w-screen lg:max-w-[1215px] w-full px-4 lg:px-0">
-  <div class="flex flex-col justify-center items-center gap-[40px] md:gap-0 w-full" data-aos="fade-down">  
-    <div class="flex flex-col justify-center items-center gap-[53px] w-full mb-0 md:mb-[53px]">
-      <div class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end px-0 md:px-8 w-full gap-[18px] md:gap-0">
-        <h2 set:html={content.title} class="text-black text-[28px] lg:text-[40px] font-normal leading-[30px] lg:leading-[46px] text-center md:text-start max-w-none md:max-w-[537px] "></h2>
-        <Button class='bg-secondary text-white px-[38px]' href='gallery'>
+<section class="flex flex-col justify-center items-center gap-15 md:gap-25 overflow-y-visible w-full ">
+  <div class="flex flex-col justify-center items-center gap-10 md:gap-12 w-full" data-aos="fade-down">  
+    <div class="flex flex-col justify-center items-center  w-full">
+      <div class="flex flex-col md:flex-row justify-center md:justify-between items-start md:items-end  w-full gap-10 md:gap-0">
+        <h2 set:html={content.title} class="text-main font-title text-[32px] md:text-[56px] font-semibold leading-[115%]"></h2>
+        <Button class='bg-secondary text-white' href='gallery'>
             {content.button}
           </Button>
       </div>
     </div>
     <CarouselHero images={content.images} />
   </div>
-  <div class="flex flex-col justify-center items-center gap-7 w-full max-w-screen md:max-w-[1138] px-4 md:px-0 mt-0 md:mt-[80px] lg:mt-[130px]">
-    <div class="w-full flex md:justify-start justify-center items-start md:items-center gap-[26px] px-3">
-      <div class="w-[50px] md:w-[62px] h-[50px] md:h-[62px] rounded-full border-[1px] border-main overflow-hidden flex items-center justify-center flex-shrink-0 p-1.5 ">
+  <div class="flex flex-col justify-center items-center gap-7 w-full ">
+    <div class="w-full flex md:justify-start justify-center items-start md:items-center gap-6.5 px-3">
+      <div class="w-12.5 md:w-15.5 h-12.5 md:h-15.5 rounded-full border border-main overflow-hidden flex items-center justify-center shrink-0 p-1.5 ">
         <img src="/favicon.svg" alt="Mini insignia MG Riox Plumbing" width="100" height="100" class="w-full h-full object-contain" loading="lazy" decoding="async">
       </div>
       
-      <div class="flex flex-col justify-center md:justify-start items-start gap-[3px] flex-1">
+      <div class="flex flex-col justify-center md:justify-start items-start gap-0.75 flex-1">
         <a href="https://www.instagram.com/mgrioxplumbing/">
-          <h3 class="text-[16px] md:text-[20px] font-bold leading-[28px] text-start text-main cursor-pointer">{content.name}</h3>
+          <h3 class="text-[16px] md:text-[20px] font-bold leading-[140%] text-start text-main cursor-pointer">{content.name}</h3>
         </a>
-        <p class="text-[14px] md:text-[16px] font-medium leading-[16px] md:leading-[19.6px] text-start text-secondary">{content.description}</p>
+        <p class="text-[14px] md:text-[16px] font-medium leading-4 md:leading-[122.5%] text-start text-secondary">{content.description}</p>
       </div>
     </div>
-    <div class=" grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-[10px] w-full -mb-56 hidden">
+    <div class=" grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-2.5 w-full -mb-56 hidden">
       {Array.from({ length: 8 }).map((_, index) => (
-        <div class="w-full h-[336px] md:h-[277px] bg-[#D9D9D9] flex justify-center items-center">
+        <div class="w-full h-84 md:h-69.25 bg-[#D9D9D9] flex justify-center items-center">
         </div>
       ))}
     </div>

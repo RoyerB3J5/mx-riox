@@ -173,14 +173,13 @@ export default {
         ],
       },
       rendering: {
-        title:
-          "Need Expert Advice <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[26px] lg:leading-[58px] text-main'>Before You Decide?</span>",
+        title: 'Need Plumbing Advice Before You Decide?',
         text: 'We don’t give generic estimates. That’s why we prefer to visit first so we can understand the issue, check the details, and provide a clear, accurate solution tailored to your needs.',
         button: 'GET AN ESTIMATE',
       },
       design: {
         title:
-          "Already Have a Plumbing <br/> <span class='text-[28px] md:text-[48px] font-semibold leading-[28px] md:leading-[58px] text-main'>Project in Mind? </span>",
+          "Already Have a Plumbing Project in Mind? ",
         description:
           'Share your plans or plumbing needs, and we’ll follow up to schedule a visit. Every project requires an on-site evaluation to ensure accurate diagnostics, proper materials, and a detailed, personalized estimate.',
       },
@@ -189,22 +188,22 @@ export default {
       title: 'What We Work On?',
       items: [
         {
-          title: 'Residential Plumbing',
+          title: 'Residential <br/> Plumbing',
           image: 'plumbing',
           href: 'residential-plumbing',
         },
         {
-          title: 'Water Heaters',
+          title: 'Water <br/> Heaters',
           image: 'heaters',
           href: 'water-heaters',
         },
         {
-          title: 'Commercial Plumbing',
+          title: 'Commercial <br/> Plumbing',
           image: 'commercial',
           href: 'commercial-plumbing',
         },
         {
-          title: 'Bathroom Renovation',
+          title: 'Bathroom <br/> Renovation',
           image: 'bath-renovation',
           href: 'bathroom-renovation',
         },
@@ -212,7 +211,7 @@ export default {
     },
     completed: {
       title:
-        "Check out our Recent <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[30px] lg:leading-[58px] text-main'>Plumbing Projects</span>",
+        "<span class='font-normal text-[32px] md:text-[40px]'>Check out our Recent</span> <br/> Plumbing Projects",
       button: 'VIEW ALL PROJECTS',
       images: [
         '/main/bathroom-1.webp',
@@ -257,7 +256,7 @@ export default {
     },
     catalog: {
       title:
-        "Download Our <br/> <span class='font-semibold text-[28px] md:text-[48px] leading-[30px] md:leading-[58px] text-main'>Plumbing Services <br/> Catalog</span>",
+        "Download Our <br/> <span class='text-[56px] font-semibold'>Plumbing Services <br/> Catalog</span>",
       description:
         'Discover all the services and solutions we offer for homes, businesses, and new construction projects.',
       button: 'DOWNload now',

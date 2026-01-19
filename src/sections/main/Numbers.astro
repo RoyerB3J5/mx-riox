@@ -8,44 +8,89 @@ interface Props {
 }
 const { content } = Astro.props as Props;
 ---
-<section class="relative w-full pt-[80px] md:pt-[150px] pb-[80px] md:pb-[75px] overflow-hidden" id="numbers-section">
-  <img src="/main/bg-contact.webp" alt="Fondo de chicha" width="1442" height="755" class="absolute inset-0 w-full h-full object-cover -z-20 object-center " loading="lazy" decoding="async">
-  <div class="relative z-0 flex flex-col justify-center items-center gap-[70px] max-w-screen lg:max-w-[1141px] mx-auto px-4 lg:px-0">
-    <div class="flex flex-col lg:flex-row justify-center items-center gap-[71px] lg:gap-[77px]">
-      {content.items.map((item,idx) => (
-        <div class={`flex flex-col justify-center items-center gap-[5px] max-w-none ${item.number == 500 ? 'md:max-w-[185px]' : 'md:max-w-[213px]'}`}>
-          <p class="text-[30px] md:text-[50px] font-bold leading-[55px] text-white w-full flex items-center justify-center gap-1">
-            <span class="text-secondary">+</span>
-            <span class="counter" data-target={item.number.toString()} id={`counter-${idx}`}>0</span>
-            <span class={`${item.number == 30 ? 'inline' : 'hidden'}`}>Years</span>
-          </p>
-          <p class="text-[18px] md:text-[16px] font-semibold leading-[20px] text-white text-center">{item.title}</p>
-        </div>
-      ))}
+
+<section class="relative w-full overflow-hidden py-20" id="numbers-section">
+  <img
+    src="/back.webp"
+    alt="Fondo de Mg Riox"
+    width="1920"
+    height="1080"
+    class="absolute inset-0 w-full h-full object-cover -z-20"
+    loading="lazy"
+    decoding="async"
+  />
+  <div
+    class="relative z-0 flex flex-col justify-center items-center gap-12 max-w-screen lg:max-w-7xl mx-auto px-5 xl:px-0"
+  >
+    <div
+      class="flex flex-col lg:flex-row justify-between items-center gap-10 w-full"
+    >
+      {
+        content.items.map((item, idx) => (
+          <div
+            class={`flex flex-col justify-center items-center gap-1.25 max-w-none ${item.number == 500 ? 'md:max-w-46.25' : 'md:max-w-53.25'}`}
+          >
+            <p class="text-white text-[40px] font-bold leading-[125%] w-full flex items-center justify-center gap-1">
+              <span class="text-secondary">+</span>
+              <span
+                class="counter"
+                data-target={item.number.toString()}
+                id={`counter-${idx}`}
+              >
+                0
+              </span>
+              <span class={`${item.number == 30 ? 'inline' : 'hidden'}`}>
+                Years
+              </span>
+            </p>
+            <p class="text-white text-center text-[16px] font-semibold leading-[160%]">
+              {item.title}
+            </p>
+          </div>
+        ))
+      }
     </div>
-    <div class="w-full bg-gray-100 rounded-[15px] min-h-[348px] flex flex-col lg:flex-row justify-center items-center px-4 lg:px-8 gap-8 py-10 lg:py-0">
-      <div class="flex flex-col justify-center items-center gap-3 w-[280px]">
+    <div
+      class="w-full bg-gray-100 rounded-lg min-h-87 flex flex-col lg:flex-row justify-center items-center px-4 lg:px-8 gap-8 py-10 lg:py-0"
+    >
+      <div class="flex flex-col justify-center items-center gap-3 w-70">
         <p class="text-[24px] font-bold">{content.text}</p>
         <div class="flex justify-center items-center gap-1">
-          {Array.from({ length: 5 }, (_) => (
-            <img src="/star.svg" alt="Estrellas" width="30" height="30" class="w-[30px] h-[30px]" loading="lazy" decoding="async" />
-          ))}
+          {
+            Array.from({ length: 5 }, (_) => (
+              <img
+                src="/star.svg"
+                alt="Estrellas"
+                width="30"
+                height="30"
+                class="w-7.5 h-7.5"
+                loading="lazy"
+                decoding="async"
+              />
+            ))
+          }
         </div>
-        <p set:html={content.description} class="text-[15px]"></p>
-        <img src="/main/google.png" alt="Icono de Google" width="97px" height="54px" class="h-[69px] md:h-[35px] w-auto">
+        <p set:html={content.description} class="text-[15px]" />
+        <img
+          src="/main/google.png"
+          alt="Icono de Google"
+          width="97px"
+          height="54px"
+          class="h-17.25 md:h-8.75 w-auto"
+        />
       </div>
       <CarouselReview />
     </div>
   </div>
 </section>
-<script is:inline >
+<script is:inline>
   // la función de animación que ya tenías
   function animateValue(el, start, end, duration) {
     let startTime = null;
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      const current  = Math.floor(progress * (end - start) + start);
+      const current = Math.floor(progress * (end - start) + start);
       el.textContent = current.toLocaleString('es-PE');
       if (progress < 1) {
         window.requestAnimationFrame(step);
@@ -63,20 +108,20 @@ const { content } = Astro.props as Props;
       for (const entry of entries) {
         if (entry.isIntersecting && !fired) {
           // Desencadenamos la animación y marcamos fired=true
-          counters.forEach(el => {
+          counters.forEach((el) => {
             const target = parseInt(el.dataset.target || '0', 10);
             animateValue(el, 0, target, 1000);
           });
           fired = true;
-          observer.disconnect(); 
+          observer.disconnect();
           break;
         }
       }
     };
 
     const io = new IntersectionObserver(onIntersect, {
-      root: null,           // viewport
-      threshold: 0.5        // cuando el 50% del section sea visible
+      root: null, // viewport
+      threshold: 0.5, // cuando el 50% del section sea visible
     });
 
     io.observe(section);

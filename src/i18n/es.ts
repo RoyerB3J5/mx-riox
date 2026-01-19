@@ -176,13 +176,13 @@ export default {
       },
       rendering: {
         title:
-          "¿Necesitas asesoramiento experto <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[26px] lg:leading-[58px] text-main'>antes de decidir?</span>",
+          "Necesita asesoramiento de plomería antes de decidirse?",
         text: 'No damos estimados genéricos. Por eso preferimos visitar primero para entender el problema, revisar los detalles y ofrecer una solución clara y precisa adaptada a tus necesidades.',
         button: 'SOLICITAR PRESUPUESTO',
       },
       design: {
         title:
-          "¿Ya tienes un proyecto de fontanería <br/> <span class='text-[28px] md:text-[48px] font-semibold leading-[28px] md:leading-[58px] text-main'>en mente?</span>",
+          "¿Ya tienes un proyecto de fontanería en mente?",
         description:
           'Comparte tus planos o necesidades de fontanería y nos pondremos en contacto para programar una visita. Cada proyecto requiere una evaluación en sitio para garantizar diagnósticos precisos, materiales adecuados y un presupuesto detallado y personalizado.',
       },
@@ -191,22 +191,22 @@ export default {
       title: '¿En qué trabajamos?',
       items: [
         {
-          title: 'Fontanería residencial',
+          title: 'Fontanería <br/> Residencial',
           image: 'plumbing',
           href: 'residential-plumbing',
         },
         {
-          title: 'Calentadores de agua',
+          title: 'Calentadores <br/> de Agua',
           image: 'heaters',
           href: 'water-heaters',
         },
         {
-          title: 'Fontanería comercial',
+          title: 'Fontanería <br/> Comercial',
           image: 'commercial',
           href: 'commercial-plumbing',
         },
         {
-          title: 'Renovación de baños',
+          title: 'Renovación <br/> de Baños',
           image: 'bath-renovation',
           href: 'bathroom-renovation',
         },
@@ -214,8 +214,8 @@ export default {
     },
     completed: {
       title:
-        "Mira nuestros proyectos <br/> <span class='text-[28px] lg:text-[48px] font-semibold leading-[30px] lg:leading-[58px] text-main'>recientes de fontanería</span>",
-      button: 'VER TODOS LOS PROYECTOS',
+        "<span class='font-normal text-[32px] md:text-[40px]'>Mira nuestros proyectos</span> <br/> recientes de fontanería",
+      button: 'VER PROYECTOS',
       images: [
         '/main/bathroom-1.webp',
         '/main/commercial-1.webp',
@@ -259,7 +259,7 @@ export default {
     },
     catalog: {
       title:
-        "Descarga nuestro <br/> <span class='font-semibold text-[28px] md:text-[48px] leading-[30px] md:leading-[58px] text-main'>Catálogo de servicios de fontanería</span>",
+        "Descarga nuestro <br/> <span class='text-[56px] font-semibold'>Catálogo de servicios de fontanería</span>",
       description:
         'Descubre todos los servicios y soluciones que ofrecemos para hogares, negocios y proyectos de nueva construcción.',
       button: 'Descargar ahora',
