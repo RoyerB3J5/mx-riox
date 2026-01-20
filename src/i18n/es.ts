@@ -58,7 +58,8 @@ export default {
         },
         {
           title: 'Más de 30 años de experiencia',
-          description: 'Trabajo de fontanería confiable <br/>en todo Metro Atlanta.',
+          description:
+            'Trabajo de fontanería confiable <br/>en todo Metro Atlanta.',
           icon: 'experience',
         },
         {
@@ -128,8 +129,7 @@ export default {
     },
     information: {
       referral: {
-        title:
-          'Comparte confianza.<br/> Recomienda a un amigo.',
+        title: 'Comparte confianza.<br/> Recomienda a un amigo.',
         text1:
           'Si has probado nuestros servicios de fontanería, conoces la calidad y el profesionalismo que ofrecemos. Muchos de nuestros nuevos clientes llegan por recomendación, porque un buen servicio habla por sí mismo.<br class="block"/> <br class="block"/> Si conoces a alguien en Atlanta o en las zonas aledañas que necesite un fontanero de confianza, recomiéndanos. Nosotros lo atenderemos con la misma dedicación y garantía.',
         button: 'Haz clic para recomendar a alguien',
@@ -175,14 +175,12 @@ export default {
         ],
       },
       rendering: {
-        title:
-          "Necesita asesoramiento de plomería antes de decidirse?",
+        title: 'Necesita asesoramiento de plomería antes de decidirse?',
         text: 'No damos estimados genéricos. Por eso preferimos visitar primero para entender el problema, revisar los detalles y ofrecer una solución clara y precisa adaptada a tus necesidades.',
         button: 'SOLICITAR PRESUPUESTO',
       },
       design: {
-        title:
-          "¿Ya tienes un proyecto de fontanería en mente?",
+        title: '¿Ya tienes un proyecto de fontanería en mente?',
         description:
           'Comparte tus planos o necesidades de fontanería y nos pondremos en contacto para programar una visita. Cada proyecto requiere una evaluación en sitio para garantizar diagnósticos precisos, materiales adecuados y un presupuesto detallado y personalizado.',
       },
@@ -276,10 +274,12 @@ export default {
     'residential-plumbing': {
       image: 'bg-service',
       arrow: 'arrow-down-2',
-      title: 'Servicios de fontanería <br/> residencial en Atlanta, GA',
+      title: 'Servicios de <br/> Fontanería Residencial',
+      subtitle: 'en Atlanta, GA',
       image2: 'residential-5',
+      title2: 'Soluciones de fontanería de confianza para tu hogar',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Soluciones de fontanería confiables para tu hogar</span> <br/> En MG Riox Plumbing ofrecemos servicios completos de fontanería residencial para mantener tu hogar seguro y confortable. Desde reparaciones de grifos e inodoros hasta reemplazos completos de líneas de agua, nuestro equipo autorizado brinda soluciones fiables y duraderas. Con más de 30 años de experiencia atendiendo a familias en todo Metro Atlanta, combinamos profesionalismo, puntualidad y resultados garantizados para asegurar que tu sistema de fontanería funcione cuando más lo necesitas.",
+        'En MG Riox Plumbing ofrecemos servicios completos de fontanería residencial para mantener tu hogar seguro y confortable. Desde reparaciones de grifos e inodoros hasta reemplazos completos de líneas de agua, nuestro equipo autorizado entrega soluciones fiables y duraderas. Con más de 30 años sirviendo a familias en Metro Atlanta, combinamos profesionalismo, puntualidad y resultados garantizados para que tu fontanería funcione cuando más la necesitas.',
       project: {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
@@ -297,11 +297,12 @@ export default {
     'water-heaters': {
       image: 'bg-service-2',
       arrow: 'arrow-down-2',
-      title:
-        'Instalación y reparación de <br/> calentadores de agua en Atlanta, GA',
+      title: 'Instalación y <br/> reparación de <br/> calentadores de agua',
+      subtitle: 'en Atlanta, GA',
       image2: 'water-5',
+      title2: 'Soluciones de agua caliente seguras, eficientes y duraderas',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Soluciones de agua caliente seguras, eficientes y duraderas</span> <br/>En MG Riox Plumbing nos especializamos en la instalación, reparación y reemplazo de calentadores de agua para mantener tu hogar o negocio funcionando sin contratiempos. Ya sea que tu sistema necesite mantenimiento, una reparación rápida o un reemplazo completo, nuestro equipo autorizado garantiza un rendimiento seguro, eficiente y fiable. Con más de 30 años de experiencia sirviendo a Metro Atlanta, ofrecemos atención experta para que nunca vuelvas a preocuparte por la falta de agua caliente.",
+        'En MG Riox Plumbing nos especializamos en la instalación, reparación y sustitución de calentadores de agua para que tu hogar o negocio funcione sin contratiempos. Ya sea mantenimiento, una reparación rápida o un reemplazo completo, nuestro equipo autorizado garantiza un rendimiento seguro, eficiente y fiable. Con más de 30 años de experiencia en Metro Atlanta, ofrecemos atención experta para que no tengas que preocuparte por la falta de agua caliente.',
       project: {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
@@ -319,10 +320,12 @@ export default {
     'commercial-plumbing': {
       image: 'bg-service-3',
       arrow: 'arrow-down-2',
-      title: 'Servicios de fontanería <br/> comercial en Atlanta, GA',
+      title: 'Servicios de <br/> fontanería Comercial',
+      subtitle: 'en Atlanta, GA',
       image2: 'commercial-5',
+      title2: 'Soporte de fontanería confiable para empresas y contratistas',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Soporte de fontanería confiable para empresas y contratistas</span> <br/>En MG Riox Plumbing brindamos servicios profesionales de fontanería para oficinas, restaurantes, comunidades de apartamentos y proyectos de nueva construcción. Nuestro equipo autorizado trabaja con administradores, constructores y propietarios para ofrecer instalaciones eficientes, reparaciones oportunas y soluciones a largo plazo. Con más de 30 años de experiencia, comprendemos las necesidades únicas de la fontanería comercial y aseguramos que cada trabajo se ejecute con precisión, seguridad y resultados garantizados.",
+        'En MG Riox Plumbing ofrecemos servicios profesionales para oficinas, restaurantes, comunidades de apartamentos y proyectos de nueva construcción. Nuestro equipo autorizado trabaja con gerentes, contratistas y propietarios para entregar instalaciones eficientes, reparaciones puntuales y soluciones a largo plazo. Con más de 30 años de experiencia, comprendemos las necesidades específicas de la fontanería comercial y aseguramos que cada trabajo se complete con precisión, seguridad y resultados garantizados.',
       project: {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
@@ -338,13 +341,14 @@ export default {
       ],
     },
     'bathroom-renovation': {
-      image: 'bg-solutions',
+      image: 'bg-service-4',
       arrow: 'arrow-down',
-      title:
-        'Renovación de baños <br/> Servicios de fontanería en <br/>Atlanta, GA',
-      image2: 'repairs',
+      title: 'Servicios de <br/> fontanería para <br/> renovación de baños',
+      subtitle: 'en Atlanta, GA',
+      image2: 'bathroom-5',
+      title2: 'Soporte completo de fontanería para remodelaciones y mejoras',
       description:
-        "<span class='text-[16px] font-medium leading-[20px] md:leading-[25px]'>Soporte de fontanería completo para remodelaciones y mejoras</span> <br/> En MG Riox Plumbing ofrecemos servicios expertos de fontanería para acompañar tu renovación de baño de principio a fin. Desde reubicar tuberías e instalar nuevos accesorios hasta actualizar duchas, bañeras e inodoros, nuestro equipo autorizado se encarga de cada detalle con cuidado. Con más de 30 años de experiencia en Metro Atlanta, entregamos soluciones de fontanería duraderas, conformes al código y que hacen que tu mejora de baño sea sin estrés y construida para durar.",
+        'En MG Riox Plumbing brindamos servicios expertos para acompañar tu renovación de baño de principio a fin. Desde reubicar tuberías e instalar nuevos accesorios hasta actualizar duchas, bañeras e inodoros, nuestro equipo autorizado se encarga de cada detalle con cuidado. Con más de 30 años de experiencia en Metro Atlanta, entregamos soluciones fiables, conformes al código y duraderas para que tu remodelación sea sin estrés y con resultados que perduren.',
       project: {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:

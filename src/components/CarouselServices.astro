@@ -7,23 +7,23 @@ interface Props {
 const { images, interval = 8000 } = Astro.props as Props;
 ---
 
-<div class="relative  px-0 sm:px-5 lg:px-0 max-w-screen md:max-w-[600px] w-full mt-0 lg:mt-10" data-interval={interval}>
+<div class="relative w-full h-full" data-interval={interval}>
   <!-- Viewport -->
-  <div class="overflow-hidden w-full h-auto ">
-    <div class="flex transition-transform duration-800 ease-in-out slide-track h-full min-h-[387px] md:min-h-[400px]  select-none">
+  <div class="overflow-hidden w-full h-full ">
+    <div class="flex transition-transform duration-800 ease-in-out slide-track aspect-758/960 h-full w-auto select-none">
       {images.map((src) => (
-        <div class="flex-shrink-0 w-full px-2 md:px-[2px] h-[387px] md:h-[400px] relative">
+        <div class="shrink-0 w-full px-0.5 h-full relative ">
           {/* Slide content */}
           {/* Cada slide con <section> y fondo de imagen */}
           <section class="w-full h-full flex items-center justify-center relative">
             <img
               src={src}
               alt="Slide image"
-              width="811"
-              height="676"
+              width="759"
+              height="935"
               loading="lazy"
               decoding="async"
-              class={`absolute inset-0 w-full h-full object-cover z-20 rounded-[15px] pointer-events-none`}
+              class={`absolute inset-0 w-full h-full object-cover z-20 rounded-[9px] pointer-events-none`}
             />
           </section>
         </div>
