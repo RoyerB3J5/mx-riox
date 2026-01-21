@@ -48,6 +48,7 @@ export default {
       title: 'Expert Plumbers in Atlanta, Buckhead & Surrounding Areas',
       button1: 'Call now',
       button2: 'Get a Quote Now',
+      video:'yciyc7Zh00T7wQ00M200Ma0057bhXLHnPVlmVvSgTbRkqzI',
       lists: [
         {
           title: 'Guaranteed Quality',
@@ -401,7 +402,7 @@ export default {
     },
     stand: {
       title:
-        ' MG RIOX<br/> <span class="text-secondary text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Our Values</span>',
+        ' MG RIOX<br/> <span class="text-main text-[56px] font-semibold">Our Values</span>',
       list: [
         {
           letter: 'M',
@@ -454,10 +455,23 @@ export default {
     title: 'Contact Us',
     text: 'Ways You Can Reach Out',
     description: 'Contact us today and an expert consultant will assist you',
-    schedules: {
-      title: 'Atention',
-      description: 'Mon-Sunday',
-    },
+    items:[
+      {
+        icon:'phone-2',
+        label:'+1 (678)308-6271',
+        href:'tel:+16783086271'
+      },
+      {
+        icon:'mail-2',
+        label:'mgrioxplumbing@gmail.com',
+        href:'https://mail.google.com/mail/?view=cm&fs=1&to=mgrioxplumbing@gmail.com'
+      },
+      {
+        icon:'clock-2',
+        label:'Mon - Sunday: 9:00am - 8:00pm',
+        href:''
+      }
+    ],
     project: {
       title: 'Ready to Fix or Upgrade Your Plumbing?',
       description:

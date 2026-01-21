@@ -45,10 +45,10 @@ export default {
   },
   main: {
     hero: {
-      title:
-        'Fontaneros expertos en <br class="hidden md:block"/> <span class="font-black md:font-semibold">Atlanta, Buckhead & <br class="hidden md:block"/> </span> <span class="font-bold md:font-semibold">zonas aledañas</span>',
+      title: 'Fontaneros expertos en Atlanta, Buckhead y zonas aledañas',
       button1: 'Llamar ahora',
       button2: 'Solicita tu cotización ahora',
+      video: 'j9Q8nweEwSXGfhb8N3bW4BuL2EP501jvCsCDICBVivlA',
       lists: [
         {
           title: 'Calidad garantizada',
@@ -454,10 +454,23 @@ export default {
     title: 'Contáctanos',
     text: 'Formas de contacto',
     description: 'Contáctanos hoy y un asesor experto te asistirá',
-    schedules: {
-      title: 'Atención',
-      description: 'Lunes a domingo',
-    },
+    items: [
+      {
+        icon: 'phone-2',
+        label: '+1 (678)308-6271',
+        href: 'tel:+16783086271',
+      },
+      {
+        icon: 'mail-2',
+        label: 'mgrioxplumbing@gmail.com',
+        href: 'https://mail.google.com/mail/?view=cm&fs=1&to=mgrioxplumbing@gmail.com',
+      },
+      {
+        icon: 'clock-2',
+        label: 'Lunes - Domingo: 9:00am - 8:00pm',
+        href: '',
+      },
+    ],
     project: {
       title: '¿Listo para reparar o mejorar tu fontanería?',
       description:

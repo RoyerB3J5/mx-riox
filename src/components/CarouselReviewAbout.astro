@@ -6,7 +6,7 @@ interface Props {
 const { interval = 8000 } = Astro.props as Props;
 ---
 
-<div class="relative px-2 sm:px-5 lg:px-0 mx-auto max-w-[1080px] max-h-[255px] w-auto" data-interval={interval}>
+<div class="relative px-0.5 lg:px-0  max-h-63.75 w-full md:w-[75%]" data-interval={interval}>
   <!-- Prev arrow -->
   <button
     class="hidden md:flex absolute top-1/2 left-0 -translate-y-1/2 -translate-x-[40%] lg:-translate-x-full z-10 w-10 h-10 items-center justify-center text-[40px] text-main cursor-pointer review-prev"
@@ -20,7 +20,7 @@ const { interval = 8000 } = Astro.props as Props;
   <div class="overflow-hidden w-auto h-full">
     <div class="flex transition-transform duration-800 ease-in-out review-track h-full" id="carousel-track">
       {Array.from({ length: 4 }, (_, i) => (
-        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 h-full px-2 md:px-[10px]">
+        <div class="shrink-0 w-full md:w-1/2 lg:w-1/3 h-full px-0.5">
           <img
             src={`/main/item-0${i + 1}.webp`}
             alt="Slide image"

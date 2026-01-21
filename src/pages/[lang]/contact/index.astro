@@ -14,74 +14,126 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en };
 const t = translations[lang];
 ---
+
 <Layout lang={lang} t={t}>
-  <section class="py-[150px] md:pt-[371px] md:pb-[250px] lg:py-0 3xl:pt-[371px] 3xl:pb-[250px] h-auto lg:h-[95vh] 3xl:h-auto flex flex-col justify-center items-center w-full relative overflow-hidden">
-    <img src={`/main/bg-contact.webp`} alt="Fondos de Contacto" width="1442" height="755" class="absolute inset-0 w-full h-full object-cover -z-20" loading="lazy" decoding="async">
-    <div class="flex flex-col justify-center items-center gap-2 md:gap-8 translate-y-[10%] lg:translate-y-[30%] 3xl:translate-y-0" data-aos-offset="300" data-aos="flip-down">
-      <h1 class="text-[38px] md:text-[96px] font-semibold leading-[46px] md:leading-[96px] text-center text-white" set:html={t.contact.title} ></h1>
-      <img src="/arrow-down-2.webp" alt="Flecha izquierda" width="50" height="50"  class="w-[50px] h-[50px] ">
+  <section class="w-full flex items-center justify-center relative">
+    <img
+      src={`/main/bg-contact.webp`}
+      alt="Fondo de soluciones"
+      width="1440"
+      height="900"
+      class={`absolute inset-0 w-auto md:w-full h-full object-cover -z-20 object-[65%_50%] md:object-center`}
+      loading="eager"
+      decoding="async"
+    />
+    <div
+      class="w-full max-w-screen md:max-w-7xl flex flex-row justify-start items-center gap-4 md:gap-20 px-5 xl:px-0 h-dvh md:h-[55vh] lg:h-screen 3xl:h-[85vh] pt-0"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
+      <div
+        class={`flex flex-col max-w-[50%] md:max-w-none justify-center items-start gap-4 `}
+      >
+        <h1
+          class="text-white font-title text-[64px] md:text-[128px] font-semibold leading-[115%]"
+          set:html={t.contact.title}
+        />
+      </div>
     </div>
   </section>
-  <section class="w-full py-10 md:pt-[110px] md:pb-[96px] flex flex-col justify-center items-center gap-[33px] md:gap-[0px] max-w-screen md:max-w-[1153px] px-4 md:px-0 scroll-mt-[150px]" data-aos="zoom-in-down" data-aos-offset="200" id="info">
-    <div class="flex flex-col justify-center items-center md:items-start gap-1 w-full">
-      <h2 class="text-[28px] md:text-[40px] font-semibold text-black leading-[46px]">{t.contact.text}</h2>
-      <p class="text-[15px] md:text-[16px] font-normal text-center md:text-start">{t.contact.description}</p>
-    </div>
-    <div class="w-full flex flex-col md:flex-row justify-center items-start gap-5 md:gap-[50px]" >
-      <div class="flex-none md:flex-1 flex flex-col justify-center items-center gap-5 md:gap-[42px] w-full md:w-auto mt-0 md:mt-10">
-        <div class="w-full flex flex-col justify-center items-center md:items-start border-[1px] border-main rounded-[15px] overflow-hidden">
-        <div class="w-full py-[11px] px-5 gap-5 flex justify-center md:justify-start items-center">
-          <img src="/phone-red.svg" alt="Telefono" width="52" height="36" class="w-[24px] h-[35px] md:w-[36px] md:h-[52px]">
-          <a href="tel:+16783086271" class="hover:text-accent text-[18px] md:text-[20px] font-semibold leading-[46px] cursor-pointer ">+1 (678) 308-6271</a>
+  <section
+    class="w-full max-w-screen xl:max-w-7xl px-5 xl:px-0 py-20 sm:py-30 flex flex-col lg:flex-row gap-10 lg:gap-4 justify-center items-start"
+    data-aos="zoom-in-down"
+    data-aos-offset="200"
+    id="info"
+  >
+    <div
+      class="w-full lg:w-[60%] flex flex-col justify-center items-start gap-12"
+    >
+      <div class="flex flex-col justify-center items-start gap-16">
+        <div
+          class="flex flex-col justify-center items-center md:items-start gap-4 w-full"
+        >
+          <h2
+            class="text-main font-title text-[56px] font-semibold leading-[115%]"
+          >
+            {t.contact.text}
+          </h2>
+          <p class="text-paragraph text-[16px] font-normal leading-[157%]">
+            {t.contact.description}
+          </p>
         </div>
-        <div class="h-[1px] w-full bg-main"></div>
-        <div class="w-full py-[11px] px-5 gap-5 flex justify-center md:justify-start items-center">
-          <Icon name={"email"} class={"w-9 h-9 text-main"}/>
-          <a href='https://mail.google.com/mail/?view=cm&fs=1&to=mgrioxplumbing@gmail.com' class="hover:text-accent text-[18px] md:text-[20px] font-semibold leading-[46px] cursor-pointer">mgrioxplumbing@gmail.com</a>
-        </div>
-        <div class="h-[1px] w-full bg-main"></div>
-        <div class="py-[25px] px-[33px] gap-5 h-[200px] flex-col justify-center items-center md:items-start">
-          <p class="text-[18px] md:text-[20px] font-semibold leading-[32px] text-center md:text-start">{t.contact.schedules.title}</p>
-          <div class=" w-full flex justify-center md:justify-start items-center gap-1 ">
-            <p class="text-[14px] md:text-[16px] font-medium leading-[32px] text-black">{t.contact.schedules.description}</p>
-            <p class="text-[14px] md:text-[16px] font-medium leading-[32px] text-black">: 8:00 am - 7:00 pm</p>
-          </div>
+        <div class="flex flex-col justify-center items-start gap-6">
+          {
+            t.contact.items.map((item) => (
+              <div class="flex justify-start items-center gap-4">
+                <img
+                  src={`/icon/${item.icon}.svg`}
+                  alt={item.label}
+                  width="40"
+                  height="40"
+                  class="w-10 h-10"
+                />
+                <a
+                  href={item.href}
+                  class="text-main text-[18px] font-semibold leading-[160%] cursor-pointer"
+                >
+                  {item.label}
+                </a>
+              </div>
+            ))
+          }
         </div>
       </div>
+      <div
+        class="w-full aspect-759/575 h-auto rounded-lg overflow-hidden relative"
+      >
+        <img
+          src="/main/contact-1.webp"
+          alt="Experiencia MgRiox Plumbing"
+          width="800"
+          height="533"
+          class="w-full h-full inset-0 absolute object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
 
-      <div class="w-full h-[230px] md:h-[422px] rounded-[15px] overflow-hidden" >
-        <img src="/main/contact-1.webp" alt="Experiencia MgRiox Plumbing" width="1000" height="680" style="display: block; width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
-      </div>
-    </div>
-    <div class="w-full lg:w-[444px] h-auto">
-      <div class="form-container" id="form-Bz8yTCN1XgrIcpTXa573-wrapper" style="min-height:120px;">
-        <div class="form-placeholder" style="display:flex;align-items:center;justify-content:center;">
+    <div class="w-full lg:w-[40%] px-6 bg-white rounded-lg">
+      <div
+        class="form-container"
+        id="form-Bz8yTCN1XgrIcpTXa573-wrapper"
+        style="min-height:120px;"
+      >
+        <div
+          class="form-placeholder"
+          style="display:flex;align-items:center;justify-content:center;"
+        >
           <small>Cargando formulario…</small>
         </div>
         <iframe
-    data-src="https://link.inkshapecrm.com/widget/form/DZ5ZUfR17u8jwJAss7M7"
-    style="width:100%;height:100%;border:none;border-radius:3px;overflow:hidden;display:none;"
-    id="inline-DZ5ZUfR17u8jwJAss7M7" 
-    data-layout="{'id':'INLINE'}"
-    data-trigger-type="alwaysShow"
-    data-trigger-value=""
-    data-activation-type="alwaysActivated"
-    data-activation-value=""
-    data-deactivation-type="neverDeactivate"
-    data-deactivation-value=""
-    data-form-name="Form General Website"
-    data-height="778"
-    data-layout-iframe-id="inline-DZ5ZUfR17u8jwJAss7M7"
-    data-form-id="DZ5ZUfR17u8jwJAss7M7"
-    title="Form General Website"
-loading="lazy"
+          data-src="https://link.inkshapecrm.com/widget/form/DZ5ZUfR17u8jwJAss7M7"
+          style="width:100%;height:100%;border:none;border-radius:3px;overflow:hidden;display:none;"
+          id="inline-DZ5ZUfR17u8jwJAss7M7"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Form General Website"
+          data-height="778"
+          data-layout-iframe-id="inline-DZ5ZUfR17u8jwJAss7M7"
+          data-form-id="DZ5ZUfR17u8jwJAss7M7"
+          title="Form General Website"
+          loading="lazy"
           sandbox="allow-forms allow-scripts allow-popups allow-same-origin"
         >
-
-</iframe>
+        </iframe>
       </div>
     </div>
-    </div>
   </section>
-  <Project content={t.contact.project}/>
+  <Project content={t.contact.project} />
 </Layout>

@@ -12,7 +12,9 @@ const lang = match ? match[1] : 'en';
 ---
 
 <section class="w-full relative" id="services flex justify-center items-center">
-  <div class="flex flex-col justify-center items-start md:items-center gap-10 md:gap-16">
+  <div
+    class="flex flex-col justify-center items-start md:items-center gap-10 md:gap-16"
+  >
     <h2
       set:html={content.title}
       class="text-main text-center font-title text-[32px] md:text-[56px] font-semibold leading-[135%] md:leading-[115%]"
@@ -28,7 +30,7 @@ const lang = match ? match[1] : 'en';
           <a
             href={`/${lang}/services/${item.href}`}
             id={`col${index + 1}`}
-            class={`group flex flex-col justify-center items-center relative overflow-hidden h-full min-h-48.25 md:min-h-122.25 transition‑all duration‑300 cursor-pointer w-full hover:-translate-y-1 ease-in-out ${index == 0 ? 'md:rounded-l-lg' : ''} ${index == content.items.length - 1 ? 'md:rounded-r-lg' : ''}`}
+            class={`group flex flex-col justify-center items-center relative overflow-hidden h-full min-h-48.25 md:min-h-122.25 transition-transform transition-colors duration-500 ease-in-out cursor-pointer w-full hover:-translate-y-1 ${index == 0 ? 'md:rounded-l-lg' : ''} ${index == content.items.length - 1 ? 'md:rounded-r-lg' : ''}`}
           >
             <img
               src={`/main/${item.image}.webp`}
@@ -39,13 +41,13 @@ const lang = match ? match[1] : 'en';
               loading="lazy"
               decoding="async"
             />
-            <div class="absolute inset-0 bg-main/30 group-hover:bg-main/80 -z-10 transition-colors duration-300" />
+            <div class="absolute inset-0 bg-main/30 group-hover:bg-main/80 -z-10 transition-colors duration-500 ease-in-out" />
             <div class="flex flex-col justify-center items-center gap-2">
               <h3
                 class="text-white text-center font-semibold text-[32px] md:text-[28px] lg:text-[32px] leading-[130%]"
                 set:html={item.title}
               />
-              <div class="w-42.25 h-2 bg-secondary hidden group-hover:block transition-all duration-300 ease-in-out" />
+              <div class="w-42.25 h-2 bg-secondary hidden group-hover:block transition-all duration-500 ease-in-out" />
             </div>
           </a>
         ))
