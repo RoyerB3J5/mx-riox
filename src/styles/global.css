@@ -80,7 +80,7 @@
 }
 
 .site-bg {
-  background-image: url('/main/bg-gallery.webp');
+  background-image: url('/back.webp');
   background-size: cover; /* ocupa toda la pantalla */
   background-position: center; /* ajustar como necesites */
   background-repeat: no-repeat;

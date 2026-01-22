@@ -31,20 +31,25 @@ const { carouselImages, title, description, image } = Astro.props as Props;
         />
       </div>
     </div>
-
-    <img
-      src={`/main/${image}.webp`}
-      alt="Referencia Mg Riox Plumbing"
-      width="800"
-      height="533"
-      class="w-full md:w-[50%] lg:w-[55%] h-auto rounded-lg"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
-  <div class="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-10 lg:gap-4">
     <div
-      class="flex flex-col justify-around items-center gap-20 w-full lg:w-[60%] h-full "
+      class="relative w-full md:w-[50%] lg:w-[55%] h-auto rounded-lg overflow-hidden aspect-800/533"
+    >
+      <img
+        src={`/main/${image}.webp`}
+        alt="Referencia Mg Riox Plumbing"
+        width="800"
+        height="533"
+        class={`w-full h-full absolute inset-0 object-cover ${image == 'heaters' ? 'object-[50%_10%]' : 'object-center'}`}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+  <div
+    class="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-10 lg:gap-4"
+  >
+    <div
+      class="flex flex-col justify-around items-center gap-20 w-full lg:w-[60%] h-full"
     >
       <CarouselServices images={carouselImages} />
     </div>

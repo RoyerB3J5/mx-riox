@@ -23,7 +23,7 @@ const { images, interval = 8000 } = Astro.props as Props;
               height="935"
               loading="lazy"
               decoding="async"
-              class={`absolute inset-0 w-full h-full object-cover z-20 rounded-[9px] pointer-events-none`}
+              class={`absolute inset-0 w-full h-full object-cover z-20 rounded-[9px] pointer-events-none ${src.includes('residential-3') ? 'object-[75%_50%]' : 'object-center'}`}
             />
           </section>
         </div>

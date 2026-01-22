@@ -215,9 +215,9 @@ export default {
         "<span class='font-normal text-[32px] md:text-[40px]'>Mira nuestros proyectos</span> <br/> recientes de fontanería",
       button: 'VER PROYECTOS',
       images: [
-        '/main/bathroom-1.webp',
         '/main/commercial-1.webp',
-        '/main/residential-1.webp',
+        '/main/exp-3.webp',
+        '/main/plumbing.webp',
         '/main/water-1.webp',
         '/main/bathroom-2.webp',
         '/main/commercial-2.webp',
@@ -225,7 +225,7 @@ export default {
         '/main/water-2.webp',
         '/main/bathroom-3.webp',
         '/main/commercial-3.webp',
-        '/main/residential-3.webp',
+        '/main/gallery-4.webp',
         '/main/water-3.webp',
       ],
       name: 'MgRioxPlumbing',
@@ -257,7 +257,7 @@ export default {
     },
     catalog: {
       title:
-        "Descarga nuestro <br/> <span class='text-[56px] font-semibold'>Catálogo de servicios de fontanería</span>",
+        "Descarga nuestro <br/> <span class='text-[56px] font-semibold'>Catálogo de servicios <br/> de fontanería</span>",
       description:
         'Descubre todos los servicios y soluciones que ofrecemos para hogares, negocios y proyectos de nueva construcción.',
       button: 'Descargar ahora',
@@ -266,7 +266,7 @@ export default {
       title: '¿Listo para reparar o mejorar tu fontanería?',
       description:
         'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-      button: 'Obtener Presupuesto Ahora',
+      button: 'Obtener Presupuesto',
       image: 'bg-main.png',
     },
   },
@@ -274,9 +274,10 @@ export default {
     'residential-plumbing': {
       image: 'bg-service',
       arrow: 'arrow-down-2',
-      title: 'Servicios de <br/> Fontanería Residencial',
+      title:
+        'Servicios de <br class="hidden md:block"/> Fontanería Residencial',
       subtitle: 'en Atlanta, GA',
-      image2: 'residential-5',
+      image2: 'plumbing',
       title2: 'Soluciones de fontanería de confianza para tu hogar',
       description:
         'En MG Riox Plumbing ofrecemos servicios completos de fontanería residencial para mantener tu hogar seguro y confortable. Desde reparaciones de grifos e inodoros hasta reemplazos completos de líneas de agua, nuestro equipo autorizado entrega soluciones fiables y duraderas. Con más de 30 años sirviendo a familias en Metro Atlanta, combinamos profesionalismo, puntualidad y resultados garantizados para que tu fontanería funcione cuando más la necesitas.',
@@ -284,22 +285,23 @@ export default {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
           'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-        button: 'Obtener Presupuesto Ahora',
+        button: 'Obtener Presupuesto',
         image: 'bg-main.png',
       },
       carousel: [
         '/main/residential-1.webp',
+        '/main/exp-1.webp',
         '/main/residential-2.webp',
         '/main/residential-3.webp',
-        '/main/residential-4.webp',
       ],
     },
     'water-heaters': {
       image: 'bg-service-2',
       arrow: 'arrow-down-2',
-      title: 'Instalación y <br/> reparación de <br/> calentadores de agua',
+      title:
+        'Calentadores de Agua <br class="hidden md:block"/> Instalación y <br class="hidden md:block"/> Reparación',
       subtitle: 'en Atlanta, GA',
-      image2: 'water-5',
+      image2: 'heaters',
       title2: 'Soluciones de agua caliente seguras, eficientes y duraderas',
       description:
         'En MG Riox Plumbing nos especializamos en la instalación, reparación y sustitución de calentadores de agua para que tu hogar o negocio funcione sin contratiempos. Ya sea mantenimiento, una reparación rápida o un reemplazo completo, nuestro equipo autorizado garantiza un rendimiento seguro, eficiente y fiable. Con más de 30 años de experiencia en Metro Atlanta, ofrecemos atención experta para que no tengas que preocuparte por la falta de agua caliente.',
@@ -307,7 +309,7 @@ export default {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
           'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-        button: 'Obtener Presupuesto Ahora',
+        button: 'Obtener Presupuesto',
         image: 'bg-main.png',
       },
       carousel: [
@@ -320,9 +322,9 @@ export default {
     'commercial-plumbing': {
       image: 'bg-service-3',
       arrow: 'arrow-down-2',
-      title: 'Servicios de <br/> fontanería Comercial',
+      title: 'Servicios de <br class="hidden md:block"/> fontanería Comercial',
       subtitle: 'en Atlanta, GA',
-      image2: 'commercial-5',
+      image2: 'commercial',
       title2: 'Soporte de fontanería confiable para empresas y contratistas',
       description:
         'En MG Riox Plumbing ofrecemos servicios profesionales para oficinas, restaurantes, comunidades de apartamentos y proyectos de nueva construcción. Nuestro equipo autorizado trabaja con gerentes, contratistas y propietarios para entregar instalaciones eficientes, reparaciones puntuales y soluciones a largo plazo. Con más de 30 años de experiencia, comprendemos las necesidades específicas de la fontanería comercial y aseguramos que cada trabajo se complete con precisión, seguridad y resultados garantizados.',
@@ -330,7 +332,7 @@ export default {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
           'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-        button: 'Obtener Presupuesto Ahora',
+        button: 'Obtener Presupuesto ',
         image: 'bg-main.png',
       },
       carousel: [
@@ -343,9 +345,10 @@ export default {
     'bathroom-renovation': {
       image: 'bg-service-4',
       arrow: 'arrow-down',
-      title: 'Servicios de <br/> fontanería para <br/> renovación de baños',
+      title:
+        'Renovación <br class="hidden md:block"/> de Baños <br class="hidden md:block"/> Plomería',
       subtitle: 'en Atlanta, GA',
-      image2: 'bathroom-5',
+      image2: 'bath-renovation',
       title2: 'Soporte completo de fontanería para remodelaciones y mejoras',
       description:
         'En MG Riox Plumbing brindamos servicios expertos para acompañar tu renovación de baño de principio a fin. Desde reubicar tuberías e instalar nuevos accesorios hasta actualizar duchas, bañeras e inodoros, nuestro equipo autorizado se encarga de cada detalle con cuidado. Con más de 30 años de experiencia en Metro Atlanta, entregamos soluciones fiables, conformes al código y duraderas para que tu remodelación sea sin estrés y con resultados que perduren.',
@@ -353,14 +356,14 @@ export default {
         title: '¿Listo para reparar o mejorar tu fontanería?',
         description:
           'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-        button: 'Obtener Presupuesto Ahora',
+        button: 'Obtener Presupuesto',
         image: 'bg-main.png',
       },
       carousel: [
         '/main/bathroom-1.webp',
         '/main/bathroom-2.webp',
         '/main/bathroom-3.webp',
-        '/main/bathroom-4.webp',
+        '/main/exp-3.webp',
       ],
     },
   },
@@ -368,24 +371,24 @@ export default {
     title: 'Galería',
     image: 'floors',
     items: [
-      '/main/bathroom-1.webp',
-      '/main/commercial-1.webp',
-      '/main/residential-1.webp',
-      '/main/water-1.webp',
+      '/main/gallery-1.webp',
+      '/main/plumbing.webp',
+      '/main/gallery-2.webp',
       '/main/bathroom-2.webp',
-      '/main/commercial-2.webp',
-      '/main/residential-2.webp',
-      '/main/water-2.webp',
-      '/main/bathroom-3.webp',
-      '/main/commercial-3.webp',
-      '/main/residential-3.webp',
-      '/main/water-3.webp',
+      '/main/bathroom-1.webp',
+      '/main/gallery-3.webp',
+      '/main/exp-3.webp',
+      '/main/commercial-4.webp',
+      '/main/design.webp',
+      '/main/gallery-4.webp',
+      '/main/residential-1.webp',
+      '/main/gallery-5.webp',
     ],
     project: {
       title: '¿Listo para Comenzar Tu Proyecto de Azulejo o Piedra?',
       description:
         'En MG Riox Plumbing, ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-      button: 'Obtener Presupuesto Ahora',
+      button: 'Obtener Presupuesto',
       image: 'bg-main.png',
     },
   },
@@ -401,7 +404,7 @@ export default {
     },
     stand: {
       title:
-        'MG RIOX<br/> <span class="text-secondary text-[28px] md:text-[48px] font-semibold [-webkit-text-stroke-width:0px]">Nuestros valores</span>',
+        'MG RIOX<br/> <span class="text-main text-[56px] font-semibold">Our Values</span>',
       list: [
         {
           letter: 'M',
@@ -425,13 +428,13 @@ export default {
           letter: 'I',
           title: 'Integridad',
           description:
-            'Cumplimos nuestra palabra y entregamos resultados en los que los clientes pueden confiar.',
+            'Cumplimos nuestra palabra y entregamos resultados en los pueden confiar.',
         },
         {
           letter: 'O',
           title: 'Óptimo servicio',
           description:
-            'Desde pequeñas reparaciones hasta grandes proyectos, nos enfocamos en superar las expectativas.',
+            'Desde pequeñas reparaciones hasta grandes proyectos, nos enfocamos en superar expectativas.',
         },
         {
           letter: 'X',
@@ -445,7 +448,7 @@ export default {
       title: '¿Listo para reparar o mejorar tu fontanería?',
       description:
         'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-      button: 'Obtener Presupuesto Ahora',
+      button: 'Obtener Presupuesto',
       image: 'bg-main.png',
     },
   },
@@ -475,7 +478,7 @@ export default {
       title: '¿Listo para reparar o mejorar tu fontanería?',
       description:
         'En MG Riox Plumbing ofrecemos soluciones confiables para hogares, negocios y nuevas construcciones. Llevemos profesionalismo, experiencia y servicio garantizado a tu próximo proyecto.',
-      button: 'Obtener Presupuesto Ahora',
+      button: 'Obtener Presupuesto',
       image: 'bg-main.png',
     },
   },
